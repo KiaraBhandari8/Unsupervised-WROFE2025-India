@@ -1,3 +1,4 @@
+# main1.py or main_test.py
 import io
 import threading
 import time
@@ -6,78 +7,73 @@ import numpy as np
 from flask import Flask, Response, render_template_string
 
 from picamera2 import Picamera2
-from process_frames import get_robot_direction_and_angle
-import robot_motion
+from process_frames_test import get_robot_direction_and_angle
+import robot_motion_test
 import libcamera
 
-# --- Flask App Setup ---
 app = Flask(__name__)
 
-# Shared data for streaming
 latest_raw_jpeg = None
 latest_viz_jpeg = None
 latest_angle = 0
 latest_final_steering_angle = 0
 latest_command = "STOP"
+latest_angle_area = 0
+latest_angle_centroid = 0
 lock = threading.Lock()
-facing_original_direction = True  # CHANGE THIS as needed
 
+facing_original_direction = True  # Set this to False if the robot is reversed
 
 def camera_loop():
-    global latest_raw_jpeg, latest_viz_jpeg, latest_angle, latest_final_steering_angle, latest_command
+    global latest_raw_jpeg, latest_viz_jpeg, latest_angle, latest_final_steering_angle, latest_command, latest_angle_centroid, latest_angle_area
+
     picam2 = Picamera2()
     camera_config = picam2.create_preview_configuration(main={"size": (768, 432)},
-                                                            transform=libcamera.Transform(vflip=True, hflip=True))
+        transform=libcamera.Transform(vflip=True, hflip=True))
     picam2.configure(camera_config)
     picam2.start()
-    time.sleep(2)  # Camera warm-up
+    time.sleep(2)
 
     while True:
         frame = picam2.capture_array()
-        command, steering_angle, viz_frame = get_robot_direction_and_angle(frame)
-        steering_angle = steering_angle * 2 if steering_angle is not None else None  # Adjust scaling factor as needed
+        command, steering_angle, viz_frame= get_robot_direction_and_angle(
+            frame, facing_original_direction
+        )
+
         if steering_angle is None:
-            robot_motion.robot_stop()
+            robot_motion_test.robot_stop()
+            final_steering_angle = 75
         else:
             steering_angle = int(steering_angle)
+
+            # Flip logic for reversed direction if needed
             if not facing_original_direction:
-                steering_angle = -1 * steering_angle
+                steering_angle = -steering_angle
 
-            print(f"Weighted Steering Angle : {int(steering_angle)}")
-            if steering_angle > 0 :
-                steering_angle =  steering_angle * 1
-            print(f"Multiplied Weighted Steering Angle : {int(steering_angle)}")
-            final_steering_angle = int(90 + (-1 * int(steering_angle)))
-            print(f"Final Steering Angle : {int(final_steering_angle)}")
+            print(f"Weighted Steering Angle : {steering_angle}")
+            final_steering_angle = int(75 + (-1 * steering_angle))
+            print(f"Final Steering Angle : {final_steering_angle}")
 
-
-        # Call robot drive functions
         if command in ("FORWARD", "LEFT", "RIGHT"):
-            robot_motion.robot_forward()
-            robot_motion.adjust_servo_angle(final_steering_angle)
-        # elif command == "LEFT":
-        #     robot_motion.robot_forward()  # Optionally use a turn function
-        #     # robot_motion.turn_left()  # If you have such a function
-        # elif command == "RIGHT":
-        #     robot_motion.robot_forward()  # Optionally use a turn function
-        #     # robot_motion.turn_right()  # If you have such a function
+            robot_motion_test.robot_forward()
+            robot_motion_test.adjust_servo_angle(final_steering_angle)
         else:
-            robot_motion.robot_stop()
-         
-        # Encode images for streaming
+            robot_motion_test.robot_stop()
+
         _, raw_jpeg = cv2.imencode('.jpg', frame)
         _, viz_jpeg = cv2.imencode('.jpg', viz_frame if viz_frame is not None else frame)
 
         with lock:
             latest_raw_jpeg = raw_jpeg.tobytes()
             latest_viz_jpeg = viz_jpeg.tobytes()
-            latest_angle = steering_angle
+            latest_angle = steering_angle if steering_angle is not None else 0
             latest_final_steering_angle = final_steering_angle
             latest_command = command
+            latest_angle_area = angle_area
+            latest_angle_centroid = angle_centroid
 
-        time.sleep(0.1)  # Adjust as needed
+        time.sleep(0.1)
 
-# --- Flask Routes ---
 HTML_PAGE = """
 <!doctype html>
 <title>Robot Camera Stream</title>
@@ -159,14 +155,16 @@ HTML_PAGE = """
   <meta http-equiv="refresh" content="1">
 </body>
 """
-
 @app.route('/')
 def index():
     with lock:
         angle = latest_angle
         fangle = latest_final_steering_angle
         command = latest_command
-    return render_template_string(HTML_PAGE, angle=angle, fangle=fangle, command=command)
+        angle_centroid = latest_angle_centroid
+        angle_area = latest_angle_area
+    return render_template_string(HTML_PAGE, angle=angle, fangle=fangle, command=command,
+                                  angle_centroid=angle_centroid, angle_area=angle_area)
 
 def gen_image_stream(image_type):
     while True:
@@ -187,13 +185,7 @@ def viz_stream():
     return Response(gen_image_stream('viz'),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# --- Main Entry Point ---
 if __name__ == "__main__":
-    # Start camera thread
     t = threading.Thread(target=camera_loop, daemon=True)
     t.start()
-    # Start Flask server
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
-
-
-# sudo /home/pi8/wrofe2025/env_test/bin/python /home/pi8/wrofe2025/main1.py

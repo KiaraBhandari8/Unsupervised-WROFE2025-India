@@ -37,37 +37,61 @@ def calculate_steering_angle_area(filtered_path_mask, max_angle=50):
     steering_angle = area_diff_ratio * max_angle
     return steering_angle
 
-def calculate_steering_angle_area_1(filtered_path_mask, max_angle=50):
+
+def calculate_steering_angle_weighted(filtered_path_mask, max_angle=50):
     """
-    Calculate steering angle based on white area (path) on left and right halves.
-    If more white area is on the left, returns negative angle (turn left).
-    If more white area is on the right, returns positive angle (turn right).
-    
-    Modified to consider area between 0.25*h and 0.75*h.
+    Calculates steering angle by dividing the frame into 10 weighted segments.
+    Segments farther away (top of frame) are given more weight.
+    - Weight at top of frame (far): 3
+    - Weight at bottom of frame (close): 1
     """
     h, w = filtered_path_mask.shape
-
-    # Define the region of interest (ROI) for area calculation
-    top_roi_y = int(0.25 * h)
-    bottom_roi_y = int(0.75 * h)
     
-    # Extract the ROI from the filtered_path_mask
-    roi_mask = filtered_path_mask[top_roi_y:bottom_roi_y, :]
+    # Define weighting parameters
+    num_segments = 10
+    min_weight = 1.0  # Weight for the segment closest to the robot
+    max_weight = 5.0  # Weight for the segment farthest from the robot
 
-    # Calculate left and right areas within the ROI
-    left_area = np.sum(roi_mask[:, :w//2] > 0)
-    right_area = np.sum(roi_mask[:, w//2:] > 0)
+    # Create a linear set of weights from max_weight to min_weight
+    # The first segment (top of the image) gets the highest weight
+    weights = np.linspace(max_weight, min_weight, num_segments)
     
-    print(f"Left Area : {left_area}, Right Area : {right_area}") # Updated print for ROI areas
-    total_area = left_area + right_area
-    if total_area == 0:
-        return 0  # No path detected in the ROI
+    # Initialize weighted area accumulators
+    weighted_left_area = 0.0
+    weighted_right_area = 0.0
+    
+    segment_height = h // num_segments
+    
+    for i in range(num_segments):
+        # Define the start and end rows for the current segment
+        start_y = i * segment_height
+        end_y = (i + 1) * segment_height
+        
+        # Extract the current segment from the mask
+        segment_mask = filtered_path_mask[start_y:end_y, :]
+        
+        # Calculate the area of the path in the left and right halves of the segment
+        left_segment_area = np.sum(segment_mask[:, :w//2] > 0)
+        right_segment_area = np.sum(segment_mask[:, w//2:] > 0)
+        
+        # Apply the weight for the current segment
+        current_weight = weights[i]
+        weighted_left_area += left_segment_area * current_weight
+        weighted_right_area += right_segment_area * current_weight
 
-    # The difference ratio determines the angle, scaled to max_angle
-    area_diff_ratio = (right_area - left_area) / total_area
-    print(f"Area Ratio : {area_diff_ratio}")
+    print(f"Weighted Left Area: {weighted_left_area:.2f}, Weighted Right Area: {weighted_right_area:.2f}")
+
+    total_weighted_area = weighted_left_area + weighted_right_area
+    if total_weighted_area == 0:
+        return 0  # No path detected
+
+    # Calculate the steering angle based on the difference in weighted areas
+    area_diff_ratio = (weighted_right_area - weighted_left_area) / total_weighted_area
+    print(f"Weighted Area Ratio: {area_diff_ratio:.2f}")
+    
     steering_angle = area_diff_ratio * max_angle
     return steering_angle
+
 
 def get_robot_direction_and_angle(frame):
     """
@@ -160,12 +184,12 @@ def get_robot_direction_and_angle(frame):
         # Calculate steering angles
         steering_angle_centroid = calculate_steering_angle_centroid(cx_full, image_center_x, w, tolerance, max_angle)
         steering_angle_area = calculate_steering_angle_area(filtered_path_mask, max_angle)
-
-        # print(f"Reocommended Steering Angle from Centoriod : {steering_angle_centroid}")
-        print(f"Reocommended Steering Angle from Area : {steering_angle_area}")
+        steering_angle_area_weighted = calculate_steering_angle_weighted(filtered_path_mask, max_angle)
+        print(f" Centoriod : {round(steering_angle_centroid)} | Area : {round(steering_angle_area)} | Area Weighted : {round(steering_angle_area_weighted)} |")
 
         # Combine both (simple average, you can adjust weighting as needed)
-        steering_angle = 0.5 * steering_angle_centroid + 0.5 * steering_angle_area
+        # steering_angle = 0.0 * steering_angle_centroid + 1.0 * steering_angle_area
+        steering_angle = steering_angle_area_weighted
         # steering_angle = steering_angle_area
 
         if np.sum(filtered_path_mask) < (w * h * 0.005):

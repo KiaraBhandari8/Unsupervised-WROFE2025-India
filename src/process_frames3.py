@@ -155,18 +155,52 @@ def get_robot_direction_and_angle(frame):
 
         image_center_x = w // 2
         tolerance = 20
-        max_angle = 50
+        max_angle = 60
 
         # Calculate steering angles
-        steering_angle_centroid = calculate_steering_angle_centroid(cx_full, image_center_x, w, tolerance, max_angle)
-        steering_angle_area = calculate_steering_angle_area(filtered_path_mask, max_angle)
+        # steering_angle_centroid = calculate_steering_angle_centroid(cx_full, image_center_x, w, tolerance, max_angle)
+        steering_angle_area = calculate_steering_angle_area_1(filtered_path_mask, max_angle)
+
+        # --- Corner Detection Logic ---
+        # Define thresholds for identifying sharp turns
+        roi_mask = filtered_path_mask
+        SHARP_TURN_ANGLE_THRESHOLD = 25 # Angle (magnitude) to consider a sharp turn (tune this)
+        SIDE_EDGE_CHECK_WIDTH = int(w * 0.20) # Check the outermost 10% of the ROI width
+
+        # Calculate pixel sums at the extreme left and right of the ROI mask
+        leftmost_roi_pixels = np.sum(roi_mask[:, :SIDE_EDGE_CHECK_WIDTH] > 0)
+        rightmost_roi_pixels = np.sum(roi_mask[:, w - SIDE_EDGE_CHECK_WIDTH:] > 0)
+        
+        print(f"Left ROI Sum : {leftmost_roi_pixels}")
+        print(f"Right ROI Sum : {rightmost_roi_pixels}")
+        print(f"20% of width : {(roi_mask.shape[0] * SIDE_EDGE_CHECK_WIDTH)}")
+        
+        # Tune these ratios based on your arena and camera
+        MIN_EDGE_PRESENCE_RATIO = 0.3 # Minimum 5% pixel presence for an edge to be "detected"
+        MAX_ABSENT_EDGE_RATIO = 0.02 # Max 2% pixel presence for an edge to be "absent"
+
+        leftmost_roi_area_perc = leftmost_roi_pixels / (roi_mask.shape[0] * SIDE_EDGE_CHECK_WIDTH)
+        rightmost_roi_area_perc = rightmost_roi_pixels / (roi_mask.shape[0] * SIDE_EDGE_CHECK_WIDTH)
+        
+        print(f"Left ROI Area % : {leftmost_roi_area_perc}")
+        print(f"Rightt ROI Area % : {rightmost_roi_area_perc}")
+
+        is_left_edge_present = leftmost_roi_area_perc > MIN_EDGE_PRESENCE_RATIO
+        is_right_edge_present = rightmost_roi_area_perc > MIN_EDGE_PRESENCE_RATIO
+        is_left_edge_absent = leftmost_roi_area_perc < MAX_ABSENT_EDGE_RATIO
+        is_right_edge_absent = rightmost_roi_area_perc < MAX_ABSENT_EDGE_RATIO
+
+        print(f"is_left_edge_present : {is_left_edge_present}")
+        print(f"is_right_edge_present : {is_right_edge_present}")
+        print(f"is_left_edge_absent : {is_left_edge_absent}")
+        print(f"is_right_edge_absent : {is_right_edge_absent}")
 
         # print(f"Reocommended Steering Angle from Centoriod : {steering_angle_centroid}")
         print(f"Reocommended Steering Angle from Area : {steering_angle_area}")
 
         # Combine both (simple average, you can adjust weighting as needed)
-        steering_angle = 0.5 * steering_angle_centroid + 0.5 * steering_angle_area
-        # steering_angle = steering_angle_area
+        # steering_angle = 0.5 * steering_angle_centroid + 0.5 * steering_angle_area
+        steering_angle = steering_angle_area
 
         if np.sum(filtered_path_mask) < (w * h * 0.005):
             print("Filtered path mask is mostly black (path likely lost). Stopping.")

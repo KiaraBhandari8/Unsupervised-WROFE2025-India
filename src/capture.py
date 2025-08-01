@@ -1,29 +1,32 @@
 import time
 from picamera2 import Picamera2
+# The Transform class is needed to apply flips
+from libcamera import Transform
 
-def capture_image_picamera2_headless(filename="captured_image_picamera2_headless.jpg"):
+def capture_image_with_flip(filename="captured_image_flipped.jpg"):
     """
-    Captures an image using the picamera2 library in a headless environment.
-    No preview window will be displayed.
+    Captures an image using the picamera2 library in a headless environment
+    and applies a horizontal and vertical flip.
     """
     picam2 = Picamera2()
 
-    # --- Configuration (Optional but Recommended) ---
-    # For a still image, you often want the highest resolution available.
-    # picam2.create_still_configuration() is usually a good default.
-    # You can customize it if needed, e.g., for a specific resolution:
-    # config = picam2.create_still_configuration(main={"size": (1920, 1080)})
-    # picam2.configure(config)
+    # --- Configuration with Flipping ---
+    # Create a configuration object. The `transform` parameter is used
+    # to apply flips or rotations.
+    # hflip=1 enables horizontal flip.
+    # vflip=1 enables vertical flip.
+    config = picam2.create_still_configuration(
+        transform=Transform(hflip=1, vflip=1)
+    )
     
-    # Alternatively, for simplicity, just start the camera without specific configuration
-    # if you're happy with its default still image settings.
-    # picam2.start() will internally configure for still capture.
+    # Apply the configuration to the camera
+    picam2.configure(config)
 
-    print("Starting camera (headless mode)...")
-    picam2.start() # This starts the camera capture pipeline without a preview
+    print("Starting camera (headless mode with H/V flip)...")
+    picam2.start() # This starts the camera capture pipeline
 
-    # Give the camera a moment to adjust exposure and white balance
-    # This is crucial for good image quality, especially in varying light.
+    # Give the camera a moment to adjust exposure and white balance.
+    # This is crucial for good image quality.
     print("Camera warming up (2 seconds)...")
     time.sleep(2)
 
@@ -34,4 +37,4 @@ def capture_image_picamera2_headless(filename="captured_image_picamera2_headless
     print(f"Image captured successfully as {filename}!")
 
 if __name__ == "__main__":
-    capture_image_picamera2_headless()
+    capture_image_with_flip()

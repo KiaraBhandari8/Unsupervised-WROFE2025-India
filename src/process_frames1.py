@@ -1,10 +1,5 @@
 import cv2
 import numpy as np
-from picamera2 import Picamera2
-import time
-import libcamera
-
-
 
 def calculate_steering_angle_centroid(cx_full, image_center_x, w, tolerance=20, max_angle=50):
     """
@@ -26,53 +21,21 @@ def calculate_steering_angle_area(filtered_path_mask, max_angle=50):
     h, w = filtered_path_mask.shape
     left_area = np.sum(filtered_path_mask[:, :w//2] > 0)
     right_area = np.sum(filtered_path_mask[:, w//2:] > 0)
-    print(f"Left Area : {left_area}, Right Area : {right_area}")
     total_area = left_area + right_area
     if total_area == 0:
         return 0  # No path detected
 
     # The difference ratio determines the angle, scaled to max_angle
     area_diff_ratio = (right_area - left_area) / total_area
-    print(f"Area Ratio : {area_diff_ratio}")
+    # print(f"Area Ratio : {area_diff_ratio}") # Commented out for cleaner logs
     steering_angle = area_diff_ratio * max_angle
     return steering_angle
 
-def calculate_steering_angle_area_1(filtered_path_mask, max_angle=50):
-    """
-    Calculate steering angle based on white area (path) on left and right halves.
-    If more white area is on the left, returns negative angle (turn left).
-    If more white area is on the right, returns positive angle (turn right).
-    
-    Modified to consider area between 0.25*h and 0.75*h.
-    """
-    h, w = filtered_path_mask.shape
-
-    # Define the region of interest (ROI) for area calculation
-    top_roi_y = int(0.25 * h)
-    bottom_roi_y = int(0.75 * h)
-    
-    # Extract the ROI from the filtered_path_mask
-    roi_mask = filtered_path_mask[top_roi_y:bottom_roi_y, :]
-
-    # Calculate left and right areas within the ROI
-    left_area = np.sum(roi_mask[:, :w//2] > 0)
-    right_area = np.sum(roi_mask[:, w//2:] > 0)
-    
-    print(f"Left Area : {left_area}, Right Area : {right_area}") # Updated print for ROI areas
-    total_area = left_area + right_area
-    if total_area == 0:
-        return 0  # No path detected in the ROI
-
-    # The difference ratio determines the angle, scaled to max_angle
-    area_diff_ratio = (right_area - left_area) / total_area
-    print(f"Area Ratio : {area_diff_ratio}")
-    steering_angle = area_diff_ratio * max_angle
-    return steering_angle
-
+# Removed final_steering_angle parameter from here
 def get_robot_direction_and_angle(frame):
     """
     Analyzes an input image frame to determine robot movement direction and steering angle.
-    Returns the direction, steering angle, and a visualized frame with annotations.
+    Returns the direction, steering angle, and a visualized frame with basic annotations.
 
     Args:
         frame (numpy.ndarray): The input image frame (BGR format).
@@ -90,7 +53,6 @@ def get_robot_direction_and_angle(frame):
         return "STOP", None, None
 
     h, w, _ = frame.shape
-    print(f"Height : {h}, Width : {w}")
 
     # --- Black Masking ---
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -106,8 +68,9 @@ def get_robot_direction_and_angle(frame):
     contours_black_boundaries, _ = cv2.findContours(mask_eroded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     if not contours_black_boundaries:
-        print("No black boundaries found. Stopping.")
-        return "STOP", None, frame.copy() # Return original frame if nothing found
+        # print("No black boundaries found. Stopping.") # Commented out for cleaner logs
+        # Make sure visualized_frame is original frame for consistent output
+        return "STOP", None, frame.copy()
 
     # --- Keep only the two largest black boundary contours ---
     contours_black_boundaries = sorted(contours_black_boundaries, key=cv2.contourArea, reverse=True)[:2]
@@ -138,7 +101,7 @@ def get_robot_direction_and_angle(frame):
     if relevant_path_contour is not None:
         cv2.drawContours(filtered_path_mask, [relevant_path_contour], -1, 255, -1)
     else:
-        print("No significant path component found in the bottom 25% of the frame. Stopping.")
+        # print("No significant path component found in the bottom 25% of the frame. Stopping.") # Commented out
         return "STOP", None, frame.copy()
 
     # --- Centroid Calculation ---
@@ -155,21 +118,20 @@ def get_robot_direction_and_angle(frame):
 
         image_center_x = w // 2
         tolerance = 20
-        max_angle = 50
+        max_angle = 60
 
         # Calculate steering angles
         steering_angle_centroid = calculate_steering_angle_centroid(cx_full, image_center_x, w, tolerance, max_angle)
         steering_angle_area = calculate_steering_angle_area(filtered_path_mask, max_angle)
 
-        # print(f"Reocommended Steering Angle from Centoriod : {steering_angle_centroid}")
-        print(f"Reocommended Steering Angle from Area : {steering_angle_area}")
+        # print(f"Reocommended Steering Angle from Centoriod : {steering_angle_centroid}") # Commented out
+        # print(f"Reocommended Steering Angle from Area : {steering_angle_area}") # Commented out
 
         # Combine both (simple average, you can adjust weighting as needed)
         steering_angle = 0.5 * steering_angle_centroid + 0.5 * steering_angle_area
-        # steering_angle = steering_angle_area
 
         if np.sum(filtered_path_mask) < (w * h * 0.005):
-            print("Filtered path mask is mostly black (path likely lost). Stopping.")
+            # print("Filtered path mask is mostly black (path likely lost). Stopping.") # Commented out
             command = "STOP"
             steering_angle = None
             cx_full = None
@@ -182,13 +144,13 @@ def get_robot_direction_and_angle(frame):
             else:
                 command = "FORWARD"
     else:
-        print("No significant path found in filtered mask. Stopping.")
+        # print("No significant path found in filtered mask. Stopping.") # Commented out
         command = "STOP"
         steering_angle = None
 
     # --- Visualization Frame ---
-    # visualized_frame = frame.copy()
-    visualized_frame = filtered_path_mask
+    # Draw on a copy of the original frame
+    visualized_frame = frame.copy()
 
     # Draw the detected black boundaries (green)
     cv2.drawContours(visualized_frame, contours_black_boundaries, -1, (0, 255, 0), 3)
@@ -199,20 +161,15 @@ def get_robot_direction_and_angle(frame):
 
     # Draw the calculated centroid and reference line
     if cx_full is not None and cy_full is not None:
-        cv2.circle(visualized_frame, (cx_full, cy_full), 50, (0, 0, 255), -1) # Red circle for centroid
-        cv2.line(visualized_frame, (w // 2, 0), (w // 2, h), (255, 0, 0), 5) # Blue center line
+        cv2.circle(visualized_frame, (cx_full, cy_full), 10, (0, 0, 255), -1) # Red circle for centroid (reduced size)
+        cv2.line(visualized_frame, (w // 2, 0), (w // 2, h), (255, 0, 0), 2) # Blue center line (reduced thickness)
 
         # Add directional marker (yellow arrow) if moving FORWARD, LEFT, or RIGHT
         if command in ["FORWARD", "LEFT", "RIGHT"] and steering_angle is not None:
             arrow_start_x = cx_full
             arrow_start_y = cy_full
-            arrow_length = 50
+            arrow_length = 25
 
-            # Angle for drawing the arrow:
-            # -90 degrees for straight up (forward) in OpenCV's Y-down coordinate system.
-            # Add positive 'steering_angle' for right turns (makes arrow lean right).
-            # Subtract negative 'steering_angle' for left turns (makes arrow lean left).
-            # Since steering_angle is positive for right and negative for left, we subtract:
             plot_angle_degrees = -90 + steering_angle
             plot_angle_rad = np.deg2rad(plot_angle_degrees)
 
@@ -220,31 +177,31 @@ def get_robot_direction_and_angle(frame):
             arrow_end_y = int(arrow_start_y + arrow_length * np.sin(plot_angle_rad))
 
             cv2.arrowedLine(visualized_frame, (arrow_start_x, arrow_start_y),
-                            (arrow_end_x, arrow_end_y), (255, 255, 0), 10, tipLength=0.5)
-    steering_angle = int(steering_angle)
-    return command, steering_angle, visualized_frame
+                            (arrow_end_x, arrow_end_y), (255, 255, 0), 3, tipLength=0.3) # Yellow arrow (reduced thickness)
+    
+    # Removed final_steering_angle drawing from here
 
+    steering_angle = int(steering_angle) if steering_angle is not None else 0 # Ensure integer for return
+    return command, steering_angle, visualized_frame
 
 
 if __name__ == "__main__":
     import sys
 
     # Example usage: python process_frames.py [image_path]
-    # if len(sys.argv) > 1:
-    #     image_path = sys.argv[1]
-    # else:
-    #     # Default test image path
-    #     image_path = "test.jpg"
-    picam2 = Picamera2()
-    camera_config = picam2.create_preview_configuration(main={"size": (768, 432)},
-                                                            transform=libcamera.Transform(vflip=True, hflip=True))
-    picam2.configure(camera_config)
-    picam2.start()
-    time.sleep(2)  # Camera warm-up
+    if len(sys.argv) > 1:
+        image_path = sys.argv[1]
+    else:
+        # Default test image path
+        image_path = "test.jpg"
 
-    frame = picam2.capture_array()
+    frame = cv2.imread(image_path)
+    if frame is None:
+        print(f"Failed to load image: {image_path}")
+        sys.exit(1)
 
-    command, steering_angle, visualized_frame = get_robot_direction_and_angle(frame)
+    # For testing, provide a dummy final_steering_angle
+    command, steering_angle, visualized_frame = get_robot_direction_and_angle(frame) # No angle passed here
     print(f"Command: {command}")
     print(f"Steering Angle: {steering_angle}")
 

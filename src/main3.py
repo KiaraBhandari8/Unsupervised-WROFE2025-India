@@ -1,0 +1,124 @@
+import io
+import threading
+import time
+import cv2
+import numpy as np
+from flask import Flask, Response, render_template_string, request, redirect, url_for
+
+from picamera2 import Picamera2
+from process_frames2 import get_robot_direction_and_angle
+import robot_motion
+import libcamera
+
+app = Flask(__name__)
+
+latest_raw_jpeg = None
+latest_viz_jpeg = None
+latest_angle = 0
+latest_final_steering_angle = 0
+latest_command = "STOP"
+direction_mode = "clockwise"
+lock = threading.Lock()
+
+def camera_loop():
+    global latest_raw_jpeg, latest_viz_jpeg, latest_angle, latest_final_steering_angle, latest_command, direction_mode
+    picam2 = Picamera2()
+    camera_config = picam2.create_preview_configuration(main={"size": (768, 432)},
+                                                        transform=libcamera.Transform(vflip=True, hflip=True))
+    picam2.configure(camera_config)
+    picam2.start()
+    time.sleep(2)
+    while True:
+        frame = picam2.capture_array()
+        with lock:
+            dir_mode = direction_mode
+        command, steering_angle, viz_frame = get_robot_direction_and_angle(frame, direction_mode=dir_mode)
+        final_steering_angle = 75 + (-1 * int(steering_angle)) if steering_angle is not None else 75
+        if command in ("FORWARD", "LEFT", "RIGHT"):
+            robot_motion.robot_forward()
+            robot_motion.adjust_servo_angle(final_steering_angle)
+        else:
+            robot_motion.robot_stop()
+        _, raw_jpeg = cv2.imencode('.jpg', frame)
+        _, viz_jpeg = cv2.imencode('.jpg', viz_frame if viz_frame is not None else frame)
+        with lock:
+            latest_raw_jpeg = raw_jpeg.tobytes()
+            latest_viz_jpeg = viz_jpeg.tobytes()
+            latest_angle = steering_angle
+            latest_final_steering_angle = final_steering_angle
+            latest_command = command
+        time.sleep(0.1)
+
+HTML_PAGE = """
+<!doctype html>
+<title>Robot Camera Stream</title>
+<style>
+  /* ... (same CSS as before) ... */
+</style>
+<body>
+  <form method="POST" action="/toggle_direction">
+    <button type="submit">Switch to {{ 'Clockwise' if direction == 'anticlockwise' else 'Anticlockwise' }}</button>
+  </form>
+  <div class="content-wrapper">
+    <div class="frame-group">
+      <div class="info-box first-box raw-feed-info">
+        <h2>Raw Camera Feed</h2>
+      </div>
+      <img src="/raw_stream">
+    </div>
+    <div class="frame-group">
+      <div class="info-box second-box">
+        <h2>Processed Visualization</h2>
+        <h4>Final Steering Angle: {{ fangle }}</h4>
+        <h4>Steering Angle: {{ angle }}</h4>
+        <h4>Command: {{ command }}</h4>
+        <h4>Direction Mode: {{ direction }}</h4>
+      </div>
+      <img src="/viz_stream">
+    </div>
+  </div>
+  <meta http-equiv="refresh" content="1">
+</body>
+"""
+
+@app.route('/', methods=['GET'])
+def index():
+    with lock:
+        angle = latest_angle
+        fangle = latest_final_steering_angle
+        command = latest_command
+        direction = direction_mode
+    return render_template_string(HTML_PAGE, angle=angle, fangle=fangle, command=command, direction=direction)
+
+@app.route('/toggle_direction', methods=['POST'])
+def toggle_direction():
+    global direction_mode
+    with lock:
+        direction_mode = "anticlockwise" if direction_mode == "clockwise" else "clockwise"
+    return redirect(url_for('index'))
+
+def gen_image_stream(image_type):
+    while True:
+        with lock:
+            frame = latest_raw_jpeg if image_type == 'raw' else latest_viz_jpeg
+        if frame:
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        time.sleep(0.1)
+
+@app.route('/raw_stream')
+def raw_stream():
+    return Response(gen_image_stream('raw'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/viz_stream')
+def viz_stream():
+    return Response(gen_image_stream('viz'),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == "__main__":
+    t = threading.Thread(target=camera_loop, daemon=True)
+    t.start()
+    app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+
+#sudo /home/pi8/wrofe2025/env_test/bin/python /home/pi8/wrofe2025/main3.py

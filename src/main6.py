@@ -6,7 +6,7 @@ import numpy as np
 from flask import Flask, Response, render_template_string
 
 from picamera2 import Picamera2
-from process_frames import get_robot_direction_and_angle
+from process_frames_6 import get_robot_direction_and_angle
 import robot_motion
 import libcamera
 
@@ -26,7 +26,7 @@ facing_original_direction = True  # CHANGE THIS as needed
 def camera_loop():
     global latest_raw_jpeg, latest_viz_jpeg, latest_angle, latest_final_steering_angle, latest_command
     picam2 = Picamera2()
-    camera_config = picam2.create_preview_configuration(main={"size": (768, 432)},
+    camera_config = picam2.create_preview_configuration(main={"size": (384, 216)},
                                                             transform=libcamera.Transform(vflip=True, hflip=True))
     picam2.configure(camera_config)
     picam2.start()
@@ -35,7 +35,9 @@ def camera_loop():
     while True:
         frame = picam2.capture_array()
         command, steering_angle, viz_frame = get_robot_direction_and_angle(frame)
-        steering_angle = steering_angle * 2 if steering_angle is not None else None  # Adjust scaling factor as needed
+        print(f"Original Steering Anlge : {steering_angle}")
+        # steering_angle = steering_angle * 1 if steering_angle is not None else None  # Adjust scaling factor as needed
+        
         if steering_angle is None:
             robot_motion.robot_stop()
         else:
@@ -48,6 +50,7 @@ def camera_loop():
                 steering_angle =  steering_angle * 1
             print(f"Multiplied Weighted Steering Angle : {int(steering_angle)}")
             final_steering_angle = int(90 + (-1 * int(steering_angle)))
+            final_steering_angle = max(65, min(final_steering_angle, 115))
             print(f"Final Steering Angle : {int(final_steering_angle)}")
 
 
@@ -196,4 +199,4 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
 
 
-# sudo /home/pi8/wrofe2025/env_test/bin/python /home/pi8/wrofe2025/main1.py
+# sudo /home/pi8/wrofe2025/env_test/bin/python /home/pi8/wrofe2025/main6.py

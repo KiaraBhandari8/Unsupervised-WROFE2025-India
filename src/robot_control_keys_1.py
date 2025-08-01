@@ -150,7 +150,7 @@ def handle_key_event(event):
         elif key_name == 'z': # New: Set servo to 100 degrees
             current_servo_angle = 100
             kit.servo[SERVO_INDEX].angle = current_servo_angle
-            print(f"Servo {SERVO_INDEX} set to {current_servo_angle} degrees (Key: Z).")
+            print(f"Servo {SERVO_INDEX} set\ to {current_servo_angle} degrees (Key: Z).")
 
         elif key_name == 'x': # New: Set servo to 70 degrees
             current_servo_angle = 70
