@@ -5,6 +5,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
 - [Unsupervised-WROFE2025-India](#unsupervised-wrofe2025-india)
   - [Table of Contents](#table-of-contents)
   - [Team](#team)
+  - [List of Components](#list-of-components)
   - [Design, Build, Code and Evaluate Process](#design-build-code-and-evaluate-process)
     - [Design](#design)
     - [Build](#build)
@@ -20,16 +21,131 @@ This is a repository for our WRO Future Engineers 2025 documentation.
 
 ## Team
 
-|Name|Profile|Role|Contribution|
-|---|---|---|---|
-|1. Arnav Ramtake| 3rd year undergrad @ IIT Bombay|Team Member|Project development & Testing|
-|2. Kiara Bhandari| Grade 9 @ Oberoi International School|Team Member|Project development & Testing|
-|3. Shubh Gupta| Grade 9 @ Chatrabhuj Narsee School|Team Member|Project development & Testing|
-|4. Vinay Ummadi|Mentor @ MakerWorks Lab|Team Mentor|Provided guidance and support|
+<table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px;">Name</th>
+      <th style="border: 1px solid black; padding: 8px;">Profile</th>
+      <th style="border: 1px solid black; padding: 8px;">Role</th>
+      <th style="border: 1px solid black; padding: 8px;">Contribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">1. Arnav Ramtake</td>
+      <td style="border: 1px solid black; padding: 8px;">3rd year undergrad @ IIT Bombay</td>
+      <td style="border: 1px solid black; padding: 8px;">Team Member</td>
+      <td style="border: 1px solid black; padding: 8px;">Project development & Testing</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">2. Kiara Bhandari</td>
+      <td style="border: 1px solid black; padding: 8px;">Grade 9 @ Oberoi International School</td>
+      <td style="border: 1px solid black; padding: 8px;">Team Member</td>
+      <td style="border: 1px solid black; padding: 8px;">Project development & Testing</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">3. Shubh Gupta</td>
+      <td style="border: 1px solid black; padding: 8px;">Grade 9 @ Chatrabhuj Narsee School</td>
+      <td style="border: 1px solid black; padding: 8px;">Team Member</td>
+      <td style="border: 1px solid black; padding: 8px;">Project development & Testing</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">4. Vinay Ummadi</td>
+      <td style="border: 1px solid black; padding: 8px;">Mentor @ MakerWorks Lab</td>
+      <td style="border: 1px solid black; padding: 8px;">Team Mentor</td>
+      <td style="border: 1px solid black; padding: 8px;">Provided guidance and support</td>
+    </tr>
+  </tbody>
+</table>
 
 Team picture:
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/t-photos/team_photo1.jpeg" alt="Team Picture" width="500">
+
+## List of Components
+<table border="1">
+  <thead>
+    <tr>
+      <th>Component Name with Link</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB">N20 DC Gear Motor</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+    <tr>
+    <td><a href="https://robu.in/product/raspberry-pi-5-model-8gb/?gad_source=1&gad_campaignid=19974686076&gbraid=0AAAAADvLFWccPNo1nAFbja4etEZbwSYsa&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksOP09gGjW_GFf7Vsckn2RSF4H_OcJGQZTPNndUeFb9ESBsUWQDfvsaAsGREALw_wcB">Raspberry Pi 5 (Cooling Fan + SD Card)</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera 3 Wide Angle</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://share.google/GQIqzE7hObWl2JtNW">TB6612FNG Motor Driver</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://share.google/SYj7opQ4mhcO487lK">MG996R Servo Motor</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://robu.in/product/16-channel-12-bit-pwmservo-driver-i2c-interface-pca9685-arduino-raspberry-pi/">PCA9685 Servo Driver</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://share.google/BG01lgffrP5yxi8mK">N20 Wheels</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://share.google/xb8SxxgjGmudeReLK">LM2596S Voltage Regulator</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://robu.in/product/ydlidar-t-mini-plus-lidar-sensor/">YD LiDAR T-mini plus</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://www.amazon.in/Ambrane-Charging-Powerbank-Emergency-30/dp/B0D351GHY7?th=1">Power Bank</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://makerbazar.in/products/18650-3-7v-lithium-ion-rechargeable-cell-good-quality?variant=46013701423344&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic">18650 Battery</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://share.google/fq9tZREMioah3AI9Q">Push Button Switch</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      <tr>
+    <td><a href="https://robu.in/product/pct-spl-62-0-08-2-5mm-62-pole-wire-connector-terminal-block-with-spring-lock-lever-for-cable-connection/">Wire Connectors</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+      </tr>
+      <tr>
+    <td><a href="https://www.mathaelectronics.com/product/4-pole-2-way-dpdt-12pin-on-off-switch/">4 Pole 2 Way DPDT 12 pin ON/OFF Switch</a></td>
+      <td>1</td>
+      <td>₹500</td>
+    </tr>
+
+  </tbody>
+</table>
 
 ## Design, Build, Code and Evaluate Process
 
@@ -40,7 +156,7 @@ We started understading the given constraints and physical requirements of the r
 - **Creating Design Diagrams**: We created detailed design diagrams to visualize the robot's structure and components. These diagrams included:
   - Chassis design
   <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/chasis_design.jpeg" alt="Chasis Design Drawing" width="500">
-  
+
   - Steering mechanism design
   
   - Drive mechanism design      
