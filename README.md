@@ -39,7 +39,8 @@ We started understading the given constraints and physical requirements of the r
 - **Conceptualizing the Robot**: We brainstormed ideas for the robot's design, focusing on its chassis, steering mechanism, drive mechanism, sensors, and power management.
 - **Creating Design Diagrams**: We created detailed design diagrams to visualize the robot's structure and components. These diagrams included:
   - Chassis design
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/chasis_design.jpeg" alt="Steering Mechanism" width="500">
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/chasis_design.jpeg" alt="Chasis Design Drawing" width="500">
+  
   - Steering mechanism design
   
   - Drive mechanism design      
