@@ -28,7 +28,8 @@ This is a repository for our WRO Future Engineers 2025 documentation.
 |4. Vinay Ummadi|Mentor @ MakerWorks Lab|Team Mentor|Provided guidance and support|
 
 Team picture:
-![Team Picture](/t-photos/team_photo1.jpeg)
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/t-photos/team_photo1.jpeg" alt="Team Picture" width="500">
 
 ## Design, Build, Code and Evaluate Process
 
@@ -38,7 +39,7 @@ We started understading the given constraints and physical requirements of the r
 - **Conceptualizing the Robot**: We brainstormed ideas for the robot's design, focusing on its chassis, steering mechanism, drive mechanism, sensors, and power management.
 - **Creating Design Diagrams**: We created detailed design diagrams to visualize the robot's structure and components. These diagrams included:
   - Chassis design
-  ![Main Chasis Design](/schemes/addl/chasis_design.jpeg)
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/chasis_design.jpeg" alt="Steering Mechanism" width="500">
   - Steering mechanism design
   
   - Drive mechanism design      
