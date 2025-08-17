@@ -18,6 +18,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
+  - [Running the Code](#running-the-code)
 
 ## Team
 
@@ -225,3 +226,6 @@ In our testing, we have achieved the following scores:
     </tr>
   </tbody>
 </table>
+
+## Running the Code
+To run the code, follow these steps:
