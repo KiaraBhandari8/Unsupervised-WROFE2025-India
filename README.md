@@ -200,3 +200,28 @@ Inputs of the liDAR sensor are processed to determine the distance to the walls 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
 ### Final Evaluation & Scores
+In our testing, we have achieved the following scores:
+<table border="1">
+  <thead>
+    <tr>
+      <th>Round</th>
+      <th>Max Score Possible</th>
+      <th>Score Achieved</th>
+      <th>Time (seconds)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Open Round</td>
+      <td>30</td>
+      <td>30</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>Obstacle Round</td>
+      <td>40</td>
+      <td>NA</td>
+      <td>150</td>
+    </tr>
+  </tbody>
+</table>
