@@ -38,20 +38,28 @@ We started understading the given constraints and physical requirements of the r
 - **Conceptualizing the Robot**: We brainstormed ideas for the robot's design, focusing on its chassis, steering mechanism, drive mechanism, sensors, and power management.
 - **Creating Design Diagrams**: We created detailed design diagrams to visualize the robot's structure and components. These diagrams included:
   - Chassis design
-  ![Team Picture](/schemes/addl/chasis_design.jpeg)
-  .jpeg)
+  ![Main Chasis Design](/schemes/addl/chasis_design.jpeg)
   - Steering mechanism design
+  
   - Drive mechanism design      
 
 ### Build
 
 
 #### Chassis
-The robot consisted of a layered design composed of three sheets of acrylic, supported by a base produced by 3D printing. Every structural component was fastened firmly with bolts and nuts to ensure durability and longevity in application. For enhanced performance, the bottom acrylic sheet was carefully trimmed along the wheel areas, allowing for free wheel rotation and better maneuverability. Instead of expanding the robot's overall design that would impact maneuverability, we opted for a three-layer vertical configuration. Not only did this choice in design improve space efficiency, but it also boosted the robot's performance by allowing better integration of its mechanical and electronic components in a compact footprint
+The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot consists of multiple layers to accommodate various components. Every structural component was fastened firmly with bolts and nuts to ensure durability and rigidity required for testing. For enhanced performance, the bottom acrylic sheet was carefully trimmed along the wheel areas, allowing for free wheel rotation and better maneuverability. Instead of expanding the robot's dimensyions in horizantally that would impact maneuverability, we opted for a three-layer vertical configuration. Not only did this choice in design improve space efficiency, but it also boosted the robot's performance by allowing better integration of its mechanical and electronic components in a compact footprint. The robot dimensions are 14cm(width) x 19cm(length) x 20cm(height). 
+
 #### Steering Mechanism
-A differential is a gear arrangement that divides power from a single motor or axle into two outputs, enabling them to rotate at varying speeds. This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. In our robot, we implemented a differential gear to enable sharper and more accurate turns in a shorter timeframe, enhancing both speed and maneuverability during operation. The primary components consist of a drive gear, ring gear, small spider gears, and side gears linked to the wheels
+We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
+
+
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
+
 ### Sensors and Perception
 LiDAR (YD LiDAR T-mini plus)  
 The LiDAR sensor measures distances by emitting laser pulses and calculating their time-of-flight, providing precise range and angle data for mapping and navigation. With high accuracy and fast scan rates, it enables reliable obstacle detection, SLAM, and terrain mapping in real time.
