@@ -193,8 +193,7 @@ We used LiDAR sensor to detect the walls. The algorithm used is as follows:
 Inputs of the liDAR sensor are processed to determine the distance to the walls for each angle from -90 (LiDAR left) to 90 degrees(LiDAR right). LiDAR axis (0 degrees) is aligned with the robot axis. The error is calculated as the difference between LiDAR left and LiDAR right. Based on the error, the robot uses PID control to adjust its steering angle to correct its path. Kp, Ki, and Kd values are tuned to achieve the desired response. The same thing is used for turning left and right. 
 
 
-![Flowchart](/schemes/addl/openroundalgorithm.jpeg)
-
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
 #### Obstacle Round Algorithm
 
