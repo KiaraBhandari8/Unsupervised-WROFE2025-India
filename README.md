@@ -68,6 +68,7 @@ Team picture:
   <thead>
     <tr>
       <th>Component Name with Link</th>
+      <th>Component Image</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
@@ -75,6 +76,7 @@ Team picture:
   <tbody>
     <tr>
     <td><a href="https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB">N20 DC Gear Motor</a></td>
+      <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" width="250" height="250"></td>
       <td>1</td>
       <td>₹500</td>
     </tr>
