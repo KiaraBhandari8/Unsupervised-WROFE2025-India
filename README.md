@@ -185,8 +185,8 @@ The challenge requires students to construct an autonomous robot which will unde
   </thead>
   <tr>
     <td>
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Front-removebg-preview.png" alt="Robot_Front" width="250" height="250"></td>
-    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Back-removebg-preview.png" alt="Robot_Back" width="250" height="250"></td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Back-removebg-preview.png" alt="Robot_Front" width="250" height="250"></td>
+    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Front-removebg-preview.png" alt="Robot_Back" width="250" height="250"></td>
   </tr>
    <thead>
     <tr>
@@ -196,8 +196,8 @@ The challenge requires students to construct an autonomous robot which will unde
   </thead>
   <tr>
     <td>
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/-removebg-preview.png" alt="Robot_Left" width="250" height="250"></td>
-    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Back-removebg-preview.png" alt="Robot_Right" width="250" height="250"></td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Left-removebg-preview.png" alt="Robot_Left" width="250" height="250"></td>
+    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Right-removebg-preview.png" alt="Robot_Right" width="250" height="250"></td>
   </tr>
 </table>
 
