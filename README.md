@@ -211,7 +211,7 @@ Lidar:
   </tbody>
 </table>
 
-
+Raspberry pi camera module 3 wide angle:
 <table border="1">
   <thead>
     <tr>
@@ -234,6 +234,8 @@ Lidar:
 </table>
 
 ### Power Management
+
+DC Buck Converter:
 <table border="1">
   <thead>
     <tr>
@@ -254,7 +256,19 @@ Lidar:
           3. DC-DC converter
         </td>
       </tr>
-      <tr>
+  </tbody>
+</table>
+
+Lithium Ion batteries:
+ <table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+ <tr>
         <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=200 width=200>
         </td>
         <td>
