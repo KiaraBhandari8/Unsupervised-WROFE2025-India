@@ -171,13 +171,33 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 #### Steering Mechanism
 We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
 
-<img src="[https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg](https://m.media-amazon.com/images/I/41XB4mJnlRL._UF1000,1000_QL80_.jpg)" alt="MG996r servo motor" height="250" width="250">
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://www.jsumo.com/mg996r-servo-motor-digital-1701-65-B.jpg" alt="MG996r servo motor" height="200" width="200"></td>
+        <td>
+          1. MG996r Servo motor
+          <br>
+          <br>
+          2. Digital servo: Pulse width modulation controlled(PWM)
+        </td>
+      </tr>
+  </tbody>
+</table>
+
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
 
+N20 DC Gear motor:
 <table border="1">
   <thead>
     <tr>
