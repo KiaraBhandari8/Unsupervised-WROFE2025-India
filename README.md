@@ -168,8 +168,8 @@ The challenge requires students to construct an autonomous robot which will unde
 <table border="1">
   <thead>
     <tr>
-      <th>Top</th>
-      <th>Bottom</th>
+      <th style="width:300;">Top</th>
+      <th style="width:300;">Bottom</th>
     </tr>
   </thead>
   <tr>
@@ -284,12 +284,6 @@ Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
 
-### Power and Sense Management
-#### LiPo Batteries 
-| (images/18650battery) | *Specifications* | 
-| -- | -------------- | 
-
-
 Lidar:
 <table border="1">
   <thead>
@@ -336,8 +330,7 @@ Raspberry pi camera module 3 wide angle:
   </tbody>
 </table>
 
-### Power Management
-
+### Power and sense management
 
 ##### DC Buck Converter:
 <table border="1">
