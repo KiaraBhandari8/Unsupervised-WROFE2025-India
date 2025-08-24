@@ -15,7 +15,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
     - [Sensors and Perception](#sensors-and-perception)
     - [Power and Sense Management](#power-and-sense-management)
       - [LiPo Batteries](#lipo-batteries)
-    - [Algorithm and Code](#algorithm-and-code)
+    - [Power Management](#power-management)
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
@@ -74,7 +74,6 @@ Team picture:
   <thead>
     <tr>
       <th>Component Name with Link</th>
-      <th>Component Image</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
@@ -82,7 +81,6 @@ Team picture:
   <tbody>
     <tr>
     <td><a href="https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB">N20 DC Gear Motor</a></td>
-      <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" width="250" height="250"></td>
       <td>1</td>
       <td>₹239</td>
     </tr>
@@ -179,11 +177,56 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 #### Steering Mechanism
 We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
 
+MG996r Servo Motor:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://www.jsumo.com/mg996r-servo-motor-digital-1701-65-B.jpg" alt="MG996r servo motor" height="200" width="200"></td>
+        <td>
+          1. MG996r Servo motor
+          <br>
+          <br>
+          2. Digital servo: Pulse width modulation controlled(PWM)
+        </td>
+      </tr>
+  </tbody>
+</table>
+
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
+
+N20 DC Gear motor:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="200" width="200"></td>
+        <td>
+          1. N20 dc Gear Motor
+          <br>
+          <br>
+          2. Speed range (depends on gear ratio): from ~30 RPM (high torque) to ~1000 RPM (low torque)
+          <br>
+          <br>
+          3. High torque at low RPM due to gearbox
+        </td>
+      </tr>
+  </tbody>
+</table>
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
@@ -193,13 +236,107 @@ The LiDAR sensor measures distances by emitting laser pulses and calculating the
 Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
+<<<<<<< HEAD
 ### Power and Sense Management
 #### LiPo Batteries 
 | (images/18650battery) | *Specifications* | 
 | -- | -------------- | 
 
+=======
+Lidar:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="200" height="200">
+        <td>
+          1. YD Lidar T-mini Plus
+          <br>
+          <br>
+          2. 360° environment scanning which allows the robot to see in all directions, unlike ultrasonic/IR sensors which are narrow
+          <br>
+          <br>
+          3. Range of up to 12 meters
+        </td>
+      </tr>
+  </tbody>
+</table>
 
-### Algorithm and Code
+Raspberry pi camera module 3 wide angle:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+        <td><img width="200" height="200" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
+        </td>
+        <td>
+          1. Raspberry Pi camera module 3 wide angle
+          <br>
+          <br>
+          2. 120° diagonal field of view (FoV), roughly corresponding to 102° horizontally and 67° vertically.
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+### Power Management
+>>>>>>> 7252431430032684d270e18c98f5f323b27099e0
+
+DC Buck Converter:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://5.imimg.com/data5/SELLER/Default/2024/12/474327581/HV/WY/PL/147282047/lm2596s-dc-dc-buck-converter-power-supply.jpg" alt="LM2596S Voltage Regulator" width="200" height="200"></td>
+        <td>
+          1. DC buck converter  
+          <br>
+          <br>
+          2. A buck converter or step-down converter is a DC-to-DC converter which decreases voltage, while increasing current, from its input (supply) to its output (load)
+          <br>
+          <br>
+          3. DC-DC converter
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+Lithium Ion batteries:
+ <table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+ <tr>
+        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=200 width=200>
+        </td>
+        <td>
+          1. 18650 Lithium Ion batteries
+          <br>
+          <br>
+          2. High energy density and capacity, leading to longer usage times and more power in a small package. 
+        </td>
+      </tr>
+  </tbody>
+</table>
 
 #### Open Round Algorithm
 We used LiDAR sensor to detect the walls. The algorithm used is as follows:
