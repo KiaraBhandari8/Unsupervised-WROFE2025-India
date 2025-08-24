@@ -195,7 +195,7 @@ The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with p
   <thead>
     <tr>
       <th style="width:300;">Component Image</th>
-      <th style="width:300;">Details</th>
+      <th style="width:200;">Details</th>
     </tr>
   </thead>
   <tbody>
