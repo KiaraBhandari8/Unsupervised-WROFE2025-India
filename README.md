@@ -174,7 +174,30 @@ The challenge requires students to construct an autonomous robot which will unde
   </thead>
   <tr>
     <td>
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Chasis Design Drawing" width="500"></td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Robot_Top" width="250" height="250"></td>
+    <td></td>
+  </tr>
+  <thead>
+    <tr>
+      <th>Front</th>
+      <th>Back</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Front-removebg-preview.png" alt="Robot_Front" width="250" height="250"></td>
+    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Back-removebg-preview.png" alt="Robot_Back" width="250" height="250"></td>
+  </tr>
+   <thead>
+    <tr>
+      <th>Left</th>
+      <th>Right</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/-removebg-preview.png" alt="Robot_Left" width="250" height="250"></td>
+    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Back-removebg-preview.png" alt="Robot_Right" width="250" height="250"></td>
   </tr>
 </table>
 
