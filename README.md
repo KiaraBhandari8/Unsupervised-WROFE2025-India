@@ -5,6 +5,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
 - [Unsupervised-WROFE2025-India](#unsupervised-wrofe2025-india)
   - [Table of Contents](#table-of-contents)
   - [Team](#team)
+  - [About the challenge](#about-the-challenge)
   - [List of Components](#list-of-components)
   - [Design, Build, Code and Evaluate Process](#design-build-code-and-evaluate-process)
     - [Design](#design)
@@ -70,6 +71,12 @@ This is a repository for our WRO Future Engineers 2025 documentation.
 Team picture:
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/t-photos/team_photo1.jpeg" alt="Team Picture" width="500">
+
+## About the challenge
+The World Robot Olympiad (WRO) is an international robotics competition that encourages students to develop problem-solving, programming, and engineering skills.
+The Future Engineers category is designed for students aged 14–22 years and focuses on autonomous driving. The challenge simulates real-world traffic conditions and requires teams to design and program a fully autonomous robot car.
+
+The challenge requires students to construct an autonomous robot which will undergo 2 rounds. First, an open round challenge where the robot would need to complete 3 rounds around the arena within the time limit of 3 minutes (180 seconds). The second round, which is the obstacle round consists of navigating through red and green pillars, where the robot would move from the left of the green pillar and from right of the red pillar. The robot should once again, not exceed a time limit of 3 minutes.
 
 ## List of Components
 <table border="1">
