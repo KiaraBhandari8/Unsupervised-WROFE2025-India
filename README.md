@@ -188,12 +188,35 @@ Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
 <img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="250" height="250">
-<img src="https://robu.in/wp-content/uploads/2023/01/Raspberry-Pi-Camera-Module-3-Wide-2-2-min.jpg" alt="Raspberry Pi camera module 3 wide angle" width="250" height="250">
+<img width="463" height="463" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
 
 ### Power Management
-<img src="https://5.imimg.com/data5/SELLER/Default/2024/12/474327581/HV/WY/PL/147282047/lm2596s-dc-dc-buck-converter-power-supply.jpg" alt="LM2596S Voltage Regulator" width="250" height="250">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=250 width=250>
-### Algorithm and Code
+<table border="1">
+  <thead>
+    <tr>
+      <th>Component Image</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://5.imimg.com/data5/SELLER/Default/2024/12/474327581/HV/WY/PL/147282047/lm2596s-dc-dc-buck-converter-power-supply.jpg" alt="LM2596S Voltage Regulator" width="250" height="250"></td>
+        <td>
+          1. DC buck converter
+          2. A buck converter or step-down converter is a DC-to-DC converter which decreases voltage, while increasing current, from its input (supply) to its output (load)
+          3. DC-DC converter
+        </td>
+      </tr>
+      <tr>
+        <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=250 width=250>
+### Algorithm and Code</td>
+        <td>
+          1. 18650 Lithium Ion batteries
+          2. High energy density and capacity, leading to longer usage times and more power in a small package. 
+        </td>
+      </tr>
+  </tbody>
+</table>
 
 #### Open Round Algorithm
 We used LiDAR sensor to detect the walls. The algorithm used is as follows:
