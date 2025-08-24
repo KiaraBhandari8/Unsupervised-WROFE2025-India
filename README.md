@@ -171,6 +171,7 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 #### Steering Mechanism
 We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
 
+MG996r Servo Motor:
 <table border="1">
   <thead>
     <tr>
