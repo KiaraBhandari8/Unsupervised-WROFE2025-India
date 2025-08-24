@@ -168,8 +168,8 @@ The challenge requires students to construct an autonomous robot which will unde
 <table border="1">
   <thead>
     <tr>
-      <th style="width:800;">Top</th>
-      <th style="width:800;">Bottom</th>
+      <th>Top</th>
+      <th>Bottom</th>
     </tr>
   </thead>
   <tr>
@@ -355,6 +355,10 @@ Raspberry pi camera module 3 wide angle:
       </tr>
   </tbody>
 </table>
+
+In the robot, the 18650 battery pack serves as the main power source, but the two subsystems require different operating voltages: one load runs directly from ~11.1 V, while the control electronics need a stable 3.3 V supply. To achieve this efficiently, an LM2596 buck DC-DC regulator was used. Unlike a linear regulator, which would waste most of the excess voltage as heat, the LM2596 provides high efficiency (typically 80–90%) when stepping down from the battery’s 9–12.6 V range to 3.3 V, ensuring longer battery life and stable operation for sensors, logic, and microcontrollers.
+
+The use of the LM2596 also simplifies power management and sensing: it provides sufficient current headroom for the 3.3 V rail, maintains stable output despite battery voltage fluctuations, and protects sensitive electronics from overvoltage. Meanwhile, the device that requires ~11.1 V can be powered directly from the pack. Together, this setup ensures that both voltage rails remain reliable, efficient, and well-suited to the robot’s autonomous operation.
 
 #### Lithium Ion batteries:
  <table border="1">
