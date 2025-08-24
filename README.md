@@ -168,8 +168,8 @@ The challenge requires students to construct an autonomous robot which will unde
 <table border="1">
   <thead>
     <tr>
-      <th style="width:300;">Top</th>
-      <th style="width:300;">Bottom</th>
+      <th style="width:800;">Top</th>
+      <th style="width:800;">Bottom</th>
     </tr>
   </thead>
   <tr>
