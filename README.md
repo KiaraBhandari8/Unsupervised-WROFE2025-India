@@ -68,7 +68,6 @@ Team picture:
   <thead>
     <tr>
       <th>Component Name with Link</th>
-      <th>Component Image</th>
       <th>Quantity</th>
       <th>Price</th>
     </tr>
@@ -76,7 +75,6 @@ Team picture:
   <tbody>
     <tr>
     <td><a href="https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB">N20 DC Gear Motor</a></td>
-      <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" width="250" height="250"></td>
       <td>1</td>
       <td>₹500</td>
     </tr>
@@ -173,12 +171,14 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 #### Steering Mechanism
 We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
 
+<img src="[https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg](https://m.media-amazon.com/images/I/41XB4mJnlRL._UF1000,1000_QL80_.jpg)" alt="MG996r servo motor" height="250" width="250">
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
 
+<img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="250" width="250">
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
 ### Sensors and Perception
@@ -187,8 +187,12 @@ The LiDAR sensor measures distances by emitting laser pulses and calculating the
 Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
-### Power Management
+<img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="250" height="250">
+<img src="https://robu.in/wp-content/uploads/2023/01/Raspberry-Pi-Camera-Module-3-Wide-2-2-min.jpg" alt="Raspberry Pi camera module 3 wide angle" width="250" height="250">
 
+### Power Management
+<img src="https://5.imimg.com/data5/SELLER/Default/2024/12/474327581/HV/WY/PL/147282047/lm2596s-dc-dc-buck-converter-power-supply.jpg" alt="LM2596S Voltage Regulator" width="250" height="250">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=250 width=250>
 ### Algorithm and Code
 
 #### Open Round Algorithm
@@ -228,153 +232,6 @@ In our testing, we have achieved the following scores:
     </tr>
   </tbody>
 </table>
-
-# 🚀 Robot Construction Guide
-
-This document provides a step-by-step guide to building and setting up the robot.  
-
----
-
-## 🖨️ Step 0: Print the 3D Parts
-The 3D printable parts can be found in the `3d-models` folder.  
-Recommended printer: **BambuLab X1-Carbon** (or equivalent).  
-
-**Suggested print settings (update once finalized):**
-- Material: PLA  
-- Layer height: 0.2 mm  
-- Infill: 20%  
-- Supports: Yes  
-- Raft: No  
-- Brim: Yes  
-
----
-
-
-⚙️ Step 1: Assemble the Chassis & Steering Servo
-
-- Mount the **MG66R servo** onto the chassis using the provided slots or screws/zip ties.  
-- Connect the servo horn to the steering linkage slot in the chassis.  
-- Ensure the servo wire exits cleanly towards the electronics compartment.  
-- The differential system relies on the **N20 motors**, while the servo provides steering correction.  
-
-
----
-
-
-🔩 Step 2: Assemble the Powertrain 
-
-- Mount the **motor brackets** onto the chassis using screws.  
-- Insert the **N20 gearmotors** into the brackets and secure them tightly.  
-- Attach the **N20 wheels** directly to the motor shafts.  
-- Ensure both wheels spin freely and remain aligned with the chassis.  
-- If spacers are included in the 3D model, use them to level the wheels.  
-
-
-
----
-
-
-🔌 Step 3: Attach the Electronics
-
-- **Motor Driver (TB6612FNG):**  
-  - Mount to the chassis (double-sided tape or 3D mount).  
-  - Connect the N20 motors to the A and B outputs.  
-
-- **PWM Controller (PCA9685):**  
-  - Fix near the servo.  
-  - Connect the MG66R servo to channel 0.  
-  - Power the PCA9685 from the main battery (via Pi 5).  
-
-- **Raspberry Pi 5:**  
-  - Mount onto the electronics platform.  
-  - Connect the TB6612FNG and PCA9685 via GPIO/I²C.  
-  - Connect the **LiDAR sensor** via USB or UART (depending on module).  
-  - Mount the **PiCamera3 Wide Angle** on the front of the chassis with a slight upward tilt.  
-
-- **Battery Pack:**  
-  - Place under or behind the electronics mount.  
-  - Secure with Velcro or brackets.  
-  - Connect battery output to a 5V regulator if required.  
-
-
-
----
-
-
-📡 Step 4: Wiring Setup
-
-- **Servo** → PCA9685 (channel 0)  
-- **Motors** → TB6612FNG → Raspberry Pi GPIO  
-- **PCA9685** → Raspberry Pi (I²C SDA + SCL)  
-- **LiDAR** → Raspberry Pi (USB/UART)  
-- **PiCamera3** → Raspberry Pi camera slot  
-
-(Optional) Bundle excess wires with zip ties for a clean look.  
-
-
-
----
-
-
-💻 Step 5: Software Setup 
-
-1. Insert a microSD card with **Raspberry Pi OS** into the Pi 5.  
-2. Boot and complete first-time setup.  
-3. Install dependencies:  
-   ```bash
-   sudo apt update && sudo apt upgrade -y
-   sudo apt install python3-pip i2c-tools
-   pip3 install adafruit-circuitpython-servokit rplidar opencv-python
-Enable I²C and camera support:
-sudo raspi-config
-
-
-
-
-📝 Raspberry Pi 5 Initialization Steps
-
-### 1. Prepare the microSD Card
-- Download the latest **Raspberry Pi OS (64-bit)** from the official Raspberry Pi website.  
-- Use **Raspberry Pi Imager** (or BalenaEtcher) to flash the OS to a microSD card (32GB recommended).  
-- Insert the flashed microSD card into the Raspberry Pi 5.  
-
----
-
-### 2. First Boot
-- Connect the Pi to a monitor, keyboard, and mouse.  
-- Power on the Pi using your battery pack or a 5V/5A USB-C supply.  
-- Go through the first-time setup wizard:  
-  - Select language, time zone, and keyboard layout.  
-  - Connect to Wi-Fi.  
-  - Update the system when prompted.  
-
----
-
-### 3. Enable Required Interfaces
-Open terminal and run:
-```bash
-sudo raspi-config
-Enable the following:
-I²C (for PCA9685 servo controller)
-Camera (for PiCamera3)
-SSH (for remote programming from VS Code)
-Serial/UART (if your LiDAR uses UART)
-Reboot the Pi after enabling:
-sudo reboot
-4. Install System Updates & Tools
-Run these commands:
-sudo apt update && sudo apt upgrade -y
-sudo apt install python3-pip git i2c-tools
-5. Install Python Libraries
-Install required libraries for motors, LiDAR, and camera:
-pip3 install adafruit-circuitpython-servokit rplidar opencv-python
-6. (Optional) VS Code Remote Setup
-To program directly from your laptop using Visual Studio Code:
-Install the Remote SSH extension in VS Code.
-Connect to the Pi using its IP address:
-ssh pi@<your_pi_ip>
-Default username: pi
-Default password: raspberry (change this after first login with passwd).
 
 ## Running the Code
 To run the code, follow these steps:
