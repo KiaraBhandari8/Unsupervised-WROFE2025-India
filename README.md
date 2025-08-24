@@ -202,8 +202,10 @@ The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with p
       <tr>
         <td><img src="https://5.imimg.com/data5/SELLER/Default/2024/12/474327581/HV/WY/PL/147282047/lm2596s-dc-dc-buck-converter-power-supply.jpg" alt="LM2596S Voltage Regulator" width="250" height="250"></td>
         <td>
-          1. DC buck converter
+          1. DC buck converter  
+          <br>
           2. A buck converter or step-down converter is a DC-to-DC converter which decreases voltage, while increasing current, from its input (supply) to its output (load)
+          <br>
           3. DC-DC converter
         </td>
       </tr>
@@ -212,6 +214,7 @@ The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with p
 ### Algorithm and Code</td>
         <td>
           1. 18650 Lithium Ion batteries
+          <br>
           2. High energy density and capacity, leading to longer usage times and more power in a small package. 
         </td>
       </tr>
