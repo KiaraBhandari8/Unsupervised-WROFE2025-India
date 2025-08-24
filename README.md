@@ -187,6 +187,7 @@ The LiDAR sensor measures distances by emitting laser pulses and calculating the
 Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
+Lidar:
 <table border="1">
   <thead>
     <tr>
@@ -207,7 +208,19 @@ The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with p
           3. Range of up to 12 meters
         </td>
       </tr>
-      <tr>
+  </tbody>
+</table>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
         <td><img width="200" height="200" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
         </td>
         <td>
