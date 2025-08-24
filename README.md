@@ -16,6 +16,8 @@ This is a repository for our WRO Future Engineers 2025 documentation.
     - [Power and Sense Management](#power-and-sense-management)
       - [LiPo Batteries](#lipo-batteries)
     - [Power Management](#power-management)
+        - [DC Buck Converter:](#dc-buck-converter)
+      - [Lithium Ion batteries:](#lithium-ion-batteries)
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
@@ -290,9 +292,9 @@ Raspberry pi camera module 3 wide angle:
 </table>
 
 ### Power Management
->>>>>>> 7252431430032684d270e18c98f5f323b27099e0
 
-DC Buck Converter:
+
+##### DC Buck Converter:
 <table border="1">
   <thead>
     <tr>
@@ -316,7 +318,7 @@ DC Buck Converter:
   </tbody>
 </table>
 
-Lithium Ion batteries:
+#### Lithium Ion batteries:
  <table border="1">
   <thead>
     <tr>
@@ -329,7 +331,7 @@ Lithium Ion batteries:
         <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=200 width=200>
         </td>
         <td>
-          1. 18650 Lithium Ion batteries
+          1. 18650 Lithium Ion batteries (11.1 V) 
           <br>
           <br>
           2. High energy density and capacity, leading to longer usage times and more power in a small package. 
