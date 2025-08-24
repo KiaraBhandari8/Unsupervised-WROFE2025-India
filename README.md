@@ -13,11 +13,17 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Steering Mechanism](#steering-mechanism)
       - [Drive Mechanism](#drive-mechanism)
     - [Sensors and Perception](#sensors-and-perception)
-    - [Power Management](#power-management)
+    - [Power and Sense Management](#power-and-sense-management)
+      - [LiPo Batteries](#lipo-batteries)
     - [Algorithm and Code](#algorithm-and-code)
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
+- [🚀 Robot Construction Guide](#-robot-construction-guide)
+  - [🖨️ Step 0: Print the 3D Parts](#️-step-0-print-the-3d-parts)
+    - [1. Prepare the microSD Card](#1-prepare-the-microsd-card)
+    - [2. First Boot](#2-first-boot)
+    - [3. Enable Required Interfaces](#3-enable-required-interfaces)
   - [Running the Code](#running-the-code)
 
 ## Team
@@ -78,7 +84,7 @@ Team picture:
     <td><a href="https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB">N20 DC Gear Motor</a></td>
       <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" width="250" height="250"></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹239</td>
     </tr>
     <tr>
     <td><a href="https://robu.in/product/raspberry-pi-5-model-8gb/?gad_source=1&gad_campaignid=19974686076&gbraid=0AAAAADvLFWccPNo1nAFbja4etEZbwSYsa&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksOP09gGjW_GFf7Vsckn2RSF4H_OcJGQZTPNndUeFb9ESBsUWQDfvsaAsGREALw_wcB">Raspberry Pi 5 (Cooling Fan + SD Card)</a></td>
@@ -93,27 +99,27 @@ Team picture:
       <tr>
     <td><a href="https://share.google/GQIqzE7hObWl2JtNW">TB6612FNG Motor Driver</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹161</td>
     </tr>
       <tr>
     <td><a href="https://share.google/SYj7opQ4mhcO487lK">MG996R Servo Motor</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹347</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/16-channel-12-bit-pwmservo-driver-i2c-interface-pca9685-arduino-raspberry-pi/">PCA9685 Servo Driver</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹223</td>
     </tr>
       <tr>
     <td><a href="https://share.google/BG01lgffrP5yxi8mK">N20 Wheels</a></td>
-      <td>1</td>
-      <td>₹500</td>
+      <td>4</td>
+      <td>₹140</td>
     </tr>
       <tr>
     <td><a href="https://share.google/xb8SxxgjGmudeReLK">LM2596S Voltage Regulator</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹41</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/ydlidar-t-mini-plus-lidar-sensor/">YD LiDAR T-mini plus</a></td>
@@ -187,7 +193,11 @@ The LiDAR sensor measures distances by emitting laser pulses and calculating the
 Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
-### Power Management
+### Power and Sense Management
+#### LiPo Batteries 
+| (images/18650battery) | *Specifications* | 
+| -- | -------------- | 
+
 
 ### Algorithm and Code
 
@@ -229,5 +239,181 @@ In our testing, we have achieved the following scores:
   </tbody>
 </table>
 
+# 🚀 Robot Construction Guide
+
+This document provides a step-by-step guide to building and setting up the robot.  
+
+---
+
+## 🖨️ Step 0: Print the 3D Parts
+The 3D printable parts can be found in the `3d-models` folder.  
+Recommended printer: **BambuLab X1-Carbon** (or equivalent).  
+
+**Suggested print settings (update once finalized):**
+- Material: PLA  
+- Layer height: 0.2 mm  
+- Infill: 20%  
+- Supports: Yes  
+- Raft: No  
+- Brim: Yes  
+
+---
+
+⚙️ Step 1: Assemble the Chassis & Steering Servo
+
+- Mount the **MG66R servo** onto the chassis using the provided slots or screws/zip ties.  
+- Connect the servo horn to the steering linkage slot in the chassis.  
+- Ensure the servo wire exits cleanly towards the electronics compartment.  
+- The differential system relies on the **N20 motors**, while the servo provides steering correction.  
+
+
+
+---
+
+🔩 Step 2: Assemble the Powertrain
+
+- Mount the **motor brackets** onto the chassis using screws.  
+- Insert the **N20 gearmotors** into the brackets and secure them tightly.  
+- Attach the **N20 wheels** directly to the motor shafts.  
+- Ensure both wheels spin freely and remain aligned with the chassis.  
+- If spacers are included in the 3D model, use them to level the wheels.  
+
+
+---
+
+🔌 Step 3: Attach the Electronics
+
+- **Motor Driver (TB6612FNG):**  
+  - Mount to the chassis (double-sided tape or 3D mount).  
+  - Connect the N20 motors to the A and B outputs.  
+
+- **PWM Controller (PCA9685):**  
+  - Fix near the servo.  
+  - Connect the MG66R servo to channel 0.  
+  - Power the PCA9685 from the main battery (via Pi 5).  
+
+- **Raspberry Pi 5:**  
+  - Mount onto the electronics platform.  
+  - Connect the TB6612FNG and PCA9685 via GPIO/I²C.  
+  - Connect the **LiDAR sensor** via USB or UART (depending on module).  
+  - Mount the **PiCamera3 Wide Angle** on the front of the chassis with a slight upward tilt.  
+
+- **Battery Pack:**  
+  - Place under or behind the electronics mount.  
+  - Secure with Velcro or brackets.  
+  - Connect battery output to a 5V regulator if required.  
+
+
+
+---
+
+📡 Step 4: Wiring Setup
+
+- **Servo** → PCA9685 (channel 0)  
+- **Motors** → TB6612FNG → Raspberry Pi GPIO  
+- **PCA9685** → Raspberry Pi (I²C SDA + SCL)  
+- **LiDAR** → Raspberry Pi (USB/UART)  
+- **PiCamera3** → Raspberry Pi camera slot  
+
+(Optional) Bundle excess wires with zip ties for a clean look.  
+
+
+---
+
+💻 Step 5: Software Setup
+
+1. Insert a microSD card with **Raspberry Pi OS** into the Pi 5.  
+2. Boot and complete first-time setup.  
+3. Install dependencies:  
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+   sudo apt install python3-pip i2c-tools
+   pip3 install adafruit-circuitpython-servokit rplidar opencv-python
+Enable I²C and camera support:
+sudo raspi-config
+
+>📥 Step 6: Upload the Code
+Open Visual Studio Code on your laptop/desktop.
+Connect to the Raspberry Pi via SSH or VS Code Remote.
+Upload your control code (motor + servo + LiDAR + camera).
+Run the program:
+python3 main.py
+
+🛠️ Step 7: Testing & Calibration
+Power on the robot.
+Test servo movement (ensure center position).
+Run a basic motor test to confirm both N20 motors spin correctly.
+Adjust LiDAR positioning and camera tilt.
+Fine-tune the code for speed, steering, and stability.
+
+📷 Media Placeholders
+Add images or diagrams of your build process here:
+docs/images/chassis.jpg
+docs/images/electronics.jpg
+docs/images/wiring.jpg
+
+
+
+
+📝 Raspberry Pi 5 Initialization Steps
+
+### 1. Prepare the microSD Card
+- Download the latest **Raspberry Pi OS (64-bit)** from the official Raspberry Pi website.  
+- Use **Raspberry Pi Imager** (or BalenaEtcher) to flash the OS to a microSD card (32GB recommended).  
+- Insert the flashed microSD card into the Raspberry Pi 5.  
+
+---
+
+### 2. First Boot
+- Connect the Pi to a monitor, keyboard, and mouse.  
+- Power on the Pi using your battery pack or a 5V/5A USB-C supply.  
+- Go through the first-time setup wizard:  
+  - Select language, time zone, and keyboard layout.  
+  - Connect to Wi-Fi.  
+  - Update the system when prompted.  
+
+---
+
+### 3. Enable Required Interfaces
+Open terminal and run:
+``` bash
+  sudo raspi-config
+
+  Enable the following:
+  I²C (for PCA9685 servo controller)
+  Camera (for PiCamera3)
+  SSH (for remote programming from VS Code)
+  Serial/UART (if your LiDAR uses UART)
+  Reboot the Pi after enabling:
+  sudo reboot
+
+  4. Install System Updates & Tools
+  Run these commands:
+  sudo apt update && sudo apt upgrade -y
+  sudo apt install python3-pip git i2c-tools
+
+  5. Install Python Libraries
+  Install required libraries for motors, LiDAR, and camera:
+  pip3 install adafruit-circuitpython-servokit rplidar opencv-python
+
+  6. (Optional) VS Code Remote Setup
+  To program directly from your laptop using Visual Studio Code:
+  Install the Remote SSH extension in VS Code.
+  Connect to the Pi using its IP address:
+  ssh pi@<your_pi_ip>
+  Default username: pi
+  Default password: raspberry (change this after first login with passwd).
+  
+``` bash 
+ 
+
+
+
+
+
+
 ## Running the Code
 To run the code, follow these steps:
+
+
+[View LiDAR in 3D](3d/lidar.stl) 
