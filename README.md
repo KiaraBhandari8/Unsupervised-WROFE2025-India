@@ -7,6 +7,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
   - [Team](#team)
   - [About the challenge](#about-the-challenge)
   - [List of Components](#list-of-components)
+  - [Robot Pictures](#robot-pictures)
   - [Design, Build, Code and Evaluate Process](#design-build-code-and-evaluate-process)
     - [Design](#design)
     - [Build](#build)
@@ -161,6 +162,20 @@ The challenge requires students to construct an autonomous robot which will unde
     </tr>
 
   </tbody>
+</table>
+
+## Robot Pictures
+<table border="1">
+  <thead>
+    <tr>
+      <th>Top</th>
+      <th>Bottom</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Chasis Design Drawing" width="500"></td>
+  </tr>
 </table>
 
 ## Design, Build, Code and Evaluate Process
