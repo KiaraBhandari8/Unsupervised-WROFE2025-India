@@ -187,8 +187,38 @@ The LiDAR sensor measures distances by emitting laser pulses and calculating the
 Camera – Raspberry Pi Camera Module 3 (Wide)
 The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
-<img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="250" height="250">
-<img width="463" height="463" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="250" height="250">
+        <td>
+          1. YD Lidar T-mini Plus
+          <br>
+          <br>
+          2. 360° environment scanning which allows the robot to see in all directions, unlike ultrasonic/IR sensors which are narrow
+          <br>
+          <br>
+          3. Range of up to 12 meters
+        </td>
+      </tr>
+      <tr>
+        <td><img width="463" height="463" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
+        </td>
+        <td>
+          1. Raspberry Pi camera module 3 wide angle
+          <br>
+          <br>
+          2. 120° diagonal field of view (FoV), roughly corresponding to 102° horizontally and 67° vertically.
+        </td>
+      </tr>
+  </tbody>
+</table>
 
 ### Power Management
 <table border="1">
@@ -213,7 +243,7 @@ The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with p
       </tr>
       <tr>
         <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpzQU7jtEsYD5vpUwN10MAqyYzwncsd7vf-A&s" alt="18650 lithium ion batteries" hegiht=250 width=250>
-### Algorithm and Code</td>
+        </td>
         <td>
           1. 18650 Lithium Ion batteries
           <br>
