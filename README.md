@@ -382,6 +382,8 @@ The use of the LM2596 also simplifies power management and sensing: it provides 
   </tbody>
 </table>
 
+3-cell 18650 non-rechargeable battery pack (11.1V nominal voltage) was selected as the power source because it delivers a stable and sufficient voltage to run the motors, sensors, and control circuitry effectively. Non-rechargeable 18650 cells are advantageous in this context as they provide consistent energy output without the risk of recharge-related degradation or maintenance, ensuring reliable short- to medium-term operation. The 11.1V level is well-suited for driving motor drivers and microcontrollers that require higher voltages than standard AA or 9V batteries can provide. Additionally, the high energy density of 18650 cells allows longer runtime compared to conventional disposable batteries, while their cylindrical form factor keeps the power system compact and lightweight for integration into the robot’s design.
+
 #### Open Round Algorithm
 We used LiDAR sensor to detect the walls. The algorithm used is as follows:
 Inputs of the liDAR sensor are processed to determine the distance to the walls for each angle from -90 (LiDAR left) to 90 degrees(LiDAR right). LiDAR axis (0 degrees) is aligned with the robot axis. The error is calculated as the difference between LiDAR left and LiDAR right. Based on the error, the robot uses PID control to adjust its steering angle to correct its path. Kp, Ki, and Kd values are tuned to achieve the desired response. The same thing is used for turning left and right. 
