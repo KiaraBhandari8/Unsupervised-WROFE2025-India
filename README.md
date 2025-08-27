@@ -10,14 +10,17 @@ This is a repository for our WRO Future Engineers 2025 documentation.
   - [Robot Pictures](#robot-pictures)
   - [Design, Build, Code and Evaluate Process](#design-build-code-and-evaluate-process)
     - [Design](#design)
+    - [Mobility Management](#mobility-management)
+      - [Powertrain](#powertrain)
+        - [Drivetrain](#drivetrain)
+        - [Motor](#motor)
+        - [Motor Driver](#motor-driver)
     - [Build](#build)
       - [Chassis](#chassis)
       - [Steering Mechanism](#steering-mechanism)
       - [Drive Mechanism](#drive-mechanism)
     - [Sensors and Perception](#sensors-and-perception)
-    - [Power and Sense Management](#power-and-sense-management)
-      - [LiPo Batteries](#lipo-batteries)
-    - [Power Management](#power-management)
+    - [Power and sense management](#power-and-sense-management)
         - [DC Buck Converter:](#dc-buck-converter)
       - [Lithium Ion batteries:](#lithium-ion-batteries)
       - [Open Round Algorithm](#open-round-algorithm)
@@ -215,6 +218,106 @@ We started understading the given constraints and physical requirements of the r
   
   - Drive mechanism design      
 
+### Mobility Management
+
+The robot's mobility is managed by a combination of compoenents, icluding the powertrain, sterring system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
+
+#### Powertrain 
+
+##### Drivetrain 
+To minimize friction and therby reduce speed loss, driving axle was made from an steel rod. We connected the orot to the riving axle using a custom 3-D printed adapter. The driing axle is equipped with differential gears, which allow the robot to turn smoothly. For traction we used N20 wheels. 
+
+Potential Improvements:
+
+- Upgrade to higher-quality differential gear set for enhanced efficiency and smoother cornering. 
+- Experiment with lighter alloys and hollow rods to balance strength with reduced weight. 
+- Replace the 3D printed adapter with a kachined metal one for greater durability and precision. 
+
+##### Motor
+
+N20 DC Gear motor:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Specifications:</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="200" width="200"></td>
+        <td>
+          1. Name: N20 dc Gear Motor
+          <br>
+          <br>
+          2. Speed Range:  ~ 30 RPm to ~ 2000 RPM
+          <br>
+          <br>
+          3. High torque at low RPM due to gearbox
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+Following an evaluation of different motors, we settles on the **N20-6V-600 Rpm Micro Metal Gear Motor**. THis motor was selected for its lightweight and compact design, which stands out among others with comparable output. We secured the motor to the chassis using a custom 3-D printed holder. 
+
+Where to buy the motor: (insert link)
+
+To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/loaders/STLLoader.js"></script>
+<canvas id="stl-viewer"></canvas>
+
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stl-viewer')});
+  renderer.setSize(600, 400);
+
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(1, 1, 1).normalize();
+  scene.add(light);
+
+  const loader = new THREE.STLLoader();
+  loader.load('https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/3d/differentialgear_2.stl', function (geometry) {
+      const material = new THREE.MeshPhongMaterial({color: 0x5555ff});
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+      camera.position.z = 5;
+      function animate() {
+          requestAnimationFrame(animate);
+          mesh.rotation.y += 0.01;
+          renderer.render(scene, camera);
+      }
+      animate();
+  });
+</script>
+
+Potential Improvements:
+- Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
+- Replace the custom 3D-printed adapter with a machined metal connector to enhance strength and long-term reliability.
+- Implement a sturdier motor mount or holder to minimize vibrations and ensure better alignment with the axle.
+
+
+
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
+
+##### Motor Driver 
+
+To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG motor driver. 
+
+Where to buy the motor drive: https://www.sparkfun.com/sparkfun-motor-driver-dual-tb6612fng-with-headers.html
+
+Potential Improvements:
+- Replace the motor driver with a custom PCB to reduce weight and improve space utiliation 
+- Add active cooling or heating sinks for enhanced thermal performance during extended use.
+- Explore higher-current motor drivers to accomodate potential motor upgrades. 
+- Implement a more robust power manangement system to ensure reliable operation. 
+
+
+
 ### Build
 
 
@@ -251,31 +354,6 @@ MG996r Servo Motor:
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
 
-N20 DC Gear motor:
-<table border="1">
-  <thead>
-    <tr>
-      <th style="width:300;">Component Image</th>
-      <th style="width:200;">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="200" width="200"></td>
-        <td>
-          1. N20 dc Gear Motor
-          <br>
-          <br>
-          2. Speed range (depends on gear ratio): from ~30 RPM (high torque) to ~1000 RPM (low torque)
-          <br>
-          <br>
-          3. High torque at low RPM due to gearbox
-        </td>
-      </tr>
-  </tbody>
-</table>
-
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
 ### Sensors and Perception
 LiDAR (YD LiDAR T-mini plus)  
