@@ -174,7 +174,7 @@ The challenge requires students to construct an autonomous robot which will unde
   </thead>
   <tr>
     <td>
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Robot_Top" width="250" height="250"></td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Robot_Top" width="350" height="350"></td>
     <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Bottom1.png" alt="Robot_Bottom" width="175" height="175"></td>
   </tr>
   <thead>
