@@ -278,12 +278,6 @@ N20 DC Gear motor:
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
 ### Sensors and Perception
-LiDAR (YD LiDAR T-mini plus)  
-The LiDAR sensor measures distances by emitting laser pulses and calculating their time-of-flight, providing precise range and angle data for mapping and navigation. With high accuracy and fast scan rates, it enables reliable obstacle detection, SLAM, and terrain mapping in real time.
-Camera – Raspberry Pi Camera Module 3 (Wide)
-The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
-
-
 Lidar:
 <table border="1">
   <thead>
@@ -308,6 +302,8 @@ Lidar:
   </tbody>
 </table>
 
+The LiDAR sensor functions by emitting rapid laser pulses and calculating the time it takes for each pulse to reflect back after striking an object, a principle known as time-of-flight measurement. Through this process, the sensor generates precise range and angle data, which can be used to construct highly accurate spatial representations of the surrounding environment. With its high accuracy and fast scan rates, LiDAR provides reliable obstacle detection and supports advanced techniques such as Simultaneous Localization and Mapping (SLAM) and real-time terrain mapping. This allows the autonomous robot to not only detect and avoid obstacles effectively but also to continuously update and refine its understanding of the environment, enabling more efficient navigation and path planning even in dynamic or unfamiliar settings.
+
 Raspberry pi camera module 3 wide angle:
 <table border="1">
   <thead>
@@ -329,6 +325,8 @@ Raspberry pi camera module 3 wide angle:
       </tr>
   </tbody>
 </table>
+
+The Raspberry Pi Camera Module 3 (Wide) was selected for the autonomous robot because its technical features align closely with the demands of real-time perception and navigation. The 120° ultra-wide field of view allows the robot to capture a larger portion of its surroundings in a single frame, which is especially important for detecting obstacles, tracking paths, and maintaining spatial awareness without requiring multiple cameras. Its 12 MP Sony IMX708 sensor with HDR support ensures high-quality imaging even under variable lighting conditions, such as bright sunlight or dim indoor environments, making the robot more adaptable to different scenarios. The inclusion of phase-detect autofocus provides sharper images of both near and distant objects, enhancing the accuracy of vision-based algorithms for object detection and SLAM. Furthermore, its ability to stream 1080p video at up to 50 fps ensures low-latency and smooth visual input, which is critical for real-time decision-making in autonomous navigation.
 
 ### Power and sense management
 
