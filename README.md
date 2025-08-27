@@ -20,6 +20,8 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Steering Mechanism](#steering-mechanism)
       - [Drive Mechanism](#drive-mechanism)
     - [Sensors and Perception](#sensors-and-perception)
+      - [LiDAR – YDLIDAR T-mini Plus](#lidar--ydlidar-t-mini-plus)
+      - [Camera – Raspberry Pi Camera Module 3 (Wide)](#camera--raspberry-pi-camera-module-3-wide)
     - [Power and sense management](#power-and-sense-management)
         - [DC Buck Converter:](#dc-buck-converter)
       - [Lithium Ion batteries:](#lithium-ion-batteries)
@@ -177,8 +179,8 @@ The challenge requires students to construct an autonomous robot which will unde
   </thead>
   <tr>
     <td>
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Robot_Top" width="250" height="250"></td>
-    <td></td>
+  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Top-removebg-preview.png" alt="Robot_Top" width="350" height="350"></td>
+    <td><img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/Bottom1.png" alt="Robot_Bottom" width="225" height="225"></td>
   </tr>
   <thead>
     <tr>
@@ -325,8 +327,7 @@ Potential Improvements:
 The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot consists of multiple layers to accommodate various components. Every structural component was fastened firmly with bolts and nuts to ensure durability and rigidity required for testing. For enhanced performance, the bottom acrylic sheet was carefully trimmed along the wheel areas, allowing for free wheel rotation and better maneuverability. Instead of expanding the robot's dimensyions in horizantally that would impact maneuverability, we opted for a three-layer vertical configuration. Not only did this choice in design improve space efficiency, but it also boosted the robot's performance by allowing better integration of its mechanical and electronic components in a compact footprint. The robot dimensions are 14cm(width) x 19cm(length) x 20cm(height). 
 
 #### Steering Mechanism
-We designed a distinct and novel steering mechanism that using a single servo motor which directly transfers motion to the steer both forward wheels by same angle. Both of the forward wheels are free to rotate independently, allowing for differential steering.  This is crucial when a robot or vehicle makes a turn, as the outer wheel has to cover a greater distance than the inner wheel. We have used the MG996R Servo Motor for the steering mechanism. 
-
+The robot employs a distinct and novel steering mechanism designed to achieve efficient and reliable maneuvering using a single servo motor. An MG996R high-torque servo motor is directly coupled to the steering linkage, allowing both front wheels to turn at the same angle simultaneously. The forward wheels are free to rotate independently and are supported by a differential gear system, which ensures that each wheel can rotate at the appropriate speed when the robot takes a turn. This is essential because the outer wheel must travel a greater distance than the inner wheel during cornering, and the differential allows this motion without skidding or energy loss. By combining the servo-driven steering system with differential gears, the robot achieves precise steering control, mechanical efficiency, and smooth navigation across both straight paths and turns.
 MG996r Servo Motor:
 <table border="1">
   <thead>
@@ -354,15 +355,35 @@ MG996r Servo Motor:
 #### Drive Mechanism
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
 
+N20 DC Gear motor:
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="200" width="200"></td>
+        <td>
+          1. N20 dc Gear Motor
+          <br>
+          <br>
+          2. Speed range (depends on gear ratio): from ~30 RPM (high torque) to ~1000 RPM (low torque)
+          <br>
+          <br>
+          3. High torque at low RPM due to gearbox
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
 ### Sensors and Perception
-LiDAR (YD LiDAR T-mini plus)  
-The LiDAR sensor measures distances by emitting laser pulses and calculating their time-of-flight, providing precise range and angle data for mapping and navigation. With high accuracy and fast scan rates, it enables reliable obstacle detection, SLAM, and terrain mapping in real time.
-Camera – Raspberry Pi Camera Module 3 (Wide)
-The Raspberry Pi Camera Module 3 Wide features a 12 MP Sony IMX708 sensor with phase-detect autofocus, a 120° ultra-wide field of view, and HDR support. It delivers high-quality stills and 1080p video at up to 50 fps, making it well-suited for wide-angle imaging in robotics and vision-based applications.
 
-
-Lidar:
+#### LiDAR – YDLIDAR T-mini Plus
 <table border="1">
   <thead>
     <tr>
@@ -374,19 +395,23 @@ Lidar:
       <tr>
         <td><img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="200" height="200">
         <td>
-          1. YD Lidar T-mini Plus
-          <br>
-          <br>
-          2. 360° environment scanning which allows the robot to see in all directions, unlike ultrasonic/IR sensors which are narrow
-          <br>
-          <br>
-          3. Range of up to 12 meters
+          • Model: YDLIDAR T-mini Plus  
+          <br><br>
+          • 360° scanning capability for complete environmental awareness  
+          <br><br>
+          • Maximum range: up to 12 meters  
+          <br><br>
+          • Provides high-frequency distance and angle data for mapping and navigation
         </td>
       </tr>
   </tbody>
 </table>
 
-Raspberry pi camera module 3 wide angle:
+The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
+
+---
+
+#### Camera – Raspberry Pi Camera Module 3 (Wide)
 <table border="1">
   <thead>
     <tr>
@@ -399,14 +424,20 @@ Raspberry pi camera module 3 wide angle:
         <td><img width="200" height="200" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
         </td>
         <td>
-          1. Raspberry Pi camera module 3 wide angle
-          <br>
-          <br>
-          2. 120° diagonal field of view (FoV), roughly corresponding to 102° horizontally and 67° vertically.
+          • 12 MP Sony IMX708 sensor with HDR support  
+          <br><br>
+          • 120° ultra-wide diagonal field of view (≈102° horizontal, 67° vertical)  
+          <br><br>
+          • Phase-detect autofocus for sharp imaging  
+          <br><br>
+          • 1080p video at up to 50 fps for real-time processing
         </td>
       </tr>
   </tbody>
 </table>
+
+The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture a broad field of view, critical for detecting obstacles, monitoring lanes, and ensuring spatial awareness with fewer blind spots. Its **high-resolution sensor and HDR capability** deliver clear images across varying light conditions, while the autofocus ensures reliable detection of both nearby and distant objects. The **high frame rate (50 fps)** ensures smooth real-time video streaming, which is vital for **vision-based navigation, SLAM, and obstacle recognition**. This makes it an optimal perception sensor for the robot’s autonomous operation.
+
 
 ### Power and sense management
 
@@ -460,10 +491,12 @@ The use of the LM2596 also simplifies power management and sensing: it provides 
   </tbody>
 </table>
 
-#### Open Round Algorithm
-We used LiDAR sensor to detect the walls. The algorithm used is as follows:
-Inputs of the liDAR sensor are processed to determine the distance to the walls for each angle from -90 (LiDAR left) to 90 degrees(LiDAR right). LiDAR axis (0 degrees) is aligned with the robot axis. The error is calculated as the difference between LiDAR left and LiDAR right. Based on the error, the robot uses PID control to adjust its steering angle to correct its path. Kp, Ki, and Kd values are tuned to achieve the desired response. The same thing is used for turning left and right. 
+3-cell 18650 non-rechargeable battery pack (11.1V nominal voltage) was selected as the power source because it delivers a stable and sufficient voltage to run the motors, sensors, and control circuitry effectively. Non-rechargeable 18650 cells are advantageous in this context as they provide consistent energy output without the risk of recharge-related degradation or maintenance, ensuring reliable short- to medium-term operation. The 11.1V level is well-suited for driving motor drivers and microcontrollers that require higher voltages than standard AA or 9V batteries can provide. Additionally, the high energy density of 18650 cells allows longer runtime compared to conventional disposable batteries, while their cylindrical form factor keeps the power system compact and lightweight for integration into the robot’s design.
 
+#### Open Round Algorithm
+For the open round, a LiDAR sensor was used to detect and follow the arena walls, ensuring the robot maintained a stable path. The LiDAR provides distance measurements for angles ranging from -90° (left side of the robot) to +90° (right side), with 0° aligned along the robot’s forward axis. These measurements are processed to calculate the distance of the robot from the walls on both sides. An error value is then determined as the difference between the left and right wall distances.
+
+This error is fed into a PID controller, which continuously adjusts the steering angle to minimize deviation and keep the robot centered between the walls. The proportional (Kp), integral (Ki), and derivative (Kd) gains are tuned to achieve a stable response without excessive oscillation or delay. The same control approach is also applied when the robot needs to execute turns, enabling smooth and accurate left and right maneuvering during navigation.
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
