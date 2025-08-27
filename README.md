@@ -268,34 +268,6 @@ Where to buy the motor: (insert link)
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/loaders/STLLoader.js"></script>
-<canvas id="stl-viewer"></canvas>
-
-<script>
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stl-viewer')});
-  renderer.setSize(600, 400);
-
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(1, 1, 1).normalize();
-  scene.add(light);
-
-  const loader = new THREE.STLLoader();
-  loader.load('https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/3d/differentialgear_2.stl', function (geometry) {
-      const material = new THREE.MeshPhongMaterial({color: 0x5555ff});
-      const mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
-      camera.position.z = 5;
-      function animate() {
-          requestAnimationFrame(animate);
-          mesh.rotation.y += 0.01;
-          renderer.render(scene, camera);
-      }
-      animate();
-  });
-</script>
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -710,3 +682,4 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
