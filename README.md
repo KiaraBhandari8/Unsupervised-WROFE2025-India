@@ -276,7 +276,8 @@ N20 DC Gear motor:
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
 
 ### Sensors and Perception
-Lidar:
+
+#### LiDAR – YDLIDAR T-mini Plus
 <table border="1">
   <thead>
     <tr>
@@ -288,21 +289,23 @@ Lidar:
       <tr>
         <td><img src="https://robu.in/wp-content/uploads/2024/11/YDLIDAR__T-mini_Plus-.jpg" alt="YD Lidar T-mini plus" width="200" height="200">
         <td>
-          1. YD Lidar T-mini Plus
-          <br>
-          <br>
-          2. 360° environment scanning which allows the robot to see in all directions, unlike ultrasonic/IR sensors which are narrow
-          <br>
-          <br>
-          3. Range of up to 12 meters
+          • Model: YDLIDAR T-mini Plus  
+          <br><br>
+          • 360° scanning capability for complete environmental awareness  
+          <br><br>
+          • Maximum range: up to 12 meters  
+          <br><br>
+          • Provides high-frequency distance and angle data for mapping and navigation
         </td>
       </tr>
   </tbody>
 </table>
 
-The LiDAR sensor functions by emitting rapid laser pulses and calculating the time it takes for each pulse to reflect back after striking an object, a principle known as time-of-flight measurement. Through this process, the sensor generates precise range and angle data, which can be used to construct highly accurate spatial representations of the surrounding environment. With its high accuracy and fast scan rates, LiDAR provides reliable obstacle detection and supports advanced techniques such as Simultaneous Localization and Mapping (SLAM) and real-time terrain mapping. This allows the autonomous robot to not only detect and avoid obstacles effectively but also to continuously update and refine its understanding of the environment, enabling more efficient navigation and path planning even in dynamic or unfamiliar settings.
+The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
 
-Raspberry pi camera module 3 wide angle:
+---
+
+#### Camera – Raspberry Pi Camera Module 3 (Wide)
 <table border="1">
   <thead>
     <tr>
@@ -315,16 +318,20 @@ Raspberry pi camera module 3 wide angle:
         <td><img width="200" height="200" alt="Raspberry Pi camera module 3 wide angle" src="https://github.com/user-attachments/assets/39f9bee2-c01f-469a-b27b-de2dcb5b5fcc" />
         </td>
         <td>
-          1. Raspberry Pi camera module 3 wide angle
-          <br>
-          <br>
-          2. 120° diagonal field of view (FoV), roughly corresponding to 102° horizontally and 67° vertically.
+          • 12 MP Sony IMX708 sensor with HDR support  
+          <br><br>
+          • 120° ultra-wide diagonal field of view (≈102° horizontal, 67° vertical)  
+          <br><br>
+          • Phase-detect autofocus for sharp imaging  
+          <br><br>
+          • 1080p video at up to 50 fps for real-time processing
         </td>
       </tr>
   </tbody>
 </table>
 
-The Raspberry Pi Camera Module 3 (Wide) was selected for the autonomous robot because its technical features align closely with the demands of real-time perception and navigation. The 120° ultra-wide field of view allows the robot to capture a larger portion of its surroundings in a single frame, which is especially important for detecting obstacles, tracking paths, and maintaining spatial awareness without requiring multiple cameras. Its 12 MP Sony IMX708 sensor with HDR support ensures high-quality imaging even under variable lighting conditions, such as bright sunlight or dim indoor environments, making the robot more adaptable to different scenarios. The inclusion of phase-detect autofocus provides sharper images of both near and distant objects, enhancing the accuracy of vision-based algorithms for object detection and SLAM. Furthermore, its ability to stream 1080p video at up to 50 fps ensures low-latency and smooth visual input, which is critical for real-time decision-making in autonomous navigation.
+The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture a broad field of view, critical for detecting obstacles, monitoring lanes, and ensuring spatial awareness with fewer blind spots. Its **high-resolution sensor and HDR capability** deliver clear images across varying light conditions, while the autofocus ensures reliable detection of both nearby and distant objects. The **high frame rate (50 fps)** ensures smooth real-time video streaming, which is vital for **vision-based navigation, SLAM, and obstacle recognition**. This makes it an optimal perception sensor for the robot’s autonomous operation.
+
 
 ### Power and sense management
 
