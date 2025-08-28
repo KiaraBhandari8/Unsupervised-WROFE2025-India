@@ -454,9 +454,17 @@ Potential Improvements:
   </tbody>
 </table>
 
-In the robot, the 18650 battery pack serves as the main power source, but the two subsystems require different operating voltages: one load runs directly from ~11.1 V, while the control electronics need a stable 3.3 V supply. To achieve this efficiently, an LM2596 buck DC-DC regulator was used. Unlike a linear regulator, which would waste most of the excess voltage as heat, the LM2596 provides high efficiency (typically 80–90%) when stepping down from the battery’s 9–12.6 V range to 3.3 V, ensuring longer battery life and stable operation for sensors, logic, and microcontrollers.
+The robot is powered by a 3-cell 18650 battery pack (~11.1 V nominal), which acts as the main source of energy. Since the subsystems operate at different voltages, a two-rail power setup is used:
 
-The use of the LM2596 also simplifies power management and sensing: it provides sufficient current headroom for the 3.3 V rail, maintains stable output despite battery voltage fluctuations, and protects sensitive electronics from overvoltage. Meanwhile, the device that requires ~11.1 V can be powered directly from the pack. Together, this setup ensures that both voltage rails remain reliable, efficient, and well-suited to the robot’s autonomous operation.
++ Direct 11.1 V rail – drives components that can operate directly from the pack
++ 3.3 V regulated rail – derived using an LM2596 buck DC-DC converter
+
+The LM2596 was chosen because it provides 80–90% efficiency, avoiding the excessive heat losses of linear regulators. It also ensures:
+
++ Stable 3.3 V output across the pack’s 9–12.6 V range
++ Reliable operation of sensors, logic, and microcontrollers
++ Adequate current headroom for the control electronics
++ Simplified power management and protection of sensitive devices
 
 #### Lithium Ion batteries:
  <table border="1">
@@ -698,6 +706,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
