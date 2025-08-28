@@ -528,7 +528,7 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
 
 ### 18650 Battery holder
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/02e2c4b724bade8870d9574d226834898980b28c/images/BatteryStand_1.png" alt="Battery Holder" width="300" height="300">
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/02e2c4b724bade8870d9574d226834898980b28c/images/BatteryStand1.png" alt="Battery Holder" width="300" height="300">
 
 + Compact Form Factor – The slim rectangular frame securely houses the 3-cell 18650 pack while minimizing wasted volume, making it well-suited for robots with limited internal space.
 + Structural Stability – The rigid walls and elongated side frame provide strong mechanical support, preventing cell movement or vibration during operation.
@@ -759,6 +759,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
