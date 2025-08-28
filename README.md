@@ -527,6 +527,17 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Compact and lightweight – cylindrical form factor makes the pack easy to integrate without adding unnecessary bulk
 + Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
 
+### 18650 Battery holder
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/02e2c4b724bade8870d9574d226834898980b28c/images/BatteryStand_1.png" alt="Battery Holder" width="300" height="300">
+
++ Compact Form Factor – The slim rectangular frame securely houses the 3-cell 18650 pack while minimizing wasted volume, making it well-suited for robots with limited internal space.
++ Structural Stability – The rigid walls and elongated side frame provide strong mechanical support, preventing cell movement or vibration during operation.
++ Mounting Flexibility – Pre-drilled holes allow easy attachment to the robot chassis, reducing the need for additional brackets or adhesives.
++ Weight Optimization – Open frame design reduces unnecessary material use, keeping the holder lightweight without compromising durability.
++ Thermal Management – The open sides promote airflow around the batteries, preventing heat buildup and improving safety during high-current discharge.
++ Maintenance-Friendly – The accessible frame allows straightforward battery replacement, inspection, or wiring adjustments.
++ Secure Alignment – Ensures the 18650 cells remain aligned in series/parallel configuration, reducing electrical contact resistance and improving power reliability.
+
 #### Open Round Algorithm
 
 + A LiDAR sensor is used to detect arena walls and maintain a stable, centered path.
@@ -748,6 +759,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
