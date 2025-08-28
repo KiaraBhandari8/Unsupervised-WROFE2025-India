@@ -540,6 +540,7 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 
 #### Power Bank holder:
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/PowerBank.png" alt="Power Bank Holder" width="300" height="250">
+
 + Minimalistic frame reduces material use, keeping it lightweight yet strong
 + Raised side arms secure the power bank and prevent shifting during operation
 + Central mounting hole allows easy attachment to the chassis
@@ -775,6 +776,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
