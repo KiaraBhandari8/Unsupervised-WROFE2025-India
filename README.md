@@ -382,7 +382,15 @@ N20 DC Gear motor:
 
 The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
 
----
+Potential Improvements:
++ Use RANSAC line fitting or clustering to detect walls and obstacles more reliably
++ Apply filtering (median, moving average, outlier rejection, low-pass on derivative) for smoother control inputs
++ Add gain scheduling or adaptive PID to adjust steering dynamically with speed and environment
++ Try predictive controllers like Pure Pursuit, Stanley, or MPC for smoother navigation
++ Fuse LiDAR with IMU/encoders for better localization and drift correction
++ Use dynamic window or VFH (Vector Field Histogram) for local obstacle avoidance
++ Apply SLAM or map-based localization for improved path planning in complex environments
++ Add trajectory prediction to handle moving obstacles effectively
 
 #### Camera – Raspberry Pi Camera Module 3 (Wide)
 <table border="1">
@@ -690,6 +698,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
