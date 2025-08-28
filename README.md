@@ -538,6 +538,22 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Maintenance-Friendly – The accessible frame allows straightforward battery replacement, inspection, or wiring adjustments.
 + Secure Alignment – Ensures the 18650 cells remain aligned in series/parallel configuration, reducing electrical contact resistance and improving power reliability.
 
+#### Power Bank holder:
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/PowerBank.png" alt="Power Bank Holder" width="300" height="250">
++ Minimalistic frame reduces material use, keeping it lightweight yet strong
++ Raised side arms secure the power bank and prevent shifting during operation
++ Central mounting hole allows easy attachment to the chassis
++ Open design ensures quick access for wiring and charging without removal
++ Provides airflow around the power bank for passive cooling
++ Stable and practical mounting without adding bulk to the robot
+
+#### Potential Improvements:
++ Use rubber padding or cushioning to reduce shock and protect the power bank from mechanical stress.
++ Design for tool-less removal so the power bank can be swapped quickly.
++ Include cable management features (clips or slots) to keep wires tidy and strain-free
++ Add universal sizing adjustability to fit different power bank models if needed.
++ Optimize the weight distribution so the holder doesn’t affect the robots performance
+
 #### Open Round Algorithm
 
 + A LiDAR sensor is used to detect arena walls and maintain a stable, centered path.
@@ -759,6 +775,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
