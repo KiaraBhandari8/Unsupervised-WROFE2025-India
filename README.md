@@ -223,7 +223,7 @@ We started understading the given constraints and physical requirements of the r
 
 ### Mobility Management
 
-The robot's mobility is managed by a combination of compoenents, icluding the powertrain, sterring system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
+The robot's mobility is managed by a combination of compoenents, including the powertrain, steering system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
 
 #### Powertrain 
 
@@ -282,6 +282,43 @@ Potential Improvements:
 ##### Motor Driver 
 
 To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG motor driver. 
+
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Specifications:</th>
+    </tr>
+  </thead>
+  <tbody>
+    Motor Voltage (VM): 4.5–13.5 V
+Logic Voltage (VCC): 2.7–5.5 V
+Output Current: 1.2 A continuous, 3.2 A peak per channel
+Channels: Dual H-Bridge (2 DC motors / 1 stepper)
+PWM Frequency: Up to 100 kHz
+Control Pins: Direction, PWM speed, Standby
+Protections: Thermal shutdown, overcurrent, undervoltage
+      <tr>
+        <td><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKUTxRfuAtlUU0PhWXWyiSGpCcXlawcLx_tdUh4Kg0qDFXzZCxnrLLnl0BveQacK3BHN2lCsaOprJau9KqzQzv7GQrtM8G_z3Y95u-KYSwJJX7_vmguI6cyA" alt="TB6612FNG Motor driver" height="200" width="200"></td>
+        <td>
+          1. Name: TB6612FNG
+          <br>
+          <br>
+          2. Motor Voltage (VM): 4.5–13.5 V
+          <br>
+          <br>
+          3. Logic Voltage (VCC): 2.7–5.5 V
+          <br>
+          <br>
+          4. Output Current: 1.2 A continuous, 3.2 A peak per channel
+          <br>
+          <br>
+          5. Control Pins: Direction, PWM speed, Standby
+        </td>
+      </tr>
+  </tbody>
+</table>
+
 
 Where to buy the motor drive: https://www.sparkfun.com/sparkfun-motor-driver-dual-tb6612fng-with-headers.html
 
@@ -718,6 +755,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
