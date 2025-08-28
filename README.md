@@ -488,12 +488,24 @@ The LM2596 was chosen because it provides 80–90% efficiency, avoiding the exce
   </tbody>
 </table>
 
-3-cell 18650 non-rechargeable battery pack (11.1V nominal voltage) was selected as the power source because it delivers a stable and sufficient voltage to run the motors, sensors, and control circuitry effectively. Non-rechargeable 18650 cells are advantageous in this context as they provide consistent energy output without the risk of recharge-related degradation or maintenance, ensuring reliable short- to medium-term operation. The 11.1V level is well-suited for driving motor drivers and microcontrollers that require higher voltages than standard AA or 9V batteries can provide. Additionally, the high energy density of 18650 cells allows longer runtime compared to conventional disposable batteries, while their cylindrical form factor keeps the power system compact and lightweight for integration into the robot’s design.
+The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nominal), selected to balance reliability, compactness, and sufficient energy supply for autonomous operation.
+
++ Stable voltage output – consistently provides ~11.1 V (9–12.6 V range) suitable for motors, sensors, and control boards
++ Non-rechargeable chemistry – eliminates risks of recharge-related degradation, swelling, or maintenance, ensuring dependable short- to medium-term use
++ Motor compatibility – higher voltage level supports motor drivers more effectively than AA or 9 V alternatives
++ Extended runtime – high energy density of 18650 cells delivers longer operation before replacement compared to conventional disposable batteries
++ Compact and lightweight – cylindrical form factor makes the pack easy to integrate without adding unnecessary bulk
++ Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
 
 #### Open Round Algorithm
-For the open round, a LiDAR sensor was used to detect and follow the arena walls, ensuring the robot maintained a stable path. The LiDAR provides distance measurements for angles ranging from -90° (left side of the robot) to +90° (right side), with 0° aligned along the robot’s forward axis. These measurements are processed to calculate the distance of the robot from the walls on both sides. An error value is then determined as the difference between the left and right wall distances.
 
-This error is fed into a PID controller, which continuously adjusts the steering angle to minimize deviation and keep the robot centered between the walls. The proportional (Kp), integral (Ki), and derivative (Kd) gains are tuned to achieve a stable response without excessive oscillation or delay. The same control approach is also applied when the robot needs to execute turns, enabling smooth and accurate left and right maneuvering during navigation.
++ A LiDAR sensor is used to detect arena walls and maintain a stable, centered path.
++ It provides distance readings from -90° (left) to +90° (right), with 0° aligned forward.
++ The robot calculates the distance to walls on both sides and determines an error value as the difference.
++ This error is fed into a PID controller, which adjusts the steering angle to minimize deviation.
++ The Kp, Ki, and Kd gains are tuned to balance responsiveness and stability, avoiding oscillation or delay.
++ The same control principle applies during turns, ensuring smooth and accurate maneuvering.
++ This approach enables consistent and precise navigation throughout the open round.
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
@@ -706,6 +718,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
