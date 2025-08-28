@@ -292,12 +292,6 @@ To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG
   </thead>
   <tbody>
     Motor Voltage (VM): 4.5–13.5 V
-Logic Voltage (VCC): 2.7–5.5 V
-Output Current: 1.2 A continuous, 3.2 A peak per channel
-Channels: Dual H-Bridge (2 DC motors / 1 stepper)
-PWM Frequency: Up to 100 kHz
-Control Pins: Direction, PWM speed, Standby
-Protections: Thermal shutdown, overcurrent, undervoltage
       <tr>
         <td><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKUTxRfuAtlUU0PhWXWyiSGpCcXlawcLx_tdUh4Kg0qDFXzZCxnrLLnl0BveQacK3BHN2lCsaOprJau9KqzQzv7GQrtM8G_z3Y95u-KYSwJJX7_vmguI6cyA" alt="TB6612FNG Motor driver" height="200" width="200"></td>
         <td>
@@ -755,6 +749,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
