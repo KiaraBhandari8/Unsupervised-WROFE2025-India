@@ -555,7 +555,7 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Add universal sizing adjustability to fit different power bank models if needed.
 + Optimize the weight distribution so the holder doesn’t affect the robots performance
 
-#### Open Round Algorithm
+## Open Round Algorithm
 ### 1) Initialization
 + Robot initializes LiDAR and motion subsystems.
 + A 5-second pause allows hardware to stabilize.
@@ -807,6 +807,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
