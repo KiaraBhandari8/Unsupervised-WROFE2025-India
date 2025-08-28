@@ -223,7 +223,7 @@ We started understading the given constraints and physical requirements of the r
 
 ### Mobility Management
 
-The robot's mobility is managed by a combination of compoenents, icluding the powertrain, sterring system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
+The robot's mobility is managed by a combination of compoenents, including the powertrain, steering system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
 
 #### Powertrain 
 
@@ -282,6 +282,36 @@ Potential Improvements:
 ##### Motor Driver 
 
 To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG motor driver. 
+
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Specifications:</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKUTxRfuAtlUU0PhWXWyiSGpCcXlawcLx_tdUh4Kg0qDFXzZCxnrLLnl0BveQacK3BHN2lCsaOprJau9KqzQzv7GQrtM8G_z3Y95u-KYSwJJX7_vmguI6cyA" alt="TB6612FNG Motor driver" height="200" width="200"></td>
+        <td>
+          1. Name: TB6612FNG
+          <br>
+          <br>
+          2. Motor Voltage (VM): 4.5–13.5 V
+          <br>
+          <br>
+          3. Logic Voltage (VCC): 2.7–5.5 V
+          <br>
+          <br>
+          4. Output Current: 1.2 A continuous, 3.2 A peak per channel
+          <br>
+          <br>
+          5. Control Pins: Direction, PWM speed, Standby
+        </td>
+      </tr>
+  </tbody>
+</table>
+
 
 Where to buy the motor drive: https://www.sparkfun.com/sparkfun-motor-driver-dual-tb6612fng-with-headers.html
 
@@ -496,6 +526,17 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Extended runtime – high energy density of 18650 cells delivers longer operation before replacement compared to conventional disposable batteries
 + Compact and lightweight – cylindrical form factor makes the pack easy to integrate without adding unnecessary bulk
 + Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
+
+### 18650 Battery holder
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/02e2c4b724bade8870d9574d226834898980b28c/images/BatteryStand1.png" alt="Battery Holder" width="300" height="300">
+
++ Compact Form Factor – The slim rectangular frame securely houses the 3-cell 18650 pack while minimizing wasted volume, making it well-suited for robots with limited internal space.
++ Structural Stability – The rigid walls and elongated side frame provide strong mechanical support, preventing cell movement or vibration during operation.
++ Mounting Flexibility – Pre-drilled holes allow easy attachment to the robot chassis, reducing the need for additional brackets or adhesives.
++ Weight Optimization – Open frame design reduces unnecessary material use, keeping the holder lightweight without compromising durability.
++ Thermal Management – The open sides promote airflow around the batteries, preventing heat buildup and improving safety during high-current discharge.
++ Maintenance-Friendly – The accessible frame allows straightforward battery replacement, inspection, or wiring adjustments.
++ Secure Alignment – Ensures the 18650 cells remain aligned in series/parallel configuration, reducing electrical contact resistance and improving power reliability.
 
 #### Open Round Algorithm
 
@@ -718,6 +759,12 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
+
+
+
+
+
 
 
 
