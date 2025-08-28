@@ -414,10 +414,15 @@ The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture
 Potential Improvements:
 
 1)Upgrade to a camera with higher resolution for better object detection and tracking.
+<br>
 2)Test alternative lighting solutions to improve visibility in various conditions.
+<br>
 3)Implement advanced image processing algorithms to enhance detection accuracy.
+<br>
 4)Use color correction algorithms: Apply color correction algorithms to compensate for any variations in lighting conditions. These algorithms can adjust the color values of the captured image to match a reference color space, making the colors more consistent and easier to calibrate.
+<br>
 5)Provide user-adjustable parameters: Allow users to manually adjust color thresholds or ranges to fine-tune the color detection. This can be done through a user interface or by providing configuration files that can be modified.
+<br>
 6)Implement real-time feedback: Display the detected colors in real-time to the user, along with the calibrated values. This allows users to visually verify the accuracy of the color detection and make adjustments if necessary.
 
 ### Power and sense management
@@ -690,5 +695,6 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
