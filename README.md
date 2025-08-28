@@ -556,44 +556,44 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Optimize the weight distribution so the holder doesn’t affect the robots performance
 
 #### Open Round Algorithm
-1) Initialization
+### 1) Initialization
 + Robot initializes LiDAR and motion subsystems.
 + A 5-second pause allows hardware to stabilize.
 + PID controller parameters (Kp, Ki, Kd) are set depending on clockwise/anticlockwise wall-following mode.
 
-2) LiDAR Data Acquisition
+### 2) LiDAR Data Acquisition
 + The LidarScanner continuously collects angle–distance pairs (-180° to +180°).
 + Distances are filtered to valid ranges, converted to millimeters, and stored in a dictionary.
 
-3) Turn Detection
+### 3) Turn Detection
 + Front LiDAR readings (±10° sector) are averaged separately for left and right.
 + If both fall within a threshold range (1500–2000 mm), the system flags a turn condition.
 + Turn events are counted, but with a cooldown (≥2.5 s) to avoid multiple detections for the same turn.
 
-4) Wall Distance Processing
+### 4) Wall Distance Processing
 + Right wall sector: 30° to 90°.
 + Left wall sector: -90° to -30°.
 + Front sector: -5° to +5° (safety check).
 + Distances in each sector are averaged to estimate proximity to arena walls.
 
-5) Error Calculation:
+### 5) Error Calculation:
 The four conditions include:
 + If both walls are visible: error = (right distance – left distance) → keeps robot centered.
 + If only one wall is visible: error = (wall distance – target distance) → maintains fixed offset.
 + If no walls detected: error = 0 → hold course.
 + If front obstacle is closer than safety threshold (e.g., <300 mm): error = 9999 (forces emergency stop).
 
-6) PID Control
+### 6) PID Control
 + The error is fed into a PID controller to smooth steering response.
 + PID output adjusts servo angle around a center position (≈95°).
 + Output is clamped to ±20° for safe steering limits.
 
-7) Motion Control
+### 7) Motion Control
 + If no obstacle: robot moves forward at constant speed (0.6).
 + Servo adjusts steering continuously to minimize PID error.
 + If obstacle detected: robot stops, pauses, and waits before continuing.
 
-8) Termination Condition
+### 8) Termination Condition
 + After max_turn_count = 12 turns, the robot stops permanently (end of round).
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
@@ -807,6 +807,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
