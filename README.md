@@ -291,7 +291,6 @@ To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG
     </tr>
   </thead>
   <tbody>
-    Motor Voltage (VM): 4.5–13.5 V
       <tr>
         <td><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKUTxRfuAtlUU0PhWXWyiSGpCcXlawcLx_tdUh4Kg0qDFXzZCxnrLLnl0BveQacK3BHN2lCsaOprJau9KqzQzv7GQrtM8G_z3Y95u-KYSwJJX7_vmguI6cyA" alt="TB6612FNG Motor driver" height="200" width="200"></td>
         <td>
@@ -749,6 +748,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
