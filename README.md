@@ -598,7 +598,106 @@ The four conditions include:
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
-#### Obstacle Round Algorithm
+
+## Obstacle Round Algorithm
+The obstacle round uses a **hybrid sensing and control system** where LiDAR and camera inputs are fused together to identify obstacles, calculate errors, and generate steering corrections. The system is structured into multiple layers: sensing, perception, control, and actuation.
+
+### 1) LiDAR-Based Obstacle Detection
++ **Sensor**: YDLidar T-mini Plus provides a **270° scan**, but only **-90° to +90° relative to robot’s forward axis** is considered.  
++ **Preprocessing**:  
+  - Filters raw data for outliers (values beyond sensor max range).  
+  - Segments detected points into clusters representing potential obstacles.  
++ **Pillar Identification**:  
+  - Uses expected pillar spacing to detect red/green pillar positions.  
+  - Calculates **lateral offset error** = difference between current robot position and target trajectory (pass left of green, right of red).  
++ **Use Case**:  
+  - Provides **fail-safe navigation** when camera detection fails (e.g., poor lighting).  
+  - Supplies continuous lateral distance measurement to support stable alignment.
+
+### 2) Camera-Based Color Detection Algorithm
+The camera system adds semantic information (pillar color), which LiDAR alone cannot provide.
+
++ **Frame Acquisition & Preprocessing**  
+  - Captures frames using **PiCamera2** at 2304×1296.  
+  - Resized and blurred to reduce noise before color segmentation.  
+  - Conversion **BGR → HSV** for robust color thresholding under variable lighting.  
+
++ **Color Segmentation**  
+  - Predefined HSV thresholds for **red** and **green**.  
+  - Binary masks created for each color channel.  
+  - Morphological operations (erode, dilate) applied to reduce noise.  
+
++ **Region of Interest (ROI)**  
+  - Inner ROI = normal detection zone.  
+  - Outer ROI = activated when LiDAR detects an obstacle cluster ahead.  
+  - Dual-ROI design reduces false positives from irrelevant background features.  
+
++ **Contour Detection & Validation**  
+  - Extracts contours from binary masks.  
+  - Rejects contours smaller than **MIN_CONTOUR_AREA = 1500**.  
+  - Selects the largest contour per frame as the obstacle candidate.  
+  - Assigns detection labels:  
+    - `"red_obstacle"` → valid red pillar.  
+    - `"green_obstacle"` → valid green pillar.  
+    - `"obstacle"` → unidentified object.  
+    - `"none"` → no valid obstacle.  
+
++ **Depth Sensitivity Factor**  
+  - Implements **DEPTH_IMPORTANCE_FACTOR = 1.35**.  
+  - Vertical pixel location of contour centroid (closer to bottom = nearer).  
+  - Error signal scaled accordingly:  
+    - Far object → low correction.  
+    - Near object → stronger correction.  
+
++ **Steering Logic (Camera)**  
+  - Red pillar → steer left with correction `steering = KP_STEERING × error × depth_factor`.  
+  - Green pillar → steer right with same correction logic.  
+  - Maintains flexibility for real-time corrections based on object position.  
+
++ **Fallback Mechanisms**  
+  - If **no obstacle detected** → black region between floor lines is used for centering.  
+  - If **frame underexposed** → assumes corner → performs sharp left turn (≈ -45°).  
+  - Prevents robot from stalling during sensor failure.  
+
++ **Debugging Visual Overlays**  
+  - Draws bounding boxes, centroids, ROI zones, and target lines.  
+  - Displays numerical feedback (depth factor, correction angle).  
+  - Useful for tuning HSV thresholds and ROI positions in real-time.  
+
+### 3) Sensor Fusion & PID Steering Control
++ **Error Calculation**  
+  - `LiDAR_error` = difference between distances to left/right wall.  
+  - `Camera_error` = lateral offset of detected pillar.  
+  - Fusion weights:  
+    - **LiDAR dominant** if no valid pillar detected.  
+    - **Camera dominant** if pillar is confirmed in ROI.  
+
++ **PID Controller**  
+  - Input = combined error (LiDAR + Camera).  
+  - **Kp (Proportional)** → quick correction response.  
+  - **Ki (Integral)** → compensates for slow drift across laps.  
+  - **Kd (Derivative)** → damps oscillations during sharp turns.  
+  - Tuning values are selected through iterative testing for balance between stability and responsiveness.  
+
++ **Output**  
+  - PID output mapped to **MG996R servo angle**.  
+  - Motor PWM adjusted to maintain forward speed while avoiding jerks during corrections.  
+
+### 4) Decision Flow & Execution
++ Final control decision is based on **sensor fusion state**:  
+  - `"red_obstacle"` → steer left of pillar.  
+  - `"green_obstacle"` → steer right of pillar.  
+  - `"corner_avoid"` → perform sharp predefined turn.  
+  - `"line_centering"` → maintain lane using LiDAR + ROI fallback.  
+
++ **Actuation**  
+  - Steering angle sent to **MG996R high-torque servo**.  
+  - Motor commands executed via **TB6612FNG motor driver**.  
+  - Smooth velocity profiles prevent skidding or abrupt turns.  
+
++ **System Reliability**  
+  - Fusion of LiDAR (geometric accuracy) and Camera (semantic recognition) ensures **redundancy and robustness**.  
+  - Fail-safes prevent deadlock when either sensor produces invalid data.  
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
@@ -807,6 +906,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
