@@ -411,6 +411,14 @@ The LiDAR sensor operates on the principle of **time-of-flight measurement**, em
 
 The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture a broad field of view, critical for detecting obstacles, monitoring lanes, and ensuring spatial awareness with fewer blind spots. Its **high-resolution sensor and HDR capability** deliver clear images across varying light conditions, while the autofocus ensures reliable detection of both nearby and distant objects. The **high frame rate (50 fps)** ensures smooth real-time video streaming, which is vital for **vision-based navigation, SLAM, and obstacle recognition**. This makes it an optimal perception sensor for the robot’s autonomous operation.
 
+Potential Improvements:
+
+1)Upgrade to a camera with higher resolution for better object detection and tracking.
+2)Test alternative lighting solutions to improve visibility in various conditions.
+3)Implement advanced image processing algorithms to enhance detection accuracy.
+4)Use color correction algorithms: Apply color correction algorithms to compensate for any variations in lighting conditions. These algorithms can adjust the color values of the captured image to match a reference color space, making the colors more consistent and easier to calibrate.
+5)Provide user-adjustable parameters: Allow users to manually adjust color thresholds or ranges to fine-tune the color detection. This can be done through a user interface or by providing configuration files that can be modified.
+6)Implement real-time feedback: Display the detected colors in real-time to the user, along with the calibrated values. This allows users to visually verify the accuracy of the color detection and make adjustments if necessary.
 
 ### Power and sense management
 
@@ -682,4 +690,5 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
