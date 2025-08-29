@@ -211,9 +211,8 @@ The challenge requires students to construct an autonomous robot which will unde
   </tr>
 </table>
 
-## Design, Build, Code and Evaluate Process
 
-### Design 
+### Design Process
 We started understading the given constraints and physical requirements of the robot and then designed the robot to meet these requirements. The design process included:
 - **Understanding the Problem Statement**: We analyzed the requirements and constraints of the WRO Future Engineers 2025 competition.
 - **Conceptualizing the Robot**: We brainstormed ideas for the robot's design, focusing on its chassis, steering mechanism, drive mechanism, sensors, and power management.
@@ -227,7 +226,10 @@ We started understading the given constraints and physical requirements of the r
 
 ### Mobility Management
 
-The robot's mobility is managed by a combination of compoenents, including the powertrain, steering system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
+The robot's mobility is managed by a combination of compoenents, icluding the powertrain, sterring system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
+
 
 #### Powertrain 
 
@@ -272,6 +274,7 @@ Where to buy the motor: (insert link)
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
+(insert 3D model)
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -1230,6 +1233,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
