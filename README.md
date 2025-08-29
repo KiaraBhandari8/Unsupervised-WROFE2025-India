@@ -620,7 +620,7 @@ def read_lidar_data(lidar):
     
     return left_avg, right_avg, forward_avg
 
-``` bash
+```
 
 
 
@@ -934,6 +934,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
