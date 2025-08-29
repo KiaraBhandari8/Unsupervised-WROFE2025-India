@@ -598,7 +598,7 @@ The four conditions include:
 
 ## Step by step breakdown of functions:
 
-### 1) read_lidar_data(lidar)
+### 1) read_lidar_data(lidar):
 ``` bash
 def read_lidar_data(lidar):
     """
@@ -630,6 +630,109 @@ def read_lidar_data(lidar):
 + By averaging readings, sudden spikes (noise) are reduced.
 + The robot then knows how far it is from left wall, right wall, and any object in front.
 
+### compute_wall_error:
+``` bash
+def compute_wall_error(left, right):
+    """
+    Calculates the lateral error between left and right distances.
+    Positive error → robot is closer to the RIGHT wall, so it must steer LEFT.
+    Negative error → robot is closer to the LEFT wall, so it must steer RIGHT.
+    """
+    return left - right
+```
+### Explanation:
++ This function ensures the robot stays centered in the arena.
++ If left > right → robot is drifting towards the right wall → needs to turn left.
++ If right > left → robot is drifting towards the left wall → needs to turn right.
++ The error value is passed into the PID controller for smooth correction.
+
+### pid_controller:
+```bash
+integral = 0
+prev_error = 0
+
+def pid_controller(error, Kp=1.2, Ki=0.01, Kd=0.5, dt=0.1):
+    """
+    PID controller that takes in an error value and outputs a steering correction angle.
+    - Proportional (P): reacts immediately to the error.
+    - Integral (I): fixes long-term drift or bias.
+    - Derivative (D): anticipates changes and prevents overshoot.
+    dt: time difference between control cycles.
+    """
+    global integral, prev_error
+    
+    integral += error * dt
+    derivative = (error - prev_error) / dt
+    output = (Kp * error) + (Ki * integral) + (Kd * derivative)
+    
+    prev_error = error
+    return output
+```
+### Explanation:
++ This is the core control function.
++ Works just like an autopilot system.
++ P (Proportional) – responds strongly to the current error.
++ I (Integral) – accumulates small errors over time (helps correct drift).
++ D (Derivative) – predicts future error change to avoid oscillations.
++ Outputs a steering correction angle for the servo.
+
+### adjust_steering(servo, angle):
+```bash
+def adjust_steering(servo, angle):
+    """
+    Adjusts the MG996R steering servo based on PID output.
+    Clamps the steering angle to [-45°, +45°] to prevent mechanical strain.
+    """
+    max_angle = 45
+    angle = max(min(angle, max_angle), -max_angle)  # clamp
+    
+    servo.write(angle)  # assumes servo driver library
+```
+
+### Explanation:
++ Converts PID output into servo rotation.
++ Prevents excessive turning (>45°) which could damage servo or robot frame.
++ Responsible for real-time navigation corrections.
+
+### control_motors(driver, speed):
+``` bash
+def control_motors(driver, speed):
+    """
+    Controls the TB6612FNG motor driver.
+    Sends equal PWM speed signals to left & right motors for forward motion.
+    Speed range is 0–255.
+    """
+    driver.set_motor_speed(speed, speed)  # equal speed for both wheels
+```
+
+### Explanation:
++ Keeps robot moving forward with a constant speed.
++ Uses PWM signals to the TB6612FNG driver.
++ If needed, can be extended to allow different left/right speeds for sharper turns.
+
+### check_termination(forward_distance, lap_count, max_laps):
+```bash
+def check_termination(forward_distance, lap_count, max_laps=3):
+    """
+    Checks if the run should terminate.
+    Conditions:
+    - If forward distance < threshold → obstacle or wall detected.
+    - If lap_count >= max_laps → required laps completed.
+    Returns True if termination condition is met.
+    """
+    if forward_distance < 20:  # cm threshold
+        return True
+    if lap_count >= max_laps:
+        return True
+    return False
+```
+
+### Explanation:
++ Ensures robot doesn’t run forever.
++ Two termination conditions:
+  + Obstacle detected in front (arena end or unexpected block).
+  + All laps completed (challenge success).
++ Returns True → robot stops.
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
@@ -941,6 +1044,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
