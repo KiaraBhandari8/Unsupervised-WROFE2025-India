@@ -621,7 +621,14 @@ def read_lidar_data(lidar):
     return left_avg, right_avg, forward_avg
 
 ```
-
+### Explanation:
++ The LiDAR constantly scans in a 180° range around the front of the robot.
++ Data is divided into zones:
+  + Left zone: -90° to -30°
+  + Right zone: +30° to +90°
+  + Forward zone: -15° to +15°
++ By averaging readings, sudden spikes (noise) are reduced.
++ The robot then knows how far it is from left wall, right wall, and any object in front.
 
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
@@ -934,6 +941,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
