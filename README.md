@@ -619,6 +619,7 @@ def read_lidar_data(lidar):
     forward_avg = sum(forward_distances)/len(forward_distances) if forward_distances else 0
     
     return left_avg, right_avg, forward_avg
+
 ``` bash
 
 
@@ -933,6 +934,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
