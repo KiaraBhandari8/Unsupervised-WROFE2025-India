@@ -596,7 +596,7 @@ The four conditions include:
 ### 8) Termination Condition
 + After max_turn_count = 12 turns, the robot stops permanently (end of round).
 
-## Step by step breakdown of functions:
+## Step by step breakdown of functions (Open Round):
 
 ### 1) read_lidar_data(lidar):
 ``` bash
@@ -837,6 +837,188 @@ The camera system adds semantic information (pillar color), which LiDAR alone ca
   - Fusion of LiDAR (geometric accuracy) and Camera (semantic recognition) ensures **redundancy and robustness**.  
   - Fail-safes prevent deadlock when either sensor produces invalid data.  
 
+## Step by step breakdown of functions (obstacle round):
+
+### analyze_black_between_lines(frame, inner_start, inner_end):
+```bash
+def analyze_black_between_lines(frame, inner_start, inner_end):
+    """
+    Detects the amount of black pixels between two bounding lines (inner ROI).
+    Balances left vs. right black regions to decide correction angle.
+    """
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    x1, y1 = inner_start
+    x2, y2 = inner_end
+
+    # Extract Region of Interest (ROI)
+    roi = gray[y1:y2, x1:x2]
+
+    # Threshold black areas
+    _, black_mask = cv2.threshold(roi, 60, 255, cv2.THRESH_BINARY_INV)
+
+    # Split into left and right halves
+    h, w = black_mask.shape
+    left = black_mask[:, :w // 2]
+    right = black_mask[:, w // 2:]
+
+    # Count black pixels
+    black_left = np.sum(left) / 255
+    black_right = np.sum(right) / 255
+    total_black = black_left + black_right
+
+    # No black detected
+    if total_black == 0:
+        return None
+
+    # Balance measure: positive → more black on right, negative → more on left
+    balance = (black_right - black_left) / total_black
+
+    # Apply gain factor
+    correction = KP_LINE_CENTERING * balance * 100
+    return correction
+```
+
+### Explanation:
++ Converts frame → grayscale and extracts a ROI between two guiding lines.
++ Thresholds dark areas (black tape or shadows).
++ Splits into left and right halves:
+  + If more black is on the left → robot drifts left → correction steers right.
+  + If more black is on the right → correction steers left.
++ Provides a PID-like correction signal to keep robot centered when no obstacles are detected.
+
+### process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
+```bash
+def process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
+    """
+    Main vision pipeline:
+    - Detects red/green obstacles in ROI
+    - Applies depth-aware steering adjustment
+    - Falls back to black line detection if no obstacle
+    - Returns processed frame (for debugging), steering_angle, mask, label
+    """
+
+    # Handle empty input
+    if frame is None or frame.size == 0:
+        return frame, 0, None, "none"
+
+    # Convert to HSV for color segmentation
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # Define HSV ranges for green and red obstacles
+    green_mask = cv2.inRange(hsv, GREEN_LOWER, GREEN_UPPER)
+    red_mask1 = cv2.inRange(hsv, RED_LOWER1, RED_UPPER1)
+    red_mask2 = cv2.inRange(hsv, RED_LOWER2, RED_UPPER2)
+    red_mask = cv2.bitwise_or(red_mask1, red_mask2)
+
+    # ROI selection
+    if use_outer_roi_and_bottom_point:
+        roi = frame[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+        roi_red = red_mask[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+        roi_green = green_mask[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+    else:
+        roi = frame[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+        roi_red = red_mask[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+        roi_green = green_mask[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+
+    # Find contours in red/green masks
+    contours_red, _ = cv2.findContours(roi_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours_green, _ = cv2.findContours(roi_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    steering_angle = 0
+    logic_label = "none"
+
+    # Determine largest obstacle contour
+    obstacle_contour = None
+    color_detected = None
+    for c in contours_red:
+        if cv2.contourArea(c) > MIN_CONTOUR_AREA:
+            obstacle_contour = c
+            color_detected = "red"
+            break
+    for c in contours_green:
+        if cv2.contourArea(c) > MIN_CONTOUR_AREA:
+            obstacle_contour = c
+            color_detected = "green"
+            break
+
+    if obstacle_contour is not None:
+        # Compute bounding box
+        x, y, w, h = cv2.boundingRect(obstacle_contour)
+        obstacle_center = x + w // 2
+        obstacle_bottom_y = y + h
+
+        # Depth sensitivity: closer objects → stronger corrections
+        normalized_depth = 1 - (obstacle_bottom_y / frame.shape[0])
+        depth_factor = DEPTH_IMPORTANCE_FACTOR * (1 + normalized_depth)
+
+        # Calculate steering correction
+        error = (obstacle_center - (roi.shape[1] // 2))
+        steering_angle = KP_STEERING * error * depth_factor
+
+        # Assign logic label
+        if color_detected == "red":
+            logic_label = "red_obstacle"
+        else:
+            logic_label = "obstacle"
+
+        # Debug drawing
+        cv2.rectangle(roi, (x, y), (x + w, y + h), (0, 255, 255), 2)
+        cv2.putText(frame, f"DepthFactor: {depth_factor:.2f}", (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+    else:
+        # Fallback: use black line detection
+        correction = analyze_black_between_lines(frame, (INNER_ROI_X1, INNER_ROI_Y1), (INNER_ROI_X2, INNER_ROI_Y2))
+        if correction is not None:
+            steering_angle = correction
+            logic_label = "line_centering"
+        else:
+            # Dark corner → assume sharp left turn
+            steering_angle = -45
+            logic_label = "corner_avoid"
+
+    return frame, steering_angle, (red_mask, green_mask), logic_label
+```
+
+### Explanation:
++ Input checks
+  + If frame is empty → return defaults.
+
++ Color filtering
+  + HSV thresholds for green obstacles and red obstacles.
+  + Masks created → isolate obstacles by color.
+
++ Region of Interest (ROI) selection
+  + Two ROI modes:
+    + Inner ROI (default) → normal detection zone.
+    + Outer ROI + bottom detection point (when close to obstacles).
+
++ Contour detection
+  + Finds contours in red/green masks.
+  + Filters by MIN_CONTOUR_AREA to ignore noise.
+  + Chooses the largest obstacle contour.
+
++ Obstacle classification
+  + If red → "red_obstacle" label.
+  + If green → "obstacle" label.
+  + If none → "none" (fallback logic).
+
++ Depth-aware steering
+  + Uses bottom Y-coordinate of obstacle (obstacle_bottom_y).
+  + Normalizes relative to frame height → closer objects give larger values.
+  + Multiplies steering correction by DEPTH_IMPORTANCE_FACTOR × normalized_depth.
+  + Result: closer obstacles cause sharper steering corrections.
+
++ Fallback to black line centering
+  + If no obstacle detected:
+    + Calls analyze_black_between_lines().
+    + If even that fails, assumes dark corner → hard left turn (-45°).
+
++ UI overlays
+  + Draws rectangles, centerlines, contours.
+  + Displays Depth Factor for debugging.
+
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
 ### Final Evaluation & Scores
@@ -1044,6 +1226,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
