@@ -1,4 +1,3 @@
-@ -1,711 +0,0 @@
 # Unsupervised-WROFE2025-India
 This is a repository for our WRO Future Engineers 2025 documentation. 
 
@@ -103,7 +102,7 @@ The challenge requires students to construct an autonomous robot which will unde
     <tr>
     <td><a href="https://robu.in/product/raspberry-pi-5-model-8gb/?gad_source=1&gad_campaignid=19974686076&gbraid=0AAAAADvLFWccPNo1nAFbja4etEZbwSYsa&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksOP09gGjW_GFf7Vsckn2RSF4H_OcJGQZTPNndUeFb9ESBsUWQDfvsaAsGREALw_wcB">Raspberry Pi 5 (Cooling Fan + SD Card)</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹8,291</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera 3 Wide Angle</a></td>
@@ -138,33 +137,38 @@ The challenge requires students to construct an autonomous robot which will unde
       <tr>
     <td><a href="https://robu.in/product/ydlidar-t-mini-plus-lidar-sensor/">YD LiDAR T-mini plus</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹9,595</td>
     </tr>
       <tr>
     <td><a href="https://www.amazon.in/Ambrane-Charging-Powerbank-Emergency-30/dp/B0D351GHY7?th=1">Power Bank</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹1,699</td>
     </tr>
       <tr>
     <td><a href="https://makerbazar.in/products/18650-3-7v-lithium-ion-rechargeable-cell-good-quality?variant=46013701423344&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic">18650 Battery</a></td>
-      <td>1</td>
-      <td>₹500</td>
+      <td>2</td>
+      <td>₹35</td>
     </tr>
       <tr>
     <td><a href="https://share.google/fq9tZREMioah3AI9Q">Push Button Switch</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹46</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/pct-spl-62-0-08-2-5mm-62-pole-wire-connector-terminal-block-with-spring-lock-lever-for-cable-connection/">Wire Connectors</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹58</td>
     </tr>
       </tr>
       <tr>
     <td><a href="https://www.mathaelectronics.com/product/4-pole-2-way-dpdt-12pin-on-off-switch/">4 Pole 2 Way DPDT 12 pin ON/OFF Switch</a></td>
       <td>1</td>
       <td>₹500</td>
+    </tr>
+    <tr>
+    <td><a href="[https://share.google/fq9tZREMioah3AI9Q](https://www.amazon.in/dp/B0D9VWCX66?ref=ppx_yo2ov_dt_b_fed_asin_title)">RC Car Rear Differential</a></td>
+      <td>1</td>
+      <td>₹1,275</td>
     </tr>
 
   </tbody>
@@ -1226,6 +1230,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
