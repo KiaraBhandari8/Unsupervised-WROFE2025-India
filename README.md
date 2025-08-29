@@ -596,6 +596,33 @@ The four conditions include:
 ### 8) Termination Condition
 + After max_turn_count = 12 turns, the robot stops permanently (end of round).
 
+## Step by step breakdown of functions:
+
+### 1) read_lidar_data(lidar)
+```bash
+def read_lidar_data(lidar):
+    """
+    Reads distance values from the LiDAR sensor between -90° and +90°.
+    Splits the scan into LEFT, RIGHT, and FORWARD zones.
+    Returns the average distance in each zone to minimize noise.
+    """
+    scan = lidar.get_scan()   # assumes lidar API gives [(angle, distance), ...]
+
+    # Split the scan into zones
+    left_distances = [d for (a, d) in scan if -90 <= a < -30]
+    right_distances = [d for (a, d) in scan if 30 <= a <= 90]
+    forward_distances = [d for (a, d) in scan if -15 <= a <= 15]
+
+    # Compute average values (if no points, default to 0)
+    left_avg = sum(left_distances)/len(left_distances) if left_distances else 0
+    right_avg = sum(right_distances)/len(right_distances) if right_distances else 0
+    forward_avg = sum(forward_distances)/len(forward_distances) if forward_distances else 0
+    
+    return left_avg, right_avg, forward_avg
+```bash
+
+
+
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
 
@@ -906,6 +933,7 @@ To run the code, follow these steps:
 
 
 [View LiDAR in 3D](3d/lidar.stl) 
+
 
 
 
