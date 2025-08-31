@@ -138,33 +138,38 @@ The challenge requires students to construct an autonomous robot which will unde
       <tr>
     <td><a href="https://robu.in/product/ydlidar-t-mini-plus-lidar-sensor/">YD LiDAR T-mini plus</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹9,595</td>
     </tr>
       <tr>
     <td><a href="https://www.amazon.in/Ambrane-Charging-Powerbank-Emergency-30/dp/B0D351GHY7?th=1">Power Bank</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹1,699</td>
     </tr>
       <tr>
     <td><a href="https://makerbazar.in/products/18650-3-7v-lithium-ion-rechargeable-cell-good-quality?variant=46013701423344&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic">18650 Battery</a></td>
-      <td>1</td>
-      <td>₹500</td>
+      <td>2</td>
+      <td>₹35</td>
     </tr>
       <tr>
     <td><a href="https://share.google/fq9tZREMioah3AI9Q">Push Button Switch</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹46</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/pct-spl-62-0-08-2-5mm-62-pole-wire-connector-terminal-block-with-spring-lock-lever-for-cable-connection/">Wire Connectors</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹58</td>
     </tr>
       </tr>
       <tr>
     <td><a href="https://www.mathaelectronics.com/product/4-pole-2-way-dpdt-12pin-on-off-switch/">4 Pole 2 Way DPDT 12 pin ON/OFF Switch</a></td>
       <td>1</td>
       <td>₹500</td>
+    </tr>
+    <tr>
+    <td><a href="[https://share.google/fq9tZREMioah3AI9Q](https://www.amazon.in/dp/B0D9VWCX66?ref=ppx_yo2ov_dt_b_fed_asin_title)">RC Car Rear Differential</a></td>
+      <td>1</td>
+      <td>₹1,275</td>
     </tr>
 
   </tbody>
@@ -207,11 +212,15 @@ The challenge requires students to construct an autonomous robot which will unde
   </tr>
 </table>
 
+<<<<<<< HEAD
 ### Performance Video
 
 
 
 
+=======
+
+>>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
 ### Design Process
 We started understading the given constraints and physical requirements of the robot and then designed the robot to meet these requirements. The design process included:
 - **Understanding the Problem Statement**: We analyzed the requirements and constraints of the WRO Future Engineers 2025 competition.
@@ -273,34 +282,7 @@ Where to buy the motor: (insert link)
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/loaders/STLLoader.js"></script>
-<canvas id="stl-viewer"></canvas>
-
-<script>
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('stl-viewer')});
-  renderer.setSize(600, 400);
-
-  const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(1, 1, 1).normalize();
-  scene.add(light);
-
-  const loader = new THREE.STLLoader();
-  loader.load('https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/3d/differentialgear_2.stl', function (geometry) {
-      const material = new THREE.MeshPhongMaterial({color: 0x5555ff});
-      const mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
-      camera.position.z = 5;
-      function animate() {
-          requestAnimationFrame(animate);
-          mesh.rotation.y += 0.01;
-          renderer.render(scene, camera);
-      }
-      animate();
-  });
-</script>
+(insert 3D model)
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -315,6 +297,36 @@ Potential Improvements:
 ##### Motor Driver 
 
 To control the speed of the drive motor, we utilized the SparkFun Dual TB6612FNG motor driver. 
+
+<table border="1">
+  <thead>
+    <tr>
+      <th style="width:300;">Component Image</th>
+      <th style="width:200;">Specifications:</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSKUTxRfuAtlUU0PhWXWyiSGpCcXlawcLx_tdUh4Kg0qDFXzZCxnrLLnl0BveQacK3BHN2lCsaOprJau9KqzQzv7GQrtM8G_z3Y95u-KYSwJJX7_vmguI6cyA" alt="TB6612FNG Motor driver" height="200" width="200"></td>
+        <td>
+          1. Name: TB6612FNG
+          <br>
+          <br>
+          2. Motor Voltage (VM): 4.5–13.5 V
+          <br>
+          <br>
+          3. Logic Voltage (VCC): 2.7–5.5 V
+          <br>
+          <br>
+          4. Output Current: 1.2 A continuous, 3.2 A peak per channel
+          <br>
+          <br>
+          5. Control Pins: Direction, PWM speed, Standby
+        </td>
+      </tr>
+  </tbody>
+</table>
+
 
 Where to buy the motor drive: https://www.sparkfun.com/sparkfun-motor-driver-dual-tb6612fng-with-headers.html
 
@@ -437,7 +449,15 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 
 The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
 
----
+Potential Improvements:
++ Use RANSAC line fitting or clustering to detect walls and obstacles more reliably
++ Apply filtering (median, moving average, outlier rejection, low-pass on derivative) for smoother control inputs
++ Add gain scheduling or adaptive PID to adjust steering dynamically with speed and environment
++ Try predictive controllers like Pure Pursuit, Stanley, or MPC for smoother navigation
++ Fuse LiDAR with IMU/encoders for better localization and drift correction
++ Use dynamic window or VFH (Vector Field Histogram) for local obstacle avoidance
++ Apply SLAM or map-based localization for improved path planning in complex environments
++ Add trajectory prediction to handle moving obstacles effectively
 
 #### Camera – Raspberry Pi Camera Module 3 (Wide)
 <table border="1">
@@ -466,6 +486,14 @@ The LiDAR sensor operates on the principle of **time-of-flight measurement**, em
 
 The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture a broad field of view, critical for detecting obstacles, monitoring lanes, and ensuring spatial awareness with fewer blind spots. Its **high-resolution sensor and HDR capability** deliver clear images across varying light conditions, while the autofocus ensures reliable detection of both nearby and distant objects. The **high frame rate (50 fps)** ensures smooth real-time video streaming, which is vital for **vision-based navigation, SLAM, and obstacle recognition**. This makes it an optimal perception sensor for the robot’s autonomous operation.
 
+Potential Improvements:
+
++ Upgrade to a camera with higher resolution for better object detection and tracking.
++ Test alternative lighting solutions to improve visibility in various conditions.
++ Implement advanced image processing algorithms to enhance detection accuracy.
++ Use color correction algorithms: Apply color correction algorithms to compensate for any variations in lighting conditions. These algorithms can adjust the color values of the captured image to match a reference color space, making the colors more consistent and easier to calibrate.
++ Provide user-adjustable parameters: Allow users to manually adjust color thresholds or ranges to fine-tune the color detection. This can be done through a user interface or by providing configuration files that can be modified.
++ Implement real-time feedback: Display the detected colors in real-time to the user, along with the calibrated values. This allows users to visually verify the accuracy of the color detection and make adjustments if necessary.
 
 ### Power and Sense management
 
@@ -493,9 +521,17 @@ The Raspberry Pi Camera Module 3 (Wide) was chosen due to its ability to capture
   </tbody>
 </table>
 
-In the robot, the 18650 battery pack serves as the main power source, but the two subsystems require different operating voltages: one load runs directly from ~11.1 V, while the control electronics need a stable 3.3 V supply. To achieve this efficiently, an LM2596 buck DC-DC regulator was used. Unlike a linear regulator, which would waste most of the excess voltage as heat, the LM2596 provides high efficiency (typically 80–90%) when stepping down from the battery’s 9–12.6 V range to 3.3 V, ensuring longer battery life and stable operation for sensors, logic, and microcontrollers.
+The robot is powered by a 3-cell 18650 battery pack (~11.1 V nominal), which acts as the main source of energy. Since the subsystems operate at different voltages, a two-rail power setup is used:
 
-The use of the LM2596 also simplifies power management and sensing: it provides sufficient current headroom for the 3.3 V rail, maintains stable output despite battery voltage fluctuations, and protects sensitive electronics from overvoltage. Meanwhile, the device that requires ~11.1 V can be powered directly from the pack. Together, this setup ensures that both voltage rails remain reliable, efficient, and well-suited to the robot’s autonomous operation.
++ Direct 11.1 V rail – drives components that can operate directly from the pack
++ 3.3 V regulated rail – derived using an LM2596 buck DC-DC converter
+
+The LM2596 was chosen because it provides 80–90% efficiency, avoiding the excessive heat losses of linear regulators. It also ensures:
+
++ Stable 3.3 V output across the pack’s 9–12.6 V range
++ Reliable operation of sensors, logic, and microcontrollers
++ Adequate current headroom for the control electronics
++ Simplified power management and protection of sensitive devices
 
 #### Lithium Ion batteries:
  <table border="1">
@@ -519,16 +555,597 @@ The use of the LM2596 also simplifies power management and sensing: it provides 
   </tbody>
 </table>
 
-3-cell 18650 non-rechargeable battery pack (11.1V nominal voltage) was selected as the power source because it delivers a stable and sufficient voltage to run the motors, sensors, and control circuitry effectively. Non-rechargeable 18650 cells are advantageous in this context as they provide consistent energy output without the risk of recharge-related degradation or maintenance, ensuring reliable short- to medium-term operation. The 11.1V level is well-suited for driving motor drivers and microcontrollers that require higher voltages than standard AA or 9V batteries can provide. Additionally, the high energy density of 18650 cells allows longer runtime compared to conventional disposable batteries, while their cylindrical form factor keeps the power system compact and lightweight for integration into the robot’s design.
+The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nominal), selected to balance reliability, compactness, and sufficient energy supply for autonomous operation.
 
-#### Open Round Algorithm
-For the open round, a LiDAR sensor was used to detect and follow the arena walls, ensuring the robot maintained a stable path. The LiDAR provides distance measurements for angles ranging from -90° (left side of the robot) to +90° (right side), with 0° aligned along the robot’s forward axis. These measurements are processed to calculate the distance of the robot from the walls on both sides. An error value is then determined as the difference between the left and right wall distances.
++ Stable voltage output – consistently provides ~11.1 V (9–12.6 V range) suitable for motors, sensors, and control boards
++ Non-rechargeable chemistry – eliminates risks of recharge-related degradation, swelling, or maintenance, ensuring dependable short- to medium-term use
++ Motor compatibility – higher voltage level supports motor drivers more effectively than AA or 9 V alternatives
++ Extended runtime – high energy density of 18650 cells delivers longer operation before replacement compared to conventional disposable batteries
++ Compact and lightweight – cylindrical form factor makes the pack easy to integrate without adding unnecessary bulk
++ Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
 
-This error is fed into a PID controller, which continuously adjusts the steering angle to minimize deviation and keep the robot centered between the walls. The proportional (Kp), integral (Ki), and derivative (Kd) gains are tuned to achieve a stable response without excessive oscillation or delay. The same control approach is also applied when the robot needs to execute turns, enabling smooth and accurate left and right maneuvering during navigation.
+### 18650 Battery holder
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/BatteryStand1.png" alt="Battery Holder" width="300" height="300">
+
++ Compact Form Factor – The slim rectangular frame securely houses the 3-cell 18650 pack while minimizing wasted volume, making it well-suited for robots with limited internal space.
++ Structural Stability – The rigid walls and elongated side frame provide strong mechanical support, preventing cell movement or vibration during operation.
++ Mounting Flexibility – Pre-drilled holes allow easy attachment to the robot chassis, reducing the need for additional brackets or adhesives.
++ Weight Optimization – Open frame design reduces unnecessary material use, keeping the holder lightweight without compromising durability.
++ Thermal Management – The open sides promote airflow around the batteries, preventing heat buildup and improving safety during high-current discharge.
++ Maintenance-Friendly – The accessible frame allows straightforward battery replacement, inspection, or wiring adjustments.
++ Secure Alignment – Ensures the 18650 cells remain aligned in series/parallel configuration, reducing electrical contact resistance and improving power reliability.
+
+#### Power Bank holder:
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/PowerBank.png" alt="Power Bank Holder" width="300" height="250">
+
++ Minimalistic frame reduces material use, keeping it lightweight yet strong
++ Raised side arms secure the power bank and prevent shifting during operation
++ Central mounting hole allows easy attachment to the chassis
++ Open design ensures quick access for wiring and charging without removal
++ Provides airflow around the power bank for passive cooling
++ Stable and practical mounting without adding bulk to the robot
+
+#### Potential Improvements:
++ Use rubber padding or cushioning to reduce shock and protect the power bank from mechanical stress.
++ Design for tool-less removal so the power bank can be swapped quickly.
++ Include cable management features (clips or slots) to keep wires tidy and strain-free
++ Add universal sizing adjustability to fit different power bank models if needed.
++ Optimize the weight distribution so the holder doesn’t affect the robots performance
+
+
+## Open Round Algorithm
+### 1) Initialization
++ Robot initializes LiDAR and motion subsystems.
++ A 5-second pause allows hardware to stabilize.
++ PID controller parameters (Kp, Ki, Kd) are set depending on clockwise/anticlockwise wall-following mode.
+
+### 2) LiDAR Data Acquisition
++ The LidarScanner continuously collects angle–distance pairs (-180° to +180°).
++ Distances are filtered to valid ranges, converted to millimeters, and stored in a dictionary.
+
+### 3) Turn Detection
++ Front LiDAR readings (±10° sector) are averaged separately for left and right.
++ If both fall within a threshold range (1500–2000 mm), the system flags a turn condition.
++ Turn events are counted, but with a cooldown (≥2.5 s) to avoid multiple detections for the same turn.
+
+### 4) Wall Distance Processing
++ Right wall sector: 30° to 90°.
++ Left wall sector: -90° to -30°.
++ Front sector: -5° to +5° (safety check).
++ Distances in each sector are averaged to estimate proximity to arena walls.
+
+### 5) Error Calculation:
+The four conditions include:
++ If both walls are visible: error = (right distance – left distance) → keeps robot centered.
++ If only one wall is visible: error = (wall distance – target distance) → maintains fixed offset.
++ If no walls detected: error = 0 → hold course.
++ If front obstacle is closer than safety threshold (e.g., <300 mm): error = 9999 (forces emergency stop).
+
+### 6) PID Control
++ The error is fed into a PID controller to smooth steering response.
++ PID output adjusts servo angle around a center position (≈95°).
++ Output is clamped to ±20° for safe steering limits.
+
+### 7) Motion Control
++ If no obstacle: robot moves forward at constant speed (0.6).
++ Servo adjusts steering continuously to minimize PID error.
++ If obstacle detected: robot stops, pauses, and waits before continuing.
+
+### 8) Termination Condition
++ After max_turn_count = 12 turns, the robot stops permanently (end of round).
+
+## Step by step breakdown of functions (Open Round):
+
+### 1) read_lidar_data(lidar):
+``` python
+import serial
+import struct
+import math
+import time
+import ydlidar
+
+# --- LiDAR Scanner Class (No Changes) ---
+class LidarScanner:
+    def __init__(self, port='/dev/ttyUSB0', baudrate=230400):
+        self.port = port
+        self.baudrate = baudrate
+        self.laser = None
+        self.scan_data = {}
+
+        self.MIN_ANGLE = -180.0
+        self.MAX_ANGLE = 180.0
+        self.MIN_RANGE = 0.02
+        self.MAX_RANGE = 16.0
+
+    def __enter__(self):
+        self.connect()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.disconnect()
+
+    def connect(self):
+        try:
+            ydlidar.os_init()
+            self.laser = ydlidar.CYdLidar()
+
+            self.laser.setlidaropt(ydlidar.LidarPropSerialPort, self.port)
+            self.laser.setlidaropt(ydlidar.LidarPropSerialBaudrate, self.baudrate)
+            self.laser.setlidaropt(ydlidar.LidarPropLidarType, ydlidar.TYPE_TRIANGLE)
+            self.laser.setlidaropt(ydlidar.LidarPropScanFrequency, 10.0)
+            self.laser.setlidaropt(ydlidar.LidarPropSampleRate, 4)
+            self.laser.setlidaropt(ydlidar.LidarPropSingleChannel, False)
+            self.laser.setlidaropt(ydlidar.LidarPropMaxAngle, self.MAX_ANGLE)
+            self.laser.setlidaropt(ydlidar.LidarPropMinAngle, self.MIN_ANGLE)
+            self.laser.setlidaropt(ydlidar.LidarPropMaxRange, self.MAX_RANGE)
+            self.laser.setlidaropt(ydlidar.LidarPropMinRange, self.MIN_RANGE)
+            self.laser.setlidaropt(ydlidar.LidarPropIntenstiy, True)
+
+            ret = self.laser.initialize()
+            if not ret:
+                raise IOError(f"LiDAR connection failed: {self.laser.DescribeError()}")
+
+            ret = self.laser.turnOn()
+            if not ret:
+                raise IOError(f"Failed to turn on YDLIDAR: {self.laser.DescribeError()}")
+
+            print(f"LiDAR: Connected to {self.port} at {self.baudrate} baud.")
+        except Exception as e:
+            print(f"LiDAR ERROR: Could not connect to LiDAR: {e}")
+            raise IOError(f"LiDAR connection failed: {e}")
+
+    def disconnect(self):
+        if self.laser:
+            print("LiDAR: Disconnecting...")
+            self.laser.turnOff()
+            self.laser.disconnecting()
+            self.laser = None
+            print("LiDAR: Disconnected.")
+
+    def get_scan_data(self):
+        if not self.laser:
+            return None
+
+        self.scan_data = {}
+        scan = ydlidar.LaserScan()
+
+        try:
+            r = self.laser.doProcessSimple(scan)
+            if r:
+                for p in scan.points:
+                    if self.MIN_RANGE <= p.range <= self.MAX_RANGE:
+                        angle_degrees = round(math.degrees(p.angle))
+                        distance_mm = p.range * 1000
+                        self.scan_data[angle_degrees] = distance_mm
+                return self.scan_data
+            else:
+                return None
+        except Exception as e:
+            print(f"LiDAR DATA ERROR: {e}")
+            return None
+
+```
+### Explanation:
++ The LiDAR constantly scans in a 180° range around the front of the robot.
++ Data is divided into zones:
+  + Left zone: -90° to -30°
+  + Right zone: +30° to +90°
+  + Forward zone: -15° to +15°
++ By averaging readings, sudden spikes (noise) are reduced.
++ The robot then knows how far it is from left wall, right wall, and any object in front.
+
+### compute_wall_error:
+``` python
+def calculate_steering_error(scan_data, target_distance_mm=750, safety_distance_mm=150):
+    """
+    Calculates the steering error based on LiDAR scan data to keep the robot
+    at a target distance from the walls. Dynamically adjusts sensor angles
+    based on front proximity.
+    """
+    # Define angular range for front detection
+    front_angles_degrees = [angle for angle in range(-5, 6)] # -5 to 5 degrees inclusive
+
+    # ## --- NEW LOGIC START --- ##
+    # Check for close frontal obstacles to decide on the wall-sensing angle range
+    front_distances = [
+        scan_data[angle] for angle in front_angles_degrees
+        if angle in scan_data and scan_data[angle] is not None and scan_data[angle] > 0
+    ]
+    
+    is_front_obstacle_close = False
+    if front_distances:
+        avg_front_distance = sum(front_distances) / len(front_distances)
+        if avg_front_distance < 350:
+            is_front_obstacle_close = True
+
+    # Dynamically set the left and right wall sensing angles
+    if is_front_obstacle_close:
+        # Wider angle ranges for close-quarters navigation
+        print("LiDAR: Close-range mode activated (wider angles).")
+        right_wall_angles_degrees = [angle for angle in range(30, 110)]  # 30 to 110
+        left_wall_angles_degrees = [angle for angle in range(-110, -30)] # -110 to -29
+    else:
+        # Default (standard) angle ranges
+        right_wall_angles_degrees = [angle for angle in range(30, 90)]   # 30 to 90
+        left_wall_angles_degrees = [angle for angle in range(-90, -30)]  # -90 to -29
+```
+### Explanation:
++ This function ensures the robot stays centered in the arena.
++ If left > right → robot is drifting towards the right wall → needs to turn left.
++ If right > left → robot is drifting towards the left wall → needs to turn right.
++ The error value is passed into the PID controller for smooth correction.
+
+### pid_controller:
+``` python 
+class PIDController:
+    def __init__(self, Kp, Ki, Kd, setpoint=0):
+        self.Kp = Kp
+        self.Ki = Ki
+        self.Kd = Kd
+        self.setpoint = setpoint
+        self.prev_error = 0
+        self.integral = 0
+        self.last_time = time.time()
+
+    def update(self, current_error):
+        current_time = time.time()
+        dt = current_time - self.last_time
+
+        if dt <= 0:
+            return self.prev_error
+
+        P = self.Kp * current_error
+        self.integral += current_error * dt
+        I = self.Ki * self.integral
+        derivative = (current_error - self.prev_error) / dt
+        D = self.Kd * derivative
+        output = P + I + D
+        self.prev_error = current_error
+        self.last_time = current_time
+        return output
+
+    def reset(self):
+        self.prev_error = 0
+        self.integral = 0
+        self.last_time = time.time()
+```
+### Explanation:
++ This is the core control function.
++ Works just like an autopilot system.
++ P (Proportional) – responds strongly to the current error.
++ I (Integral) – accumulates small errors over time (helps correct drift).
++ D (Derivative) – predicts future error change to avoid oscillations.
++ Outputs a steering correction angle for the servo.
+
+### Explanation:
++ Converts PID output into servo rotation.
++ Prevents excessive turning (>45°) which could damage servo or robot frame.
++ Responsible for real-time navigation corrections.
+
+### control_motors(driver, speed):
+``` python
+def control_motors(driver, speed):
+    """
+    Controls the TB6612FNG motor driver.
+    Sends equal PWM speed signals to left & right motors for forward motion.
+    Speed range is 0–255.
+    """
+    driver.set_motor_speed(speed, speed)  # equal speed for both wheels
+```
+
+### Explanation:
++ Keeps robot moving forward with a constant speed.
++ Uses PWM signals to the TB6612FNG driver.
++ If needed, can be extended to allow different left/right speeds for sharper turns.
+
+### check_termination(forward_distance, lap_count, max_laps):
+```python
+def check_termination(forward_distance, lap_count, max_laps=3):
+    """
+    Checks if the run should terminate.
+    Conditions:
+    - If forward distance < threshold → obstacle or wall detected.
+    - If lap_count >= max_laps → required laps completed.
+    Returns True if termination condition is met.
+    """
+    if forward_distance < 20:  # cm threshold
+        return True
+    if lap_count >= max_laps:
+        return True
+    return False
+```
+
+### Explanation:
++ Ensures robot doesn’t run forever.
++ Two termination conditions:
+  + Obstacle detected in front (arena end or unexpected block).
+  + All laps completed (challenge success).
++ Returns True → robot stops.
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Open_Algorithm.png" alt="Open Round Algorithm" width="500">
 
-#### Obstacle Round Algorithm
+
+## Obstacle Round Algorithm
+The obstacle round uses a **hybrid sensing and control system** where LiDAR and camera inputs are fused together to identify obstacles, calculate errors, and generate steering corrections. The system is structured into multiple layers: sensing, perception, control, and actuation.
+
+### 1) LiDAR-Based Obstacle Detection
++ **Sensor**: YDLidar T-mini Plus provides a **270° scan**, but only **-90° to +90° relative to robot’s forward axis** is considered.  
++ **Preprocessing**:  
+  - Filters raw data for outliers (values beyond sensor max range).  
+  - Segments detected points into clusters representing potential obstacles.  
++ **Pillar Identification**:  
+  - Uses expected pillar spacing to detect red/green pillar positions.  
+  - Calculates **lateral offset error** = difference between current robot position and target trajectory (pass left of green, right of red).  
++ **Use Case**:  
+  - Provides **fail-safe navigation** when camera detection fails (e.g., poor lighting).  
+  - Supplies continuous lateral distance measurement to support stable alignment.
+
+### 2) Camera-Based Color Detection Algorithm
+The camera system adds semantic information (pillar color), which LiDAR alone cannot provide.
+
++ **Frame Acquisition & Preprocessing**  
+  - Captures frames using **PiCamera2** at 2304×1296.  
+  - Resized and blurred to reduce noise before color segmentation.  
+  - Conversion **BGR → HSV** for robust color thresholding under variable lighting.  
+
++ **Color Segmentation**  
+  - Predefined HSV thresholds for **red** and **green**.  
+  - Binary masks created for each color channel.  
+  - Morphological operations (erode, dilate) applied to reduce noise.  
+
++ **Region of Interest (ROI)**  
+  - Inner ROI = normal detection zone.  
+  - Outer ROI = activated when LiDAR detects an obstacle cluster ahead.  
+  - Dual-ROI design reduces false positives from irrelevant background features.  
+
++ **Contour Detection & Validation**  
+  - Extracts contours from binary masks.  
+  - Rejects contours smaller than **MIN_CONTOUR_AREA = 1500**.  
+  - Selects the largest contour per frame as the obstacle candidate.  
+  - Assigns detection labels:  
+    - `"red_obstacle"` → valid red pillar.  
+    - `"green_obstacle"` → valid green pillar.  
+    - `"obstacle"` → unidentified object.  
+    - `"none"` → no valid obstacle.  
+
++ **Depth Sensitivity Factor**  
+  - Implements **DEPTH_IMPORTANCE_FACTOR = 1.35**.  
+  - Vertical pixel location of contour centroid (closer to bottom = nearer).  
+  - Error signal scaled accordingly:  
+    - Far object → low correction.  
+    - Near object → stronger correction.  
+
++ **Steering Logic (Camera)**  
+  - Red pillar → steer left with correction `steering = KP_STEERING × error × depth_factor`.  
+  - Green pillar → steer right with same correction logic.  
+  - Maintains flexibility for real-time corrections based on object position.  
+
++ **Fallback Mechanisms**  
+  - If **no obstacle detected** → black region between floor lines is used for centering.  
+  - If **frame underexposed** → assumes corner → performs sharp left turn (≈ -45°).  
+  - Prevents robot from stalling during sensor failure.  
+
++ **Debugging Visual Overlays**  
+  - Draws bounding boxes, centroids, ROI zones, and target lines.  
+  - Displays numerical feedback (depth factor, correction angle).  
+  - Useful for tuning HSV thresholds and ROI positions in real-time.  
+
+### 3) Sensor Fusion & PID Steering Control
++ **Error Calculation**  
+  - `LiDAR_error` = difference between distances to left/right wall.  
+  - `Camera_error` = lateral offset of detected pillar.  
+  - Fusion weights:  
+    - **LiDAR dominant** if no valid pillar detected.  
+    - **Camera dominant** if pillar is confirmed in ROI.  
+
++ **PID Controller**  
+  - Input = combined error (LiDAR + Camera).  
+  - **Kp (Proportional)** → quick correction response.  
+  - **Ki (Integral)** → compensates for slow drift across laps.  
+  - **Kd (Derivative)** → damps oscillations during sharp turns.  
+  - Tuning values are selected through iterative testing for balance between stability and responsiveness.  
+
++ **Output**  
+  - PID output mapped to **MG996R servo angle**.  
+  - Motor PWM adjusted to maintain forward speed while avoiding jerks during corrections.  
+
+### 4) Decision Flow & Execution
++ Final control decision is based on **sensor fusion state**:  
+  - `"red_obstacle"` → steer left of pillar.  
+  - `"green_obstacle"` → steer right of pillar.  
+  - `"corner_avoid"` → perform sharp predefined turn.  
+  - `"line_centering"` → maintain lane using LiDAR + ROI fallback.  
+
++ **Actuation**  
+  - Steering angle sent to **MG996R high-torque servo**.  
+  - Motor commands executed via **TB6612FNG motor driver**.  
+  - Smooth velocity profiles prevent skidding or abrupt turns.  
+
++ **System Reliability**  
+  - Fusion of LiDAR (geometric accuracy) and Camera (semantic recognition) ensures **redundancy and robustness**.  
+  - Fail-safes prevent deadlock when either sensor produces invalid data.  
+
+## Step by step breakdown of functions (obstacle round):
+
+### analyze_black_between_lines(frame, inner_start, inner_end):
+```python
+def analyze_black_between_lines(frame, inner_start, inner_end):
+    """
+    Detects the amount of black pixels between two bounding lines (inner ROI).
+    Balances left vs. right black regions to decide correction angle.
+    """
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    x1, y1 = inner_start
+    x2, y2 = inner_end
+
+    # Extract Region of Interest (ROI)
+    roi = gray[y1:y2, x1:x2]
+
+    # Threshold black areas
+    _, black_mask = cv2.threshold(roi, 60, 255, cv2.THRESH_BINARY_INV)
+
+    # Split into left and right halves
+    h, w = black_mask.shape
+    left = black_mask[:, :w // 2]
+    right = black_mask[:, w // 2:]
+
+    # Count black pixels
+    black_left = np.sum(left) / 255
+    black_right = np.sum(right) / 255
+    total_black = black_left + black_right
+
+    # No black detected
+    if total_black == 0:
+        return None
+
+    # Balance measure: positive → more black on right, negative → more on left
+    balance = (black_right - black_left) / total_black
+
+    # Apply gain factor
+    correction = KP_LINE_CENTERING * balance * 100
+    return correction
+```
+
+### Explanation:
++ Converts frame → grayscale and extracts a ROI between two guiding lines.
++ Thresholds dark areas (black tape or shadows).
++ Splits into left and right halves:
+  + If more black is on the left → robot drifts left → correction steers right.
+  + If more black is on the right → correction steers left.
++ Provides a PID-like correction signal to keep robot centered when no obstacles are detected.
+
+### process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
+```python
+def process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
+    """
+    Main vision pipeline:
+    - Detects red/green obstacles in ROI
+    - Applies depth-aware steering adjustment
+    - Falls back to black line detection if no obstacle
+    - Returns processed frame (for debugging), steering_angle, mask, label
+    """
+
+    # Handle empty input
+    if frame is None or frame.size == 0:
+        return frame, 0, None, "none"
+
+    # Convert to HSV for color segmentation
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # Define HSV ranges for green and red obstacles
+    green_mask = cv2.inRange(hsv, GREEN_LOWER, GREEN_UPPER)
+    red_mask1 = cv2.inRange(hsv, RED_LOWER1, RED_UPPER1)
+    red_mask2 = cv2.inRange(hsv, RED_LOWER2, RED_UPPER2)
+    red_mask = cv2.bitwise_or(red_mask1, red_mask2)
+
+    # ROI selection
+    if use_outer_roi_and_bottom_point:
+        roi = frame[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+        roi_red = red_mask[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+        roi_green = green_mask[OUTER_ROI_Y1:OUTER_ROI_Y2, OUTER_ROI_X1:OUTER_ROI_X2]
+    else:
+        roi = frame[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+        roi_red = red_mask[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+        roi_green = green_mask[INNER_ROI_Y1:INNER_ROI_Y2, INNER_ROI_X1:INNER_ROI_X2]
+
+    # Find contours in red/green masks
+    contours_red, _ = cv2.findContours(roi_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours_green, _ = cv2.findContours(roi_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    steering_angle = 0
+    logic_label = "none"
+
+    # Determine largest obstacle contour
+    obstacle_contour = None
+    color_detected = None
+    for c in contours_red:
+        if cv2.contourArea(c) > MIN_CONTOUR_AREA:
+            obstacle_contour = c
+            color_detected = "red"
+            break
+    for c in contours_green:
+        if cv2.contourArea(c) > MIN_CONTOUR_AREA:
+            obstacle_contour = c
+            color_detected = "green"
+            break
+
+    if obstacle_contour is not None:
+        # Compute bounding box
+        x, y, w, h = cv2.boundingRect(obstacle_contour)
+        obstacle_center = x + w // 2
+        obstacle_bottom_y = y + h
+
+        # Depth sensitivity: closer objects → stronger corrections
+        normalized_depth = 1 - (obstacle_bottom_y / frame.shape[0])
+        depth_factor = DEPTH_IMPORTANCE_FACTOR * (1 + normalized_depth)
+
+        # Calculate steering correction
+        error = (obstacle_center - (roi.shape[1] // 2))
+        steering_angle = KP_STEERING * error * depth_factor
+
+        # Assign logic label
+        if color_detected == "red":
+            logic_label = "red_obstacle"
+        else:
+            logic_label = "obstacle"
+
+        # Debug drawing
+        cv2.rectangle(roi, (x, y), (x + w, y + h), (0, 255, 255), 2)
+        cv2.putText(frame, f"DepthFactor: {depth_factor:.2f}", (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+    else:
+        # Fallback: use black line detection
+        correction = analyze_black_between_lines(frame, (INNER_ROI_X1, INNER_ROI_Y1), (INNER_ROI_X2, INNER_ROI_Y2))
+        if correction is not None:
+            steering_angle = correction
+            logic_label = "line_centering"
+        else:
+            # Dark corner → assume sharp left turn
+            steering_angle = -45
+            logic_label = "corner_avoid"
+
+    return frame, steering_angle, (red_mask, green_mask), logic_label
+```
+
+### Explanation:
++ Input checks
+  + If frame is empty → return defaults.
+
++ Color filtering
+  + HSV thresholds for green obstacles and red obstacles.
+  + Masks created → isolate obstacles by color.
+
++ Region of Interest (ROI) selection
+  + Two ROI modes:
+    + Inner ROI (default) → normal detection zone.
+    + Outer ROI + bottom detection point (when close to obstacles).
+
++ Contour detection
+  + Finds contours in red/green masks.
+  + Filters by MIN_CONTOUR_AREA to ignore noise.
+  + Chooses the largest obstacle contour.
+
++ Obstacle classification
+  + If red → "red_obstacle" label.
+  + If green → "obstacle" label.
+  + If none → "none" (fallback logic).
+
++ Depth-aware steering
+  + Uses bottom Y-coordinate of obstacle (obstacle_bottom_y).
+  + Normalizes relative to frame height → closer objects give larger values.
+  + Multiplies steering correction by DEPTH_IMPORTANCE_FACTOR × normalized_depth.
+  + Result: closer obstacles cause sharper steering corrections.
+
++ Fallback to black line centering
+  + If no obstacle detected:
+    + Calls analyze_black_between_lines().
+    + If even that fails, assumes dark corner → hard left turn (-45°).
+
++ UI overlays
+  + Draws rectangles, centerlines, contours.
+  + Displays Depth Factor for debugging.
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
@@ -559,7 +1176,7 @@ In our testing, we have achieved the following scores:
   </tbody>
 </table>
 
-# 🚀 Robot Construction Guide
+## 🚀 Robot Construction Guide
 
 This document provides a step-by-step guide to building and setting up the robot.  
 
@@ -645,7 +1262,7 @@ Recommended printer: **BambuLab X1-Carbon** (or equivalent).
 1. Insert a microSD card with **Raspberry Pi OS** into the Pi 5.  
 2. Boot and complete first-time setup.  
 3. Install dependencies:  
-   ```bash
+   ```python
    sudo apt update && sudo apt upgrade -y
    sudo apt install python3-pip i2c-tools
    pip3 install adafruit-circuitpython-servokit rplidar opencv-python
@@ -675,7 +1292,7 @@ docs/images/wiring.jpg
 
 
 
-📝 Raspberry Pi 5 Initialization Steps
+### 📝 Raspberry Pi 5 Initialization Steps
 
 ### 1. Prepare the microSD Card
 - Download the latest **Raspberry Pi OS (64-bit)** from the official Raspberry Pi website.  
@@ -696,6 +1313,7 @@ docs/images/wiring.jpg
 
 ### 3. Enable Required Interfaces
 Open terminal and run:
+<<<<<<< HEAD
     ``` bash
     sudo raspi-config
 
@@ -707,6 +1325,291 @@ Open terminal and run:
     Serial/UART (if your LiDAR uses UART)
     Reboot the Pi after enabling:
     sudo reboot
+=======
+``` python
+  sudo raspi-config
+
+  Enable the following:
+
+    I²C (for PCA9685 servo controller)
+    Camera (for PiCamera3)
+    SSH (for remote programming from VS Code)
+    Serial/UART (if your LiDAR uses UART)
+    Reboot the Pi after enabling:
+    sudo reboot
+
+  4. Install System Updates & Tools
+  Run these commands:
+  sudo apt update && sudo apt upgrade -y
+  sudo apt install python3-pip git i2c-tools
+
+  5. Install Libraries to Run Codes:
+
+  pip3 install (install all of these in these versions to run the code smoothly)
+    Package                            Version
+  ---------------------------------- ----------
+  asgiref                            3.6.0
+  astroid                            2.14.2
+  asttokens                          2.2.1
+  attrs                              22.2.0
+  av                                 12.3.0
+  Babel                              2.10.3
+  beautifulsoup4                     4.11.2
+  blinker                            1.5
+  certifi                            2022.9.24
+  chardet                            5.1.0
+  charset-normalizer                 3.0.1
+  click                              8.1.3
+  colorama                           0.4.6
+  colorzero                          2.0
+  cryptography                       38.0.4
+  cupshelpers                        1.0
+  dbus-python                        1.3.2
+  dill                               0.3.6
+  distro                             1.8.0
+  docutils                           0.19
+  Flask                              2.2.2
+  gpiozero                           2.0.1
+  html5lib                           1.1
+  idna                               3.3
+  importlib-metadata                 4.12.0
+  isort                              5.6.4
+  itsdangerous                       2.1.2
+  jedi                               0.18.2
+  Jinja2                             3.1.2
+  jsonpointer                        2.3
+  jsonschema                         4.10.3
+  lazy-object-proxy                  1.9.0
+  lgpio                              0.2.2.0
+  libarchive-c                       2.9
+  libevdev                           0.5
+  logilab-common                     1.9.8
+  lxml                               4.9.2
+  MarkupSafe                         2.1.2
+  mccabe                             0.7.0
+  meson                              1.5.1
+  more-itertools                     8.10.0
+  mypy                               1.0.1
+  mypy-extensions                    0.4.3
+  numpy                              1.24.2
+  oauthlib                           3.2.2
+  olefile                            0.46
+  parso                              0.8.3
+  pexpect                            4.8.0
+  pgzero                             1.2
+  picamera2                          0.3.30
+  pidng                              4.0.9
+  piexif                             1.1.3
+  pigpio                             1.78
+  Pillow                             9.4.0
+  pip                                23.0.1
+  platformdirs                       2.6.0
+  psutil                             5.9.4
+  ptyprocess                         0.7.0
+  pycairo                            1.20.1
+  pycryptodomex                      3.11.0
+  pycups                             2.0.1
+  pygame                             2.1.2
+  Pygments                           2.14.0
+  PyGObject                          3.42.2
+  pyinotify                          0.9.6
+  PyJWT                              2.6.0
+  pylint                             2.16.2
+  PyOpenGL                           3.1.6
+  pyOpenSSL                          23.0.0
+  PyQt5                              5.15.9
+  PyQt5-sip                          12.11.1
+  pyrsistent                         0.18.1
+  pyserial                           3.5
+  pysmbc                             1.0.23
+  python-apt                         2.6.0
+  python-dotenv                      0.21.0
+  python-prctl                       1.8.1
+  pytz                               2022.7.1
+  pyudev                             0.24.0
+  reportlab                          3.6.12
+  requests                           2.28.1
+  requests-oauthlib                  1.3.0
+  responses                          0.18.0
+  rfc3987                            1.3.8
+  roman                              3.3
+  rpi-lgpio                          0.6
+  RTIMULib                           7.2.1
+  Send2Trash                         1.8.1b0
+  sense-hat                          2.6.0
+  setuptools                         66.1.1
+  simplejpeg                         1.8.1
+  simplejson                         3.18.3
+  six                                1.16.0
+  smbus2                             0.4.2
+  soupsieve                          2.3.2
+  spidev                             3.5
+  ssh-import-id                      5.10
+  thonny                             4.1.4
+  toml                               0.10.2
+  tomlkit                            0.11.7
+  tqdm                               4.64.1
+  twython                            3.8.2
+  types-aiofiles                     22.1
+  types-annoy                        1.17
+  types-appdirs                      1.4
+  types-aws-xray-sdk                 2.10
+  types-babel                        2.11
+  types-backports.ssl-match-hostname 3.7
+  types-beautifulsoup4               4.11
+  types-bleach                       5.0
+  types-boto                         2.49
+  types-braintree                    4.17
+  types-cachetools                   5.2
+  types-caldav                       0.10
+  types-certifi                      2021.10.8
+  types-cffi                         1.15
+  types-chardet                      5.0
+  types-chevron                      0.14
+  types-click-spinner                0.1
+  types-colorama                     0.4
+  types-commonmark                   0.9
+  types-console-menu                 0.7
+  types-contextvars                  2.4
+  types-croniter                     1.3
+  types-cryptography                 3.3
+  types-D3DShot                      0.1
+  types-dateparser                   1.1
+  types-DateTimeRange                1.2
+  types-decorator                    5.1
+  types-Deprecated                   1.2
+  types-dj-database-url              1.0
+  types-docopt                       0.6
+  types-docutils                     0.19
+  types-editdistance                 0.6
+  types-emoji                        2.1
+  types-entrypoints                  0.4
+  types-first                        2.0
+  types-flake8-2020                  1.7
+  types-flake8-bugbear               22.10.27
+  types-flake8-builtins              2.0
+  types-flake8-docstrings            1.6
+  types-flake8-plugin-utils          1.3
+  types-flake8-rst-docstrings        0.2
+  types-flake8-simplify              0.19
+  types-flake8-typing-imports        1.14
+  types-Flask-Cors                   3.0
+  types-Flask-SQLAlchemy             2.5
+  types-fpdf2                        2.5
+  types-gdb                          12.1
+  types-google-cloud-ndb             1.11
+  types-hdbcli                       2.14
+  types-html5lib                     1.1
+  types-httplib2                     0.21
+  types-humanfriendly                10.0
+  types-invoke                       1.7
+  types-JACK-Client                  0.5
+  types-jmespath                     1.0
+  types-jsonschema                   4.17
+  types-keyboard                     0.13
+  types-ldap3                        2.9
+  types-Markdown                     3.4
+  types-mock                         4.0
+  types-mypy-extensions              0.4
+  types-mysqlclient                  2.1
+  types-oauthlib                     3.2
+  types-openpyxl                     3.0
+  types-opentracing                  2.4
+  types-paho-mqtt                    1.6
+  types-paramiko                     2.11
+  types-parsimonious                 0.10
+  types-passlib                      1.7
+  types-passpy                       1.0
+  types-peewee                       3.15
+  types-pep8-naming                  0.13
+  types-Pillow                       9.3
+  types-playsound                    1.3
+  types-polib                        1.1
+  types-prettytable                  3.4
+  types-protobuf                     3.20
+  types-psutil                       5.9
+  types-psycopg2                     2.9
+  types-pyaudio                      0.2
+  types-PyAutoGUI                    0.9
+  types-pycurl                       7.45
+  types-pyfarmhash                   0.3
+  types-pyflakes                     2.5
+  types-Pygments                     2.13
+  types-pyinstaller                  5.6
+  types-PyMySQL                      1.0
+  types-pynput                       1.7
+  types-pyOpenSSL                    22.1
+  types-pyRFC3339                    1.1
+  types-PyScreeze                    0.1
+  types-pysftp                       0.2
+  types-pytest-lazy-fixture          0.6
+  types-python-crontab               2.6
+  types-python-dateutil              2.8
+  types-python-gflags                3.1
+  types-python-jose                  3.3
+  types-python-nmap                  0.7
+  types-python-slugify               6.1
+  types-pytz                         2022.6
+  types-pyvmomi                      7.0
+  types-pywin32                      304
+  types-PyYAML                       6.0
+  types-redis                        4.3
+  types-regex                        2022.10.31
+  types-requests                     2.28
+  types-retry                        0.9
+  types-Send2Trash                   1.8
+  types-setuptools                   65.5
+  types-simplejson                   3.17
+  types-singledispatch               3.7
+  types-six                          1.16
+  types-slumber                      0.7
+  types-SQLAlchemy                   1.4.43
+  types-stdlib-list                  0.8
+  types-stripe                       3.5
+  types-tabulate                     0.9
+  types-termcolor                    1.1
+  types-toml                         0.10
+  types-toposort                     1.7
+  types-tqdm                         4.64
+  types-tree-sitter                  0.20
+  types-tree-sitter-languages        1.5
+  types-ttkthemes                    3.2
+  types-typed-ast                    1.5
+  types-tzlocal                      4.2
+  types-ujson                        5.5
+  types-urllib3                      1.26
+  types-vobject                      0.9
+  types-waitress                     2.1
+  types-whatthepatch                 1.0
+  types-xmltodict                    0.13
+  types-xxhash                       3.0
+  types-zxcvbn                       4.4
+  typing_extensions                  4.4.0
+  uritemplate                        4.1.1
+  urllib3                            1.26.12
+  v4l2-python3                       0.3.5
+  videodev2                          0.0.4
+  webcolors                          1.11.1
+  webencodings                       0.5.1
+  Werkzeug                           2.2.2
+  wheel                              0.38.4
+  wrapt                              1.14.1
+  zipp                               1.0.0
+  
+  
+
+  6. (Optional) VS Code Remote Setup
+  To program directly from your laptop using Visual Studio Code:
+  Install the Remote SSH extension in VS Code.
+  Connect to the Pi using its IP address:
+  ssh pi@<your_pi_ip>
+  Default username: pi
+  Default password: raspberry (change this after first login with passwd).
+  
+```
+ 
+ 
+>>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
 
     4. Install System Updates & Tools
     Run these commands:
@@ -727,6 +1630,35 @@ Open terminal and run:
 
 
 
-## Running the Code
-To run the code, follow these steps:
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
