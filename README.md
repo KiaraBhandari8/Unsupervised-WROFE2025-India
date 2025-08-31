@@ -103,7 +103,7 @@ The challenge requires students to construct an autonomous robot which will unde
     <tr>
     <td><a href="https://robu.in/product/raspberry-pi-5-model-8gb/?gad_source=1&gad_campaignid=19974686076&gbraid=0AAAAADvLFWccPNo1nAFbja4etEZbwSYsa&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksOP09gGjW_GFf7Vsckn2RSF4H_OcJGQZTPNndUeFb9ESBsUWQDfvsaAsGREALw_wcB">Raspberry Pi 5 (Cooling Fan + SD Card)</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹8,291</td>
     </tr>
       <tr>
     <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera 3 Wide Angle</a></td>
