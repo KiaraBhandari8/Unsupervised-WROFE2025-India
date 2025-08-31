@@ -1146,7 +1146,7 @@ In our testing, we have achieved the following scores:
   </tbody>
 </table>
 
-## 🚀 Robot Construction Guide
+ ## 🚀 Robot Construction Guide
 
 This document provides a step-by-step guide to building and setting up the robot.  
 
@@ -1156,7 +1156,7 @@ This document provides a step-by-step guide to building and setting up the robot
 The 3D printable parts can be found in the `3d-models` folder.  
 Recommended printer: **BambuLab X1-Carbon** (or equivalent).  
 
-**Suggested print settings (update once finalized):**
+**Suggested print settings:**
 - Material: PLA  
 - Layer height: 0.2 mm  
 - Infill: 20%  
@@ -1238,8 +1238,9 @@ Recommended printer: **BambuLab X1-Carbon** (or equivalent).
    pip3 install adafruit-circuitpython-servokit rplidar opencv-python
 Enable I²C and camera support:
 sudo raspi-config
+``` 
 
->📥 Step 6: Upload the Code
+📥 Step 6: Upload the Code
 Open Visual Studio Code on your laptop/desktop.
 Connect to the Raspberry Pi via SSH or VS Code Remote.
 Upload your control code (motor + servo + LiDAR + camera).
@@ -1262,7 +1263,7 @@ docs/images/wiring.jpg
 
 
 
-### 📝 Raspberry Pi 5 Initialization Steps
+## 📝 Raspberry Pi 5 Initialization Steps
 
 ### 1. Prepare the microSD Card
 - Download the latest **Raspberry Pi OS (64-bit)** from the official Raspberry Pi website.  
@@ -1563,9 +1564,7 @@ Open terminal and run:
   Default username: pi
   Default password: raspberry (change this after first login with passwd).
   
-```
- 
- 
+``` 
 
 
 
