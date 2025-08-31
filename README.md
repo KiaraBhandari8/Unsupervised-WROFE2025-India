@@ -105,9 +105,9 @@ The challenge requires students to construct an autonomous robot which will unde
       <td>₹8,291</td>
     </tr>
       <tr>
-    <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera 3 Wide Angle</a></td>
+    <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera Module 3 Wide Angle</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹3,500</td>
     </tr>
       <tr>
     <td><a href="https://share.google/GQIqzE7hObWl2JtNW">TB6612FNG Motor Driver</a></td>
