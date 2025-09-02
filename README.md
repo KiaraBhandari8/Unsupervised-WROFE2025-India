@@ -35,7 +35,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
     - [3. Enable Required Interfaces](#3-enable-required-interfaces)
   - [Running the Code](#running-the-code)
 
-## Team
+## Team 
 
 <table style="width:100%; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -174,7 +174,7 @@ The challenge requires students to construct an autonomous robot which will unde
   </tbody>
 </table>
 
-## Robot Pictures
+## Robot Pictures 🤖
 <table border="1">
   <thead>
     <tr>
@@ -218,7 +218,6 @@ We started understading the given constraints and physical requirements of the r
 - **Conceptualizing the Robot**: We brainstormed ideas for the robot's design, focusing on its chassis, steering mechanism, drive mechanism, sensors, and power management.
 - **Creating Design Diagrams**: We created detailed design diagrams to visualize the robot's structure and components. These diagrams included:
   - Chassis design
-  <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/chasis_design.jpeg" alt="Chasis Design Drawing" width="500">
 
   - Steering mechanism design
   
@@ -330,7 +329,7 @@ Potential Improvements:
 
 
 
-### Build
+### Build ⚒ 
 
 
 #### Chassis
@@ -362,7 +361,7 @@ MG996r Servo Motor:
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
-#### Drive Mechanism
+#### Drive Mechanism 🚗
 An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
 
 N20 DC Gear motor:
@@ -1236,10 +1235,12 @@ Recommended printer: **BambuLab X1-Carbon** (or equivalent).
    sudo apt update && sudo apt upgrade -y
    sudo apt install python3-pip i2c-tools
    pip3 install adafruit-circuitpython-servokit rplidar opencv-python
+
 Enable I²C and camera support:
 sudo raspi-config
 
->📥 Step 6: Upload the Code
+
+📥 Step 6: Upload the Code
 Open Visual Studio Code on your laptop/desktop.
 Connect to the Raspberry Pi via SSH or VS Code Remote.
 Upload your control code (motor + servo + LiDAR + camera).
