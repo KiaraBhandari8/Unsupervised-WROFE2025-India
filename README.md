@@ -269,11 +269,13 @@ N20 DC Gear motor:
 
 Following an evaluation of different motors, we settles on the **N20-6V-600 Rpm Micro Metal Gear Motor**. THis motor was selected for its lightweight and compact design, which stands out among others with comparable output. We secured the motor to the chassis using a custom 3-D printed holder. 
 
-Where to buy the motor: (insert link)
+Where to buy the motor: https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB 
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-(insert 3D model)
+[Axle Holder](models/axle_holder.stl.gif)
+
+[Rear Wheel Axle Bracket](models/rearwheel_axle_bracket.stl.gif)
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -361,35 +363,6 @@ MG996r Servo Motor:
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
-#### Drive Mechanism 🚗
-An N20 DC gear motor powers the driving mechanism of the robot,transferring motion to the rear axle of the wheels via a gear system.The N20 motor is a small and light device (around 12 mm in diameter and weighing 10–12 g), frequently utilized in miniature robotics and DIY projects. It comes in 3 V, 6 V, and 12 V options, featuring gear ratios from 10:1 to 1000:1, allowing for a balance of speed and torque—lower ratios yield increased speed, while higher ratios offer enhanced torque. Featuring a 3 mm D-shaped output shaft and a robust metal gearbox, the N20 motor provides easy mounting affordability, and versatility, making it ideal for applications like line-following robots,remote-controlled vehicles, and small actuation systems.
-
-N20 DC Gear motor:
-<table border="1">
-  <thead>
-    <tr>
-      <th style="width:300;">Component Image</th>
-      <th style="width:200;">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td><img src="https://robu.in/wp-content/uploads/2019/06/robu-7-11.jpg" alt="N20 dc Gear motor" height="200" width="200"></td>
-        <td>
-          1. N20 dc Gear Motor
-          <br>
-          <br>
-          2. Speed range (depends on gear ratio): from ~30 RPM (high torque) to ~1000 RPM (low torque)
-          <br>
-          <br>
-          3. High torque at low RPM due to gearbox
-        </td>
-      </tr>
-  </tbody>
-</table>
-
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_101933956.jpg" alt="Drive Mechanism" width="500">
-
 ### Sensors and Perception
 
 #### LiDAR – YDLIDAR T-mini Plus
@@ -417,6 +390,8 @@ N20 DC Gear motor:
 </table>
 
 The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
+
+[3D Model for LiDAR](models/lidar.stl.gif)
 
 Potential Improvements:
 + Use RANSAC line fitting or clustering to detect walls and obstacles more reliably
