@@ -28,12 +28,11 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
-- [🚀 Robot Construction Guide](#-robot-construction-guide)
+  - [🚀 Robot Construction Guide](#-robot-construction-guide)
   - [🖨️ Step 0: Print the 3D Parts](#️-step-0-print-the-3d-parts)
     - [1. Prepare the microSD Card](#1-prepare-the-microsd-card)
     - [2. First Boot](#2-first-boot)
     - [3. Enable Required Interfaces](#3-enable-required-interfaces)
-  - [Running the Code](#running-the-code)
 
 ## Team 
 
@@ -273,9 +272,7 @@ Where to buy the motor: https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200">
-
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200">
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200">
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
