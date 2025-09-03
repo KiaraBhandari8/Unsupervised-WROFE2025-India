@@ -268,7 +268,7 @@ N20 DC Gear motor:
 
 Following an evaluation of different motors, we settles on the **N20-6V-600 Rpm Micro Metal Gear Motor**. THis motor was selected for its lightweight and compact design, which stands out among others with comparable output. We secured the motor to the chassis using a custom 3-D printed holder. 
 
-Where to buy the motor: https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB 
+Where to buy the motor: [N20 Motor](https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB) 
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
