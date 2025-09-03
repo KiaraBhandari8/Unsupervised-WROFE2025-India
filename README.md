@@ -273,9 +273,9 @@ Where to buy the motor: https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-[Axle Holder](models/axle_holder.stl.gif)
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200">
 
-[Rear Wheel Axle Bracket](models/rearwheel_axle_bracket.stl.gif)
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200">
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
