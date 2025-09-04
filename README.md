@@ -1110,9 +1110,11 @@ In our testing, we have achieved the following scores:
     </tr>
     <tr>
       <td>Obstacle Round</td>
-      <td>40</td>
-      <td>NA</td>
+      <td>40 + 22 (for parking)</td>
+      <td>40 + 7</td>
       <td>150</td>
+    </tr>
+    <tr>
     </tr>
   </tbody>
 </table>
