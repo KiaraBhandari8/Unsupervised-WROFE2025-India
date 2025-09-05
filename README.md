@@ -29,7 +29,7 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
   - [🚀 Robot Construction Guide](#-robot-construction-guide)
-  - [🖨️ Step 0: Print the 3D Parts](#️-step-0-print-the-3d-parts)
+    - [🖨️ 0: Print the 3D Parts](#️-step-0-print-the-3d-parts)
     - [1. Prepare the microSD Card](#1-prepare-the-microsd-card)
     - [2. First Boot](#2-first-boot)
     - [3. Enable Required Interfaces](#3-enable-required-interfaces)
@@ -238,7 +238,9 @@ Potential Improvements:
 
 - Upgrade to higher-quality differential gear set for enhanced efficiency and smoother cornering. 
 - Experiment with lighter alloys and hollow rods to balance strength with reduced weight. 
-- Replace the 3D printed adapter with a kachined metal one for greater durability and precision. 
+- Replace the 3D printed adapter with a kachined metal one for greater durability and precision.
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/differentialgear_stand.stl.gif" alt="Drive Mechanism" width="500"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/differentialgear_2.stl.gif" alt="Drive Mechanism" width="500"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/differentialgear_3.stl.gif" alt="Drive Mechanism" width="500"> 
 
 ##### Motor
 
@@ -272,7 +274,7 @@ Where to buy the motor: [N20 Motor](https://robu.in/product/n20-6v-600-rpm-micro
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200">
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rear_axle_holder.stl.gif" alt="Axle Holder" width="200"> 
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -388,7 +390,7 @@ MG996r Servo Motor:
 
 The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
 
-[3D Model for LiDAR](models/lidar.stl.gif)
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/lidar.stl.gif" alt="Front Battery Holder" width="300" height="300"> 
 
 Potential Improvements:
 + Use RANSAC line fitting or clustering to detect walls and obstacles more reliably
@@ -506,7 +508,7 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Consistent discharge curve – maintains steady performance over usage cycle, preventing voltage drops that could affect control electronics
 
 ### 18650 Battery holder
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/BatteryStand1.png" alt="Battery Holder" width="300" height="300">
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/battery_holder.stl.gif" alt="Front Battery Holder" width="300" height="300"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/rearbattery_stand.stl.gif" alt="Rear Battery Holder" width="300" height="300">
 
 + Compact Form Factor – The slim rectangular frame securely houses the 3-cell 18650 pack while minimizing wasted volume, making it well-suited for robots with limited internal space.
 + Structural Stability – The rigid walls and elongated side frame provide strong mechanical support, preventing cell movement or vibration during operation.
@@ -517,7 +519,7 @@ The robot is powered by a 3-cell 18650 non-rechargeable battery pack (11.1 V nom
 + Secure Alignment – Ensures the 18650 cells remain aligned in series/parallel configuration, reducing electrical contact resistance and improving power reliability.
 
 #### Power Bank holder:
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/PowerBank.png" alt="Power Bank Holder" width="300" height="250">
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/models/powerbank_front_bracket.stl.gif" alt="Power Bank Holder" width="300" height="250">
 
 + Minimalistic frame reduces material use, keeping it lightweight yet strong
 + Raised side arms secure the power bank and prevent shifting during operation
