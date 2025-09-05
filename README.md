@@ -1343,6 +1343,41 @@ def process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
+## Explanation:
+Purpose:
++ This function looks at a section of the camera frame (a region of interest, or ROI), checks how much black is on the left vs. the right, and then gives back a correction value.
+
+Step-by-step:
+1) Convert to grayscale:
+The frame is turned into black-and-white shades so it’s easier to detect dark areas.
+
+2) Define the region of interest (ROI):
+The function takes two points (inner_start and inner_end) that form a rectangle. That rectangle is cut out of the image to focus only on the middle area where lines are expected. If the rectangle is invalid (like zero or negative width/height), the function just quits.
+
+3) Thresholding to find black:
+Inside that ROI, it applies a threshold so that black areas turn into white (on the mask) and everything else becomes black. In other words, it builds a binary mask that highlights black regions.
+
+4) Split into left and right halves:
+The ROI is divided down the middle: one half for the left side, one half for the right side.
+
+5) Count black pixels
+It sums up how many black pixels are detected on the left and the right. Then it adds them together for the total.
+
+6) Handle empty case:
+If no black is detected at all, the function returns None (meaning: no correction info available).
+
+7) Balance calculation:
++ It calculates the difference between right-black and left-black, divided by the total.
+  + If black is perfectly balanced left vs. right → result is 0 (no correction needed).
+  + If more black is on the right → balance is positive.
+  + If more black is on the left → balance is negative.
+
+8) Correction scaling:
+This balance value is multiplied by a gain constant (KP_LINE_CENTERING) and scaled up. The result is the steering correction value.
+
+What it returns:
+A numeric correction that tells the robot how much to adjust its steering to stay centered between lines. None if no black was detected.
+
 ### Final Evaluation & Scores
 In our testing, we have achieved the following scores:
 <table border="1">
