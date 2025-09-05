@@ -1343,6 +1343,31 @@ def process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
 
 <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
+## analyze_black_between_lines
+```python
+def analyze_black_between_lines(frame, inner_start, inner_end):
+    # This function remains unchanged
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    x1, y1 = inner_start
+    x2, y2 = inner_end
+    x1, y1 = max(0, x1), max(0, y1)
+    x2, y2 = min(frame.shape[1], x2), min(frame.shape[0], y2)
+    if x1 >= x2 or y1 >= y2:
+        return None
+    roi = gray[y1:y2, x1:x2]
+    _, black_mask = cv2.threshold(roi, 60, 255, cv2.THRESH_BINARY_INV)
+    h, w = black_mask.shape
+    left = black_mask[:, :w // 2]
+    right = black_mask[:, w // 2:]
+    black_left = np.sum(left) / 255
+    black_right = np.sum(right) / 255
+    total_black = black_left + black_right
+    if total_black == 0:
+        return None
+    balance = (black_right - black_left) / total_black
+    correction = KP_LINE_CENTERING * balance * 100
+    return correction
+```
 ## Explanation:
 Purpose:
 + This function looks at a section of the camera frame (a region of interest, or ROI), checks how much black is on the left vs. the right, and then gives back a correction value.
