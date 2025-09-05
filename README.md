@@ -29,14 +29,13 @@ This is a repository for our WRO Future Engineers 2025 documentation.
       - [Open Round Algorithm](#open-round-algorithm)
       - [Obstacle Round Algorithm](#obstacle-round-algorithm)
     - [Final Evaluation \& Scores](#final-evaluation--scores)
-- [🚀 Robot Construction Guide](#-robot-construction-guide)
+  - [🚀 Robot Construction Guide](#-robot-construction-guide)
   - [🖨️ Step 0: Print the 3D Parts](#️-step-0-print-the-3d-parts)
     - [1. Prepare the microSD Card](#1-prepare-the-microsd-card)
     - [2. First Boot](#2-first-boot)
     - [3. Enable Required Interfaces](#3-enable-required-interfaces)
-  - [Running the Code](#running-the-code)
 
-## Team
+## Team 
 
 <table style="width:100%; border: 1px solid black; border-collapse: collapse;">
   <thead>
@@ -106,9 +105,9 @@ The challenge requires students to construct an autonomous robot which will unde
       <td>₹8,291</td>
     </tr>
       <tr>
-    <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera 3 Wide Angle</a></td>
+    <td><a href="https://robu.in/product/raspberry-pi-camera-module-3-wide/"> Pi Camera Module 3 Wide Angle</a></td>
       <td>1</td>
-      <td>₹500</td>
+      <td>₹3,500</td>
     </tr>
       <tr>
     <td><a href="https://share.google/GQIqzE7hObWl2JtNW">TB6612FNG Motor Driver</a></td>
@@ -175,7 +174,7 @@ The challenge requires students to construct an autonomous robot which will unde
   </tbody>
 </table>
 
-## Robot Pictures
+## Robot Pictures 🤖
 <table border="1">
   <thead>
     <tr>
@@ -278,11 +277,11 @@ N20 DC Gear motor:
 
 Following an evaluation of different motors, we settles on the **N20-6V-600 Rpm Micro Metal Gear Motor**. THis motor was selected for its lightweight and compact design, which stands out among others with comparable output. We secured the motor to the chassis using a custom 3-D printed holder. 
 
-Where to buy the motor: (insert link)
+Where to buy the motor: [N20 Motor](https://robu.in/product/n20-6v-600-rpm-micro-metal-gear-motor/?gad_source=1&gad_campaignid=20381096599&gbraid=0AAAAADvLFWe2qiwILJ32C5JNwCPPtGWp3&gclid=Cj0KCQjw-4XFBhCBARIsAAdNOksdNfffwUSFCud8Fjba8RH2HJjGXhNb1jGbV-uPmwfpwsUavl32picaAkVOEALw_wcB) 
 
 To connect the motor's axle to the chassis, we created a custom 3D - printed adapter. 
 
-(insert 3D model)
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/axle_holder.stl.gif" alt="Axle Holder" width="200"> <img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/models/rearwheel_axle_bracket.stl.gif" alt="Axle Holder" width="200">
 
 Potential Improvements:
 - Consider upgrading to a higher-torque or lower-RPM variant of the N20 motor for improved control and load handling.
@@ -340,6 +339,10 @@ Potential Improvements:
 ------------------------
 
 
+<<<<<<< HEAD
+=======
+### Build ⚒ 
+>>>>>>> b4468936cd1c8a6b0e0fe9d443f3183b65e10c0f
 
 After experimenting with several steering mechanisms such as Ackermann and bell-crank systems, we analyzed their strengths and weaknesses. Ultimately, we implemented a distinct and novel steering mechanism designed to achieve efficient and reliable maneuvering using a single servo motor.
 
@@ -416,11 +419,14 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 
 
 
+<<<<<<< HEAD
 #### Drive Mechanism
 
 
 
 
+=======
+>>>>>>> b4468936cd1c8a6b0e0fe9d443f3183b65e10c0f
 ### Sensors and Perception
 
 #### LiDAR – YDLIDAR T-mini Plus
@@ -448,6 +454,8 @@ The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot co
 </table>
 
 The LiDAR sensor operates on the principle of **time-of-flight measurement**, emitting rapid laser pulses and calculating the return time after striking objects. This provides precise range and angular data, enabling the robot to construct accurate real-time maps of its surroundings. Its wide scanning field, high accuracy, and fast update rate make it essential for **obstacle detection, Simultaneous Localization and Mapping (SLAM), and terrain mapping**. With LiDAR, the robot can not only avoid obstacles but also refine its spatial understanding continuously, ensuring smooth navigation even in dynamic or unfamiliar environments.
+
+[3D Model for LiDAR](models/lidar.stl.gif)
 
 Potential Improvements:
 + Use RANSAC line fitting or clustering to detect walls and obstacles more reliably
@@ -1169,9 +1177,11 @@ In our testing, we have achieved the following scores:
     </tr>
     <tr>
       <td>Obstacle Round</td>
-      <td>40</td>
-      <td>NA</td>
+      <td>40 + 22 (for parking)</td>
+      <td>40 + 7</td>
       <td>150</td>
+    </tr>
+    <tr>
     </tr>
   </tbody>
 </table>
@@ -1266,10 +1276,12 @@ Recommended printer: **BambuLab X1-Carbon** (or equivalent).
    sudo apt update && sudo apt upgrade -y
    sudo apt install python3-pip i2c-tools
    pip3 install adafruit-circuitpython-servokit rplidar opencv-python
+
 Enable I²C and camera support:
 sudo raspi-config
 
->📥 Step 6: Upload the Code
+
+📥 Step 6: Upload the Code
 Open Visual Studio Code on your laptop/desktop.
 Connect to the Raspberry Pi via SSH or VS Code Remote.
 Upload your control code (motor + servo + LiDAR + camera).
@@ -1596,7 +1608,7 @@ Open terminal and run:
   wrapt                              1.14.1
   zipp                               1.0.0
   
-  
+  ```
 
   6. (Optional) VS Code Remote Setup
   To program directly from your laptop using Visual Studio Code:
@@ -1606,7 +1618,7 @@ Open terminal and run:
   Default username: pi
   Default password: raspberry (change this after first login with passwd).
   
-```
+
  
  
 >>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
