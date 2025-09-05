@@ -809,6 +809,8 @@ def check_termination(forward_distance, lap_count, max_laps=3):
 ## Obstacle Round Algorithm
 The obstacle round uses a **hybrid sensing and control system** where LiDAR and camera inputs are fused together to identify obstacles, calculate errors, and generate steering corrections. The system is structured into multiple layers: sensing, perception, control, and actuation.
 
+
+
 ### 1) LiDAR-Based Obstacle Detection
 + **Sensor**: YDLidar T-mini Plus provides a **270° scan**, but only **-90° to +90° relative to robot’s forward axis** is considered.  
 + **Preprocessing**:  
@@ -1853,7 +1855,10 @@ Open terminal and run:
   Default password: raspberry (change this after first login with passwd).
   
 
+ ### Conclusion
  
+This project document captures the entire journey of designing, building, and testing the autonomous robot for the WRO Future Engineers 2025 challenge. The integration of mechanical innovation, sensor technology, and robust algorithms demonstrates the team’s commitment to problem-solving and hands-on learning in robotics. The solutions, improvements, and insights gained here not only enrich our experience but serve as a valuable guide for anyone interested in robotics or autonomous systems. We hope this repository inspires future participants and contributors to explore, experiment, and build upon our work for even greater achievements in the years ahead. 
+
  
 
 
