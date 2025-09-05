@@ -1341,8 +1341,6 @@ def process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
   + Draws rectangles, centerlines, contours.
   + Displays Depth Factor for debugging.
 
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
-
 ## analyze_black_between_lines
 ```python
 def analyze_black_between_lines(frame, inner_start, inner_end):
@@ -1401,7 +1399,10 @@ If no black is detected at all, the function returns None (meaning: no correctio
 This balance value is multiplied by a gain constant (KP_LINE_CENTERING) and scaled up. The result is the steering correction value.
 
 What it returns:
+<br>
 A numeric correction that tells the robot how much to adjust its steering to stay centered between lines. None if no black was detected.
+
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/Obstacle_Algorithm.png" alt="Obstacle Round Algorithm" width="500">
 
 ### Final Evaluation & Scores
 In our testing, we have achieved the following scores:
