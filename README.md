@@ -8,22 +8,21 @@ This is a repository for our WRO Future Engineers 2025 documentation.
   - [About the challenge](#about-the-challenge)
   - [List of Components](#list-of-components)
   - [Robot Pictures](#robot-pictures)
-    - [Performance Video](#performance-video)
-    - [Design Process](#design-process)
+  - [Design, Build, Code and Evaluate Process](#design-build-code-and-evaluate-process)
+    - [Design](#design)
     - [Mobility Management](#mobility-management)
       - [Powertrain](#powertrain)
         - [Drivetrain](#drivetrain)
         - [Motor](#motor)
         - [Motor Driver](#motor-driver)
-    - [Steering](#steering)
-        - [Servo Motor](#servo-motor)
     - [Build](#build)
       - [Chassis](#chassis)
+      - [Steering Mechanism](#steering-mechanism)
       - [Drive Mechanism](#drive-mechanism)
     - [Sensors and Perception](#sensors-and-perception)
       - [LiDAR – YDLIDAR T-mini Plus](#lidar--ydlidar-t-mini-plus)
       - [Camera – Raspberry Pi Camera Module 3 (Wide)](#camera--raspberry-pi-camera-module-3-wide)
-    - [Power and Sense management](#power-and-sense-management)
+    - [Power and sense management](#power-and-sense-management)
         - [DC Buck Converter:](#dc-buck-converter)
       - [Lithium Ion batteries:](#lithium-ion-batteries)
       - [Open Round Algorithm](#open-round-algorithm)
@@ -211,15 +210,7 @@ The challenge requires students to construct an autonomous robot which will unde
   </tr>
 </table>
 
-<<<<<<< HEAD
-### Performance Video
 
-
-
-
-=======
-
->>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
 ### Design Process
 We started understading the given constraints and physical requirements of the robot and then designed the robot to meet these requirements. The design process included:
 - **Understanding the Problem Statement**: We analyzed the requirements and constraints of the WRO Future Engineers 2025 competition.
@@ -335,36 +326,16 @@ Potential Improvements:
 - Explore higher-current motor drivers to accomodate potential motor upgrades. 
 - Implement a more robust power manangement system to ensure reliable operation. 
 
-### Steering 
-------------------------
 
 
-<<<<<<< HEAD
-=======
 ### Build ⚒ 
->>>>>>> b4468936cd1c8a6b0e0fe9d443f3183b65e10c0f
 
-After experimenting with several steering mechanisms such as Ackermann and bell-crank systems, we analyzed their strengths and weaknesses. Ultimately, we implemented a distinct and novel steering mechanism designed to achieve efficient and reliable maneuvering using a single servo motor.
 
-An MG996R high-torque servo motor is directly coupled to the steering linkage, allowing both front wheels to turn at the same angle simultaneously. This direct connection provides quick response and stable control during navigation.
+#### Chassis
+The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot consists of multiple layers to accommodate various components. Every structural component was fastened firmly with bolts and nuts to ensure durability and rigidity required for testing. For enhanced performance, the bottom acrylic sheet was carefully trimmed along the wheel areas, allowing for free wheel rotation and better maneuverability. Instead of expanding the robot's dimensyions in horizantally that would impact maneuverability, we opted for a three-layer vertical configuration. Not only did this choice in design improve space efficiency, but it also boosted the robot's performance by allowing better integration of its mechanical and electronic components in a compact footprint. The robot dimensions are 14cm(width) x 19cm(length) x 20cm(height). 
 
-The forward wheels are free to rotate independently and are supported by a differential gear system. This ensures that each wheel can rotate at the appropriate speed while turning. The outer wheel naturally travels a greater distance than the inner wheel during cornering, and the differential enables this motion smoothly, preventing skidding or unnecessary energy loss.
-
-By combining the servo-driven steering system with differential gears, the robot achieves precise steering control, mechanical efficiency, and smooth navigation across both straight paths and turns. Although it does not strictly follow traditional steering geometries, our testing showed that for a small and lightweight robot, this compromise was not significantly limiting.
-
-<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
-
-(insert diagrams for the diffrential gear bracket)
-
-Potential Improvements:
-	•	Reduce backlash in the differential gear system for more precise steering response.
-	•	Add ball bearings on the differential shafts and linkages to lower friction and wear.
-	•	Reinforce or reprint high-stress steering components in stronger materials to increase durability.
-	•	Optimize the geometry of the steering arm and linkage to achieve a wider steering angle.
-	•	Replace linkage joints with ball-links for smoother and more reliable articulation.
-	•	Implement a mild limited-slip effect in the differential to improve turning stability.
-
-##### Servo Motor 
+#### Steering Mechanism
+The robot employs a distinct and novel steering mechanism designed to achieve efficient and reliable maneuvering using a single servo motor. An MG996R high-torque servo motor is directly coupled to the steering linkage, allowing both front wheels to turn at the same angle simultaneously. The forward wheels are free to rotate independently and are supported by a differential gear system, which ensures that each wheel can rotate at the appropriate speed when the robot takes a turn. This is essential because the outer wheel must travel a greater distance than the inner wheel during cornering, and the differential allows this motion without skidding or energy loss. By combining the servo-driven steering system with differential gears, the robot achieves precise steering control, mechanical efficiency, and smooth navigation across both straight paths and turns.
 MG996r Servo Motor:
 <table border="1">
   <thead>
@@ -377,56 +348,18 @@ MG996r Servo Motor:
       <tr>
         <td><img src="https://www.jsumo.com/mg996r-servo-motor-digital-1701-65-B.jpg" alt="MG996r servo motor" height="200" width="200"></td>
         <td>
-          1. Weight: 55 g 
+          1. MG996r Servo motor
           <br>
           <br>
-          2. Stall Torque: 
-          <br>
-          <br>
-          3. Operating Speed: 0.15sec/60degree (6.0v)
-          <br>
-          <br> 
-          4. Rotation Angle: 360 degrees 
+          2. Digital servo: Pulse width modulation controlled(PWM)
         </td>
       </tr>
   </tbody>
 </table>
 
-
-For steering, we selected the MG90S servo motor, favoring it for its high torque and swift response.
-
-Where to buy the servo motor: https://robu.in/product/towerpro-mg996r-digital-high-torque-servo-motor/
-
-Potential Improvements:
-
-	•	Explore servos with higher precision and less backlash to achieve smoother steering response.
-	•	Upgrade to a digital servo for finer control and improved consistency under load.
-	•	Implement dual-servo steering to distribute load and reduce mechanical strain on a single unit.
-	•	Use metal horn and reinforced mounting brackets to minimize flex and increase durability.
-	•	Evaluate lighter, high-torque alternatives to reduce overall system weight without sacrificing performance.
+<img src="https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/schemes/addl/PXL_20250817_102111155.jpg" alt="Steering Mechanism" width="500">
 
 
-
-
-### Build
-
-
-#### Chassis
-The robot chasis is mainly designed from acrylic and 3d desgined parts. Robot consists of multiple layers to accommodate various components. Every structural component was fastened firmly with bolts and nuts to ensure durability and rigidity required for testing. For enhanced performance, the bottom acrylic sheet was carefully trimmed along the wheel areas, allowing for free wheel rotation and better maneuverability. Instead of expanding the robot's dimensyions in horizantally that would impact maneuverability, we opted for a three-layer vertical configuration. Not only did this choice in design improve space efficiency, but it also boosted the robot's performance by allowing better integration of its mechanical and electronic components in a compact footprint. The robot dimensions are 14cm(width) x 19cm(length) x 20cm(height). 
-
-
-
-
-
-
-<<<<<<< HEAD
-#### Drive Mechanism
-
-
-
-
-=======
->>>>>>> b4468936cd1c8a6b0e0fe9d443f3183b65e10c0f
 ### Sensors and Perception
 
 #### LiDAR – YDLIDAR T-mini Plus
@@ -503,7 +436,7 @@ Potential Improvements:
 + Provide user-adjustable parameters: Allow users to manually adjust color thresholds or ranges to fine-tune the color detection. This can be done through a user interface or by providing configuration files that can be modified.
 + Implement real-time feedback: Display the detected colors in real-time to the user, along with the calibrated values. This allows users to visually verify the accuracy of the color detection and make adjustments if necessary.
 
-### Power and Sense management
+### Power and sense management
 
 ##### DC Buck Converter:
 <table border="1">
@@ -975,54 +908,307 @@ The camera system adds semantic information (pillar color), which LiDAR alone ca
 
 ## Step by step breakdown of functions (obstacle round):
 
-### analyze_black_between_lines(frame, inner_start, inner_end):
+## Step by step breakdown of functions (obstacle round):
+
+### robot_control_loop():
 ```python
-def analyze_black_between_lines(frame, inner_start, inner_end):
-    """
-    Detects the amount of black pixels between two bounding lines (inner ROI).
-    Balances left vs. right black regions to decide correction angle.
-    """
+def robot_control_loop():
 
-    # Convert to grayscale
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    x1, y1 = inner_start
-    x2, y2 = inner_end
+    global output_frame, output_frame_lock, current_robot_state, latest_camera_frame, camera_frame_lock, camera_thread_stop_event
+    global START_PAUSE_DURATION, previous_increment_time, turn_counter, max_turn_count, DELAY_BETWEEN_TURNS
 
-    # Extract Region of Interest (ROI)
-    roi = gray[y1:y2, x1:x2]
+    picam2 = Picamera2()
+    camera_config = picam2.create_preview_configuration(
+        main={"size": CAMERA_RESOLUTION},
+        transform=libcamera.Transform(vflip=False, hflip=False),
+        controls={"FrameRate": CAMERA_FRAMERATE},
+        buffer_count=CAMERA_BUFFER_COUNT
+    )
+    picam2.configure(camera_config)
+    picam2.start()
+    print(f"Camera started with resolution {CAMERA_RESOLUTION} at {CAMERA_FRAMERATE} FPS.")
+    
+    time.sleep(1) 
+    camera_acquisition_thread = threading.Thread(target=camera_acquisition_thread_func, args=(picam2, camera_thread_stop_event))
+    camera_acquisition_thread.daemon = True
+    camera_acquisition_thread.start()
 
-    # Threshold black areas
-    _, black_mask = cv2.threshold(roi, 60, 255, cv2.THRESH_BINARY_INV)
+    lidar_scanner, lidar_pid, lidar_acquisition_thread = None, None, None
+    try:
+        lidar_scanner = LidarScanner()
+        lidar_scanner.connect()
+        lidar_acquisition_thread = threading.Thread(target=lidar_acquisition_thread_func, args=(lidar_scanner,))
+        lidar_acquisition_thread.daemon = True
+        lidar_acquisition_thread.start()
+        lidar_pid = PIDController(Kp=LIDAR_PID_KP, Ki=LIDAR_PID_KI, Kd=LIDAR_PID_KD, setpoint=0)
+        print("LiDAR system initialized successfully.")
+    except IOError as e:
+        print(f"WARNING: Failed to initialize LiDAR system: {e}.")
+        lidar_scanner = None
 
-    # Split into left and right halves
-    h, w = black_mask.shape
-    left = black_mask[:, :w // 2]
-    right = black_mask[:, w // 2:]
+    current_robot_state = RobotState.LIDAR_WALL_FOLLOWING if lidar_scanner else RobotState.FALLBACK_STRAIGHT
+    print(f"Initial Robot State: {current_robot_state}")
 
-    # Count black pixels
-    black_left = np.sum(left) / 255
-    black_right = np.sum(right) / 255
-    total_black = black_left + black_right
+    try:
+        while True:
+            loop_start_time = time.monotonic()
+            
+            with camera_frame_lock:
+                if latest_camera_frame is None:
+                    time.sleep(0.01) 
+                    continue
+                full_res_frame_rgb = latest_camera_frame.copy()
 
-    # No black detected
-    if total_black == 0:
-        return None
+            processing_frame_rgb = cv2.resize(
+                full_res_frame_rgb,
+                (PROCESSING_WIDTH, PROCESSING_HEIGHT),
+                interpolation=cv2.INTER_AREA
+            )
+            frame_bgr = cv2.cvtColor(processing_frame_rgb, cv2.COLOR_RGB2BGR)
+            
+            scan_data = None
+            if lidar_scanner:
+                with lidar_data_lock:
+                    scan_data = latest_lidar_data.copy()
 
-    # Balance measure: positive → more black on right, negative → more on left
-    balance = (black_right - black_left) / total_black
+            # Check if between walls
+            between_walls = check_between_walls(scan_data, front_distance_min_threshold=1000, front_distance_max_threshold=2000,
+                front_angle_range=7.5, side_angle_range=7.5, side_distance_threshold=1000, side_distance_tolerance=100)
+    
+            if between_walls:
+                # print("----------------Between walls detected.----------------")
+                if time.time() - loop_start_time > START_PAUSE_DURATION:  # Ensure initial pause
+                    if time.time() - previous_increment_time > DELAY_BETWEEN_TURNS:  # Ensure cooldown between turns
+                        # Only count a turn if 5 seconds have passed since the last one
+                        turn_counter += 1
+                        previous_increment_time = time.time()  # Reset the cooldown timer
+                        print(f"Turn condition met! Executing turn {turn_counter}/{max_turn_count}.")
 
-    # Apply gain factor
-    correction = KP_LINE_CENTERING * balance * 100
-    return correction
+            print(f"--------Current turn count: {turn_counter}/{max_turn_count}--------")
+
+            if turn_counter > max_turn_count:
+                print(f"Max turn count ({max_turn_count}) reached, stopping robot.")
+                robot_stop()
+                time.sleep(60)
+                break
+
+            is_near_field_mode = check_front_obstacle_proximity(scan_data, distance_mm=1100)
+            
+            processed_frame, vision_angle, _, logic_label, _ = process_frame_for_steering(
+                frame_bgr,
+                use_outer_roi_and_bottom_point=is_near_field_mode
+            )
+            vision_angle = -1*vision_angle
+
+            if processed_frame is None:
+                if STREAM_VIDEO:
+                    with output_frame_lock:
+                        output_frame = frame_bgr.copy()
+                time.sleep(0.01)
+                continue
+
+            side_alert_status = check_lidar_side_alerts(scan_data)
+            target_servo_angle = SERVO_CENTER_ANGLE
+            robot_speed_current = ROBOT_CRUISE_SPEED
+            display_text = ""
+
+            # BEHAVIOR ARBITRATION
+            if logic_label == "red_obstacle" or logic_label == "obstacle":
+                robot_speed_current = ROBOT_MANEUVER_SPEED
+                if side_alert_status == "RIGHT":
+                    current_robot_state = RobotState.LIDAR_SIDE_AVOIDANCE
+                    target_servo_angle = SERVO_CENTER_ANGLE - LIDAR_SIDE_STEER_MAGNITUDE
+                    display_text = "MODE: OVERRIDE | Right LiDAR!"
+                elif side_alert_status == "LEFT":
+                    current_robot_state = RobotState.LIDAR_SIDE_AVOIDANCE
+                    target_servo_angle = SERVO_CENTER_ANGLE + LIDAR_SIDE_STEER_MAGNITUDE
+                    display_text = "MODE: OVERRIDE | Left LiDAR!"
+                else:
+                    current_robot_state = RobotState.RED_AVOIDANCE if logic_label == "red_obstacle" else RobotState.GREEN_AVOIDANCE
+                    servo_adjust = -vision_angle * STEERING_GAIN
+                    print(f"Vision Angle:{round(vision_angle)} |Servo Adjust:{round(servo_adjust)}")
+                    target_servo_angle = SERVO_CENTER_ANGLE - servo_adjust
+                    display_text = f"MODE: {'Red' if logic_label == 'red_obstacle' else 'Cam'}Avoid | Steer: {int(round(target_servo_angle))}°"
+                
+                target_servo_angle = int(round(np.clip(target_servo_angle, LIDAR_SERVO_MIN_ANGLE, LIDAR_SERVO_MAX_ANGLE)))
+
+            ## --- MODIFIED ---
+            elif lidar_scanner and lidar_pid:
+                robot_speed_current = ROBOT_CRUISE_SPEED
+                current_robot_state = RobotState.LIDAR_WALL_FOLLOWING
+                if scan_data:
+                    # Check for the straight corridor override condition first.
+                    if check_for_straight_corridor(scan_data, min_dist_mm=1750, max_dist_mm=2000):
+                        target_servo_angle = SERVO_CENTER_ANGLE
+                        display_text = "MODE: LiDARWF | Straight Override"
+                        print("LiDAR Straight Corridor Override Activated!")
+                    else:
+                        # If not in a straight corridor, use the standard PID wall-following logic.
+                        lidar_error = calculate_steering_error(scan_data, LIDAR_TARGET_DISTANCE_MM, LIDAR_SAFETY_DISTANCE_MM)
+                        if lidar_error == 9999.0:
+                            robot_stop()
+                            current_robot_state = RobotState.STOP
+                            display_text = "MODE: STOP (LiDAR Obstacle!)"
+                            time.sleep(0.1)
+                            continue
+                        else:
+                            pid_output = lidar_pid.update(lidar_error)
+                            target_servo_angle = map_lidar_steering_angle(SERVO_CENTER_ANGLE, pid_output, CLOCKWISE_WALL_FOLLOWING)
+                            display_text = f"MODE: LiDARWF | Steer: {round(target_servo_angle)}° | Err: {lidar_error:.0f}mm"
+                else:
+                    current_robot_state = RobotState.FALLBACK_STRAIGHT
+                    target_servo_angle = SERVO_CENTER_ANGLE
+                    display_text = "MODE: Fallback (No LiDAR Data)"
+            else:
+                robot_speed_current = ROBOT_CRUISE_SPEED
+                current_robot_state = RobotState.FALLBACK_STRAIGHT
+                target_servo_angle = SERVO_CENTER_ANGLE
+                display_text = f"MODE: Fallback | Logic: {logic_label}"
+
+            # APPLY ROBOT MOTION
+            if current_robot_state != RobotState.STOP:
+                adjust_servo_angle(target_servo_angle)
+                if (target_servo_angle <= 70) or (target_servo_angle >= 110):
+                    robot_forward_speed(ROBOT_SPEED_MAX)
+                    print(f"Robot Speed : {ROBOT_SPEED_MAX}")
+                else:
+                    robot_forward_speed(robot_speed_current)
+                    print(f"Robot Speed : {robot_speed_current}")
+            else:
+                robot_stop()
+
+            # UI OVERLAYS
+            if DEBUG_UI_OVERLAYS:
+                loop_duration = time.monotonic() - loop_start_time
+                fps = 1.0 / loop_duration if loop_duration > 0 else 0
+                print(f"Frames Processed Per Second (FPS): {int(fps)}")
+                cv2.putText(processed_frame, display_text, (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                cv2.putText(processed_frame, f"State: {current_robot_state}", (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+                cv2.putText(processed_frame, f"FPS: {int(fps)}", (processed_frame.shape[1] - 120, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2)
+            
+            if STREAM_VIDEO:
+                with output_frame_lock:
+                    output_frame = processed_frame.copy()
+
+    finally:
+        print("Control loop ending...")
+        camera_thread_stop_event.set()
+        camera_acquisition_thread.join() 
+        robot_stop()
+        picam2.stop()
+        print("Robot, camera, and LiDAR resources released.")
+
 ```
 
 ### Explanation:
-+ Converts frame → grayscale and extracts a ROI between two guiding lines.
-+ Thresholds dark areas (black tape or shadows).
-+ Splits into left and right halves:
-  + If more black is on the left → robot drifts left → correction steers right.
-  + If more black is on the right → correction steers left.
-+ Provides a PID-like correction signal to keep robot centered when no obstacles are detected.
+1) Camera setup:
+The function first starts the Pi camera, setting it to a resolution and framerate you’ve defined. It then launches a separate thread that continuously captures frames. This way, your robot always has the most recent camera image ready for processing.
+
+2) LiDAR setup:
+It tries to connect to the LiDAR sensor, which is used to detect distances and obstacles around the robot. If it works, another thread is started to keep grabbing LiDAR scan data. A PID controller is also created — this helps adjust steering smoothly when wall-following. If the LiDAR fails, the robot just defaults to a simpler straight-line mode.
+
+3) Picking the starting mode:
+If LiDAR is available, the robot begins in wall-following mode. If not, it starts in fallback mode where it just goes straight.
+
+4) The infinite control loop:
+Now the robot enters its main loop, which never stops until the function ends. In each cycle it:
++ Gets the latest camera frame and shrinks it to a smaller size for faster processing.
++ Gets the latest LiDAR scan data if the LiDAR is running
++ Checks if it’s between walls (like in a corridor). If it is, it counts how many turns it makes and eventually stops if too many turns are done.
++ Processes the camera frame to figure out if there are obstacles (red/green) or a line/path to follow. This also calculates a steering correction angle.
+  
+5) Behavior arbitration:
+This is the “decision-making” part. The robot decides which mode to prioritize:
+If a red or green obstacle is detected, it slows down and steers away using either vision or LiDAR side alerts.
+If LiDAR is active and there are walls to follow, it uses either a straight corridor override (keep straight if path is clear) or the PID-based steering (hug a wall smoothly). If no LiDAR is available, it just drives straight based on vision fallback.
+
+6) Motion control:
+Once the decision is made, the robot adjusts its servo steering angle and motor speed. If it’s in stop mode, everything halts. Otherwise, it drives forward, sometimes faster if turning sharply.
+
+7) Debugging overlays:
+If debugging is turned on, the robot adds text overlays on the camera feed with things like the current mode, steering angle, and frame rate.
+
+8) Shutdown:
+If the loop ends (like from an error or stop condition), the robot shuts down cleanly: it stops the camera thread, halts the motors, and releases LiDAR and camera resources.
+
+### check_for_straight_corridor(scan_data, min_dist_mm=1750, max_dist_mm=2000):
+```python
+def check_for_straight_corridor(scan_data, min_dist_mm=1750, max_dist_mm=2000):
+    """
+    Checks if the robot is facing a straight path by analyzing front LiDAR data.
+    If the average distance in front-left and front-right sectors are both
+    within a specific range, it signals to go straight.
+
+    Args:
+        scan_data (dict): The LiDAR scan data {angle: distance}.
+        min_dist_mm (int): The minimum average distance for the condition.
+        max_dist_mm (int): The maximum average distance for the condition.
+
+    Returns:
+        bool: True if the straight corridor condition is met, False otherwise.
+    """
+    if not scan_data:
+        return False
+
+    left_front_distances = []
+    right_front_distances = []
+
+    # Collect distances for left-front (-5 to <0 deg) and right-front (0 to 5 deg)
+    angle_range_max = 10
+    for angle, distance in scan_data.items():
+        if -1*angle_range_max <= angle < 0 and distance > 0:
+            left_front_distances.append(distance)
+        elif 0 <= angle <= angle_range_max and distance > 0:
+            right_front_distances.append(distance)
+
+    # Ensure we have readings in both sectors to make a valid comparison
+    if not left_front_distances or not right_front_distances:
+        return False
+
+    # Calculate the average distance for each sector
+    avg_left_dist = sum(left_front_distances) / len(left_front_distances)
+    avg_right_dist = sum(right_front_distances) / len(right_front_distances)
+    
+    # Check if BOTH averages fall within the specified range
+    is_left_in_range = min_dist_mm < avg_left_dist < max_dist_mm
+    is_right_in_range = min_dist_mm < avg_right_dist < max_dist_mm
+
+    return is_left_in_range and is_right_in_range
+```
+
+### Explanation:
+Purpose:
+The function looks at LiDAR scan data in the front-left and front-right sectors.
+If both sides report that the space in front is open and roughly the same distance away (within a certain range), then it assumes the robot is facing a straight corridor.
+
+Step-by-step:
++ Input data
+  + It takes a dictionary of LiDAR data, where each entry is {angle: distance}.
+  + Example: {-5: 1800, 0: 1900, 5: 1850, ...}
+
++ Check if there’s scan data
+  + If no LiDAR data is available, it immediately returns False.
+
++ Separate the angles
+  + Splits the LiDAR readings into two groups:
+    + Left front sector: angles between about –10° and 0°
+    + Right front sector: angles between 0° and +10°
+  + Only keeps distances that are valid (greater than zero).
+
++ Make sure both sides have data
+  + If one side doesn’t have any valid distances, it can’t compare → returns False.
+
++ Calculate averages
+  + Finds the average distance for the left side and the right side.
+
++ Check the range
+  + If both averages fall between the min_dist_mm and max_dist_mm values, it means both sides agree the corridor is open and straight.
+  + Otherwise, returns False.
+
++ What it returns
+  + True → The robot is facing a straight corridor (good to go straight).
+  + False → The path isn’t straight or the data isn’t good enough.
+
 
 ### process_frame_for_steering(frame, use_outer_roi_and_bottom_point=False):
 ```python
@@ -1325,19 +1511,6 @@ docs/images/wiring.jpg
 
 ### 3. Enable Required Interfaces
 Open terminal and run:
-<<<<<<< HEAD
-    ``` bash
-    sudo raspi-config
-
-    Enable the following:
-
-    I²C (for PCA9685 servo controller)
-    Camera (for PiCamera3)
-    SSH (for remote programming from VS Code)
-    Serial/UART (if your LiDAR uses UART)
-    Reboot the Pi after enabling:
-    sudo reboot
-=======
 ``` python
   sudo raspi-config
 
@@ -1621,30 +1794,6 @@ Open terminal and run:
 
  
  
->>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
-
-    4. Install System Updates & Tools
-    Run these commands:
-    sudo apt update && sudo apt upgrade -y
-    sudo apt install python3-pip git i2c-tools
-
-    5. Install Python Libraries
-    Install required libraries for motors, LiDAR, and camera:
-    pip3 install adafruit-circuitpython-servokit rplidar opencv-python
-
-    6. (Optional) VS Code Remote Setup
-    To program directly from your laptop using Visual Studio Code:
-    Install the Remote SSH extension in VS Code.
-    Connect to the Pi using its IP address:
-     ssh pi@<your_pi_ip>
-    Default username: pi
-    Default password: raspberry (change this after first login with passwd).
-
-
-
-
-<<<<<<< HEAD
-=======
 
 
 
@@ -1673,4 +1822,10 @@ Open terminal and run:
 
 
 
->>>>>>> c4e99d661ce1e91a2ff6d57f33bcf6ca6ff6b10c
+
+
+
+
+
+
+
