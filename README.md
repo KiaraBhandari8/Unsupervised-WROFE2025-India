@@ -1528,7 +1528,7 @@ Open terminal and run:
   wrapt                              1.14.1
   zipp                               1.0.0
   
-  
+  ```
 
   6. (Optional) VS Code Remote Setup
   To program directly from your laptop using Visual Studio Code:
@@ -1538,7 +1538,7 @@ Open terminal and run:
   Default username: pi
   Default password: raspberry (change this after first login with passwd).
   
-```
+
  
  
 
