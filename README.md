@@ -221,7 +221,9 @@ We started understading the given constraints and physical requirements of the r
   - Steering mechanism design
   
   - Drive mechanism design      
-
+### Circuit Schematics
+![Alt text](https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/block.drawio.png?raw=true)
+![Alt text](https://github.com/KiaraBhandari8/Unsupervised-WROFE2025-India/blob/main/images/circuit_schematics.drawio.png?raw=true)
 ### Mobility Management
 
 The robot's mobility is managed by a combination of compoenents, icluding the powertrain, sterring system and chassis. These elements work together to ensure the robot's smooth and efficient movement. 
